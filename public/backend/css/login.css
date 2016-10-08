@@ -1,0 +1,64 @@
+#logo,#logo a {
+    color: #dd0330;
+    text-align: center;
+    font-size: 31px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 60px;
+    margin-bottom: 30px;
+}
+
+#logo a img{
+    width: 130px;
+    color: #dd0330;
+    fill: currentColor;
+}
+
+#logo a strong{
+    color: #5a101f;
+}
+
+#logo a:hover,#logo a:focus,#logo a:active{
+    text-decoration: none;
+}
+
+.btn-danger{
+    background-color: #bb0037;
+    border-color: #bb0037;
+}
+
+.focusedform .panel {
+    width: 410px;
+}
+
+.focusedform .verticalcenter {
+    top: 32%;
+}
+
+.btn-danger:hover{
+    background-color: #bb0037;
+    border-color: #bb0037;
+}
+
+.btn-link, .btn-link:hover{
+    color: #000;
+}
+
+.panel-footer {
+    background: none;
+}
+
+.btn-demande{
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.panel-warning p{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 20px;
+}

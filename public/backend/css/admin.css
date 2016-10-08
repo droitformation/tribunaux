@@ -1,0 +1,76 @@
+.datepicker {
+    z-index: 1450;
+}
+
+.navbar-fixed-top {
+    z-index: 1080;
+}
+
+.table-responsive {
+    overflow: hidden;
+}
+
+table.dataTable thead .sorting_asc::after{
+    content: "▲";
+    opacity: 0.3;
+}
+
+table.dataTable thead .sorting::after{
+    content: "▼";
+    opacity: 0.3;
+}
+
+.pagination > li > a, .pagination > li span {
+    padding: 5px 12px;
+}
+
+select.form-control + .chosen-container .chosen-results li, select.form-control + .chosen-container .chosen-results li.active-result {
+    white-space: pre-wrap;
+}
+
+#nestable .dd-handle {
+    position: relative;
+    height: 40px;
+    line-height: 35px;
+    margin: 5px 0;
+    padding: 0 10px;
+    cursor: default;
+}
+
+#nestable .dd-handle form{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    z-index: 20;
+ }
+
+.editDonnees{
+    margin-top: 10px;
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    display: block;
+    line-height: 30px;
+    margin-bottom: -1px;
+    padding: 10px 15px;
+    position: relative;
+}
+
+#droppable{
+    position: relative;
+    z-index: 50;
+    width: 610px;
+    height: 560px;
+    padding: 0;
+    margin: 0;
+}
+
+#droppable img{
+    vertical-align: top;
+}
+
+.ui-sortable-handle{
+    cursor: move;
+}
