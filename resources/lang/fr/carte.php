@@ -16,4 +16,5 @@ return [
     'search_commune'   => 'Recherche par commune',
     'close'            => 'Fermer',
     'nomap'            => 'Cette carte n\'existe pas.',
+    'autorite'         => 'Autorité de conciliation',
 ];

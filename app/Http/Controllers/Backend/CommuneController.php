@@ -116,7 +116,6 @@ class CommuneController extends Controller
     public function show($level,$id)
     {
         $commune   = $this->commune->find($id);
-
         $canton    = $this->canton->find($commune->canton_id);
         $cantons   = $this->canton->getAll();
         $district  = $this->district->find($commune->district_id);

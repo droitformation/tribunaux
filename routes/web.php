@@ -12,6 +12,11 @@
 */
 
 
+Route::get('new', function () {
+    return view('welcome');
+});
+
+
 Route::get('/', ['uses' => 'HomeController@index']);
 Route::get('communes', ['uses' => 'HomeController@communes']);
 Route::get('tribunal/{id}', ['uses' => 'HomeController@tribunal']);

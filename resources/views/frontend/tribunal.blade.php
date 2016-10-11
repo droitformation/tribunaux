@@ -3,9 +3,10 @@
 
     <h4><a href="{{ url('/') }}">{{ trans('carte.retour') }}</a></h4>
 
-    <section id="contenuCarte">
+    <div class="container">
+        <section class="row">
 
-        <article class="info">
+        <article class="col-md-3">
             <div class="accordion" style="display:none;">
                 <h3><a href="#">{{ $tribunal->titre_trans  }}</a></h3>
                 <div style="max-height:150px;">
@@ -22,8 +23,7 @@
             </div>
         </article>
 
-        <article class="carteInt" >
-
+        <article class="col-md-9">
             <?php $position = explode(',',$tribunal->position);  ?>
 
             <div id="tribunalWrapper">
@@ -33,8 +33,8 @@
 
                 @include('frontend.partials.map',['id' => $tribunal->canton_id, 'canton' =>''])
             </div>
-
         </article>
     </section>
+</div>
 
 @stop

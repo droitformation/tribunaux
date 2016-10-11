@@ -7,7 +7,9 @@
     </div>
 
     <?php
-        $grouped = $communes->groupBy(function ($item, $key) {
+        $locale   = (\Session::has('locale') && \Session::has('locale') == 'de' ? 'de_DE' : 'fr_FR');
+        $sorted   = $communes->sortAccent('nom_trans',$locale);
+        $grouped  = $sorted->groupBy(function ($item, $key) {
             return substr($item->nom, 0,1);
         });
     ?>

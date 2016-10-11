@@ -116,50 +116,13 @@
             @yield('content')
             <!-- Fin contenu -->
 
-            <div class="clearfix"></div>
             <p class="copyright">Source des cartes vectorielles : <a href="http://d-maps.com">d-maps.com</a></p>
-
-{{--            <div id="pub">
-                <ul class="cycle-slideshow" data-cycle-slides="li">
-                    <li><a href="http://www.droitmatrimonial.ch/" target="_blank"><img src="{{ asset('images/pub/pub01.jpg') }}" alt="" /></a></li>
-                    <li><a href="http://www.bail.ch/" target="_blank"><img src="{{ asset('images/pub/pub02.jpg') }}" alt="" /></a></li>
-                </ul>
-            </div>--}}
 
         </div>
     </div>
 </div> <!--! end  -->
 
-<div class="logossites">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://publications-droit.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/pubdroit.png'); ?>" alt="pubdroit" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://droitmatrimonial.ch/"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/matrimonial.png'); ?>" alt="matrimonial" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://bail.ch/"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/bail.png'); ?>" alt="bail" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://droitpraticien.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/droitpraticien.png'); ?>" alt="droitpraticien" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://tribunauxcivils.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/tribunaux.png'); ?>" alt="tribunaux" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://droitdutravail.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/droittravail.png'); ?>" alt="droitdutravail" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://rjne.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/rjn.png'); ?>" alt="rjn" /></a>
-            </div>
-            <div class="col-md-2" style="width: 12%;margin-left: 5px;text-align:center;">
-                <a target="_blank" href="http://rcassurances.ch"><img style="max-width: 100%;" src="<?php echo url('http://www.droitenschema.ch/images/sites/rca.png'); ?>" alt="rcassurances" /></a>
-            </div>
-        </div>
-    </div>
-</div>
+@include('frontend.partials.sites')
 
 <!-- Change UA-XXXXX-X to be your site's ID -->
 <script type="text/javascript">

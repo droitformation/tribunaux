@@ -16,4 +16,5 @@ return [
     'search_commune'   => 'Suche nach Gemeinde',
     'close'            => 'Schliessen',
     'nomap'            => 'Keine Karte hier.',
+    'autorite'         => 'Schlichtungsbehörde',
 ];

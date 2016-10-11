@@ -1,33 +1,14 @@
-<article class="info">
+<article class="col-md-4">
     <div class="accordion" style="display:none;">
 
         @if(isset($commune))
-            <h3><a href="#">{{ trans('carte.commune_singular') }}</a></h3>
-            <div style="max-height:150px;">
-                <p> {!! $commune->nom_trans !!}</p>
-            </div>
-        @endif
-
-        @if(isset($autorite->communes) && !$autorite->communes->isEmpty())
-            <h3><a href="#">{{ trans('carte.commune_plurial') }}</a></h3>
-            <div style="max-height:150px;">
-                <p>
-                    @foreach($autorite->communes as $commune)
-                        {!! $commune->nom_trans !!}<br/>
-                    @endforeach
-                </p>
-            </div>
-        @endif
-
-        @if(isset($district->communes) && !$district->communes->isEmpty() && !$district->multiple_autorite)
-            <h3><a href="#">{{ trans('carte.commune_plurial') }}</a></h3>
-            <div style="max-height:150px;">
-                <p>
-                    @foreach($district->communes as $commune)
-                        {!! $commune->nom_trans !!}<br/>
-                    @endforeach
-                </p>
-            </div>
+            @include('frontend.lists.communes', ['commune' => $commune])
+        @elseif(isset($autorite->communes) && !$autorite->communes->isEmpty())
+            @include('frontend.lists.communes', ['communes' => $autorite->communes])
+        @elseif(isset($district->communes) && !$district->communes->isEmpty() && !$district->multiple_autorite)
+            @include('frontend.lists.communes', ['communes' => $district->communes])
+        @elseif(!isset($district) && !isset($autorite))
+            @include('frontend.lists.communes', ['communes' => $canton->communes])
         @endif
 
         @if(isset($extras) && $extras)
@@ -39,23 +20,25 @@
             @endforeach
         @endif
 
-        @if($canton->districts->count() == 0 && $canton->autorites->count() == 1 || (isset($district) && $canton->autorites->count() == 1))
-            <h3><a href="#">{{ $canton->autorites->first()->nom_trans }}</a></h3>
+        @if($canton->is_second_level)
+            <h3><a href="#">{{ isset($canton->autorites) && !$canton->autorites->isEmpty() ? $canton->autorites->first()->nom_trans : trans('carte.autorite') }}</a></h3>
             <div style="max-height:150px;">
-                @if($canton->autorites->first()->siege != '')
+                @if(isset($canton->autorites) && !$canton->autorites->isEmpty() && $canton->autorites->first()->siege != '')
                     <p>{!! $canton->autorites->first()->siege_trans !!}</p>
                 @else
-                    <p>{!! $canton->canton_tribunaux->siege_trans !!}</p>
+                    <p>{!! $canton->canton_tribunaux->siege !!}</p>
                 @endif
             </div>
-        @elseif(isset($autorite))
+        @endif
+
+        @if(isset($autorite))
             @if( empty($canton->canton_tribunaux->siege) )
                 <h3><a href="#">Autorité de conciliation</a></h3>
                 <div style="max-height:150px;">
                     @if($autorite->siege != '')
                         <p>{!! $autorite->siege_trans !!}</p>
                     @else
-                        <p>{!! $canton->canton_tribunaux->siege_trans !!}</p>
+                        <p>{!! $canton->canton_tribunaux->siege !!}</p>
                     @endif
                 </div>
             @else
@@ -64,7 +47,6 @@
                     <p>{!! $canton->canton_tribunaux->siege !!}</p>
                 </div>
             @endif
-
         @endif
 
         @if(isset($canton_tribunaux))
@@ -102,4 +84,5 @@
         @endif
 
     </div>
+
 </article>

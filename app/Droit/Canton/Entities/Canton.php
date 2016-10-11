@@ -28,6 +28,13 @@ class Canton extends Model{
         return ($locale == 'de' ? $this->titre_de : $this->titre);
     }
 
+    public function getIsSecondLevelAttribute()
+    {
+        return ($this->districts->count() == 0 && $this->autorites->count() == 1)
+        || ($this->districts->count() > 0 && $this->autorites->count() == 1)
+        || ($this->districts->count() == 0 && $this->autorites->count() == 0) ? true : false;
+    }
+
     public function canton_donnees()
     {
         return $this->belongsToMany('App\Droit\Canton\Entities\Canton_donnees', 'canton_donnees', 'canton_id','donnee_id')->withPivot('rang')->orderBy('rang');
