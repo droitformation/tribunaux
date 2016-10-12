@@ -1,4 +1,4 @@
-<div id="listeCommunes-menu" class="lm-wrapper">
+<div class="lm-wrapper">
 
     <div class="lm-letters">
         @foreach(range('A', 'Z') as $letter)
@@ -29,10 +29,10 @@
 
                     @foreach($chunk as $row)
                         <div class="lm-col c1 lm-menu-small">
-                            <ul class="lm-col-root" id="lm-listeCommunes-a-1">
-                            @foreach($row as $commune)
-                                <li><a href="{{ url('commune/'.$commune->id)  }}">{!! $commune->nom !!}</a></li>
-                            @endforeach
+                            <ul class="lm-col-root">
+                                @foreach($row as $commune)
+                                    <li><a href="{{ url('commune/'.$commune->id)  }}">{!! $commune->nom !!}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     @endforeach

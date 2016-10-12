@@ -65,6 +65,19 @@ class HomeController extends Controller
      *
      * @return Response
      */
+    public function carte()
+    {
+        $communes  = $this->commune->getAll();
+        $tribunaux = $this->tribunaux->getAll();
+
+        return view('welcome')->with(['communes' => $communes, 'tribunaux' => $tribunaux]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function tribunal($id)
     {
         $tribunal = $this->tribunaux->find($id);

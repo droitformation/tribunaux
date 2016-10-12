@@ -11,11 +11,7 @@
 |
 */
 
-
-Route::get('new', function () {
-    return view('welcome');
-});
-
+Route::get('new', ['uses' => 'HomeController@carte']);
 
 Route::get('/', ['uses' => 'HomeController@index']);
 Route::get('communes', ['uses' => 'HomeController@communes']);

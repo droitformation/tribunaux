@@ -1,0 +1,82 @@
+
+/*-----  styles du menu déroulant ------*/
+
+.lm-wrapper {
+    padding:10px 10px;
+    height: 50px;
+    display: table;
+    width: 100%;
+}
+.lm-wrapper .lm-letters {
+    overflow:hidden;
+    text-align: center;
+    width: 100%; margin: 0 auto;
+    display: table;
+}
+* html .lm-wrapper .lm-letters { zoom:1; } /* for IE6 menu appears under letters */
+.lm-wrapper .lm-letters a {
+    width: 28px;
+    height: 28px;
+    display: table-cell;
+    background: url("../../images/paginationInactive.png") no-repeat top;
+    font-size: 12px;font-family: 'AllerBold', Arial, sans serif;
+    line-height: 28px;
+    color: #717171;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 6px;
+}
+.lm-wrapper .lm-letters a:hover,
+.lm-wrapper .lm-letters a.lm-selected {
+    background: url("../../images/paginationActive.png") no-repeat top;
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.lm-wrapper .lm-letters a.lm-disabled {
+    color:#ccc;
+}
+
+.lm-wrapper .lm-letter-count {
+    text-align:center;
+    line-height:1;
+    color:#717171;
+}
+
+.lm-wrapper .lm-menu {
+    z-index:10;
+    position:relative;
+    margin-top:-1px;
+    padding-top: 10px;
+    left: 0px;
+    display:none;
+}
+.lm-wrapper .lm-menu ul li {
+    list-style-type:none;
+    margin-left: -15px;
+}
+.lm-wrapper .lm-menu a {
+    text-decoration:none;
+    color: #717171;
+}
+.lm-wrapper .lm-menu a:hover {
+    text-decoration:none;
+    color: #c9100c;
+}
+.lm-wrapper .lm-menu .lm-submenu {
+    overflow:hidden;
+}
+
+.lm-menu.lm-menu-big{
+    width: 100%;
+    display: none;
+}
+
+.lm-menu .lm-menu-small {
+    float: left;
+    width: 16%;
+}
+
+.lm-menu .lm-menu-medium{
+    width: 16%;
+    float: left;
+}

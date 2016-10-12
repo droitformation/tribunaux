@@ -17,21 +17,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/jquery.qtip.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/ui-lightness/jquery-ui.css');?>">
 
-    <!-- javascripts -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="<?php echo asset('frontend/js/jquery/jquery-ui-1.8.16.custom.min.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/jquery/jquery.cycle2.min.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/jquery/jquery.hoverIntent.minified.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/jquery/jquery.listmenu-1.1.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/jquery/jquery.qtip.js');?>"></script>
-    <script src="<?php echo asset('frontend/chosen/chosen.jquery.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/main.js');?>"></script>
-    <script src="<?php echo asset('frontend/js/script.js');?>"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 </head>
 <body>
 
@@ -110,7 +95,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <section class="col-md-12">
 
             <!-- Contenu -->
             @yield('content')
@@ -123,6 +108,21 @@
 </div> <!--! end  -->
 
 @include('frontend.partials.sites')
+
+<!-- javascripts -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="<?php echo asset('frontend/js/jquery/jquery-ui-1.8.16.custom.min.js');?>"></script>
+<script src="<?php echo asset('frontend/js/jquery/jquery.cycle2.min.js');?>"></script>
+<script src="<?php echo asset('frontend/js/jquery/jquery.hoverIntent.minified.js');?>"></script>
+<script src="<?php echo asset('frontend/js/jquery/jquery.listmenu-1.1.js');?>"></script>
+<script src="<?php echo asset('frontend/js/jquery/jquery.qtip.js');?>"></script>
+<script src="<?php echo asset('frontend/chosen/chosen.jquery.js');?>"></script>
+<script src="<?php echo asset('frontend/js/main.js');?>"></script>
+<script src="<?php echo asset('frontend/js/script.js');?>"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <!-- Change UA-XXXXX-X to be your site's ID -->
 <script type="text/javascript">

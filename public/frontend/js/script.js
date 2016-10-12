@@ -1,29 +1,36 @@
 $(function(){
 	///////////////////
 
-	$("div.lm-letters a").live('mouseenter', function() { 
+	/*$("div.lm-letters a").mouseenter(function() {
         $('div.lm-menu').hide();
         $('div.lm-submenu').hide();
-        var letter =	$(this).attr('class');
+
+        var letter = $(this).attr('class');
+
         $('div.lm-menu').show();
+
         $('#'+letter).show();
+
         $('div.lm-menu').stop(true, true);
         $('div.lm-submenu').stop(true, true);
-    }).live('mouseleave', function() { 
+
+        console.log('enter');
+
+    }).on('mouseleave', function() {
           // $('div.lm-menu').hide();
           // $('div.lm-submenu').hide();
     });
-    
-   	$('div.lm-menu').live('mouseleave', function() { 
+
+   	$('div.lm-menu').on('mouseleave', function() {
            $('div.lm-menu').hide();
            $('div.lm-submenu').hide();
     });
-    
-    $('div#recherche').live('mouseleave', function() { 
+
+    $('div#recherche').on('mouseleave', function() {
            $('div.lm-menu').hide();
            $('div.lm-submenu').hide();
-    });
-	
+    });*/
+/*
 
     $('.ajaxloader').fadeIn();
 
@@ -31,10 +38,42 @@ $(function(){
         $('.ajaxloader').hide();
 
         $(this).fadeIn();
-    });
+    });*/
 
 
 ///////////////////
+});
+
+$(document).ready(function(){
+
+    $("div.lm-letters a").on({
+        mouseenter: function () {
+            $('div.lm-menu').hide();
+            $('div.lm-submenu').hide();
+
+            var letter = $(this).attr('class');
+
+            $('div.lm-menu').show();
+
+            $('#'+letter).show();
+
+            $('div.lm-menu').stop(true, true);
+            $('div.lm-submenu').stop(true, true);
+        },
+        mouseleave: function () {
+
+        }
+    });
+
+    $('div.lm-menu').on('mouseleave', function() {
+        $('div.lm-menu').hide();
+        $('div.lm-submenu').hide();
+    });
+
+    $('#recherche').on('mouseleave', function(e) {
+        $('div.lm-menu').hide();
+        $('div.lm-submenu').hide();
+    });
 });
 
 
@@ -83,7 +122,7 @@ jQuery(document).ready(function() {
 
     $(function ()
     {
-          $("form.EnvoiDonnees").live("change keyup", function () {
+          $("form.EnvoiDonnees").on("change keyup", function () {
                 this.submit();
           });
     });

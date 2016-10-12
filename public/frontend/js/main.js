@@ -1,20 +1,7 @@
 $(document).ready(function(){
 ///////////////////////////////////
 ///////////////////////////////////
-
-    $('#slides').cycle({
-        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-    });
-
-    $('.selector').qtip({
-        content: {
-            attr: 'title'
-        },
-        style: {
-            classes: 'ui-tooltip-light ui-tooltip-shadow'
-        }
-    });
-
+    
     $(".accordion").accordion({
         autoHeight: false,
         navigation: true,
