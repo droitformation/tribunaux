@@ -8,6 +8,28 @@ Website: http://thevectorlab.net/
 /* Import fonts */
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -40px;
+}
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+.site-footer, .page-wrap:after {
+    height: 40px;
+}
+.site-footer {
+    background: orange;
+}
+
 body {
     color: #797979;
     background: #f1f2f7;
@@ -182,6 +204,14 @@ a, a:hover, a:focus {
     display: block;
 }
 
+#sidebar li.search{
+    padding:10px;
+    width: 100%;
+    background: #282828;
+    border: none;
+    border-bottom: 1px dashed #2e3436;
+}
+
 .main-close{
     margin-left: 0;
 }
@@ -235,7 +265,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-    margin-top: 90px;
+    margin-top: 120px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -348,11 +378,11 @@ ul.sidebar-menu li a.sublink i {
 
 ul.sidebar-menu li a.sublink:hover i,
 ul.sidebar-menu li a.sublink:focus i {
-    color: #FF6C60;
+    color: #c9100c;
 }
 
 ul.sidebar-menu li a.sublink.active i {
-    color: #FF6C60;
+    color: #c9100c;
 }
 
 
@@ -362,9 +392,13 @@ ul.sidebar-menu li a.sublink.active i {
 }
 
 /*main content*/
+#main-content{
 
-#main-content {
-
+}
+#main-content h2{
+    color: #c9100c;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .header, .footer {
@@ -377,6 +411,12 @@ ul.sidebar-menu li a.sublink.active i {
     left: 0;
     right: 0;
     z-index: 1002;
+    top:0;
+    padding: 0;
+}
+
+.heading{
+    padding: 0 10px;
 }
 
 .header h1 a{
@@ -398,6 +438,11 @@ ul.sidebar-menu li a.sublink.active i {
     margin-left: 20px;
 }
 
+.navbar-menu{
+    background: #282828;
+    height: 35px;
+}
+
 .white-bg {
     background: #fff;
     border-bottom: 1px solid #f1f2f7;
@@ -405,21 +450,18 @@ ul.sidebar-menu li a.sublink.active i {
 
 .wrapper {
     display: inline-block;
-    margin-top: 90px;
+    margin-top: 120px;
     padding: 15px;
     width: 100%;
 }
 
 /*notification*/
+#top_menu{
+   float: right;
+}
 
 #top_menu .nav > li, ul.top-menu > li {
     float: left;
-}
-
-.notify-row {
-    float: left;
-    margin-top: 15px;
-    margin-left: 92px;
 }
 
 .notify-row .notification span.label {
@@ -430,23 +472,13 @@ ul.sidebar-menu li a.sublink.active i {
 }
 
 ul.top-menu > li > a {
-    color: #FF6C60;
-    background: #fafafa;
+    color: #c9100c;
     font-size: 15px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border:1px solid #f0f0f8 !important;
-    padding: 4px 8px;
+    padding: 7px 8px;
     margin-right: 15px;
 }
 
 ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
-    border:1px solid #f0f0f8 !important;
-    background-color: #fff!important;
-    border-color: #f0f0f8 !important;
-    text-decoration: none;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
     color: #2E2E2E !important;
 }
 
@@ -460,12 +492,14 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .dropdown-menu.extended {
     max-width: 300px !important;
     min-width: 160px !important;
-    top: 42px;
+    top: 33px;
+    right: 0;
+    left: inherit;
     width: 300px !important;
     padding: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
     border: none !important;
     border-radius: 4px;
+    z-index: 1010;
     -webkit-border-radius: 4px;
 }
 
@@ -1812,7 +1846,7 @@ ul.ft-link li a i {
 }
 
 .follower h4 {
-    margin: 0 0 10px 0;
+    margin: 0;
     font-size: 15px;
     font-weight: 300;
 }
@@ -4380,6 +4414,8 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 .full-width #main-content {
     margin-left: 0;
 }
+
+
 
 .horizontal-menu {
     margin-left: 50px;

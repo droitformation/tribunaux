@@ -1,11 +1,11 @@
 <div class="lm-wrapper">
-
-    <div class="lm-letters">
-        @foreach(range('A', 'Z') as $letter)
-            <a class="{{ $letter }}" href="#">{{ $letter }}</a>
-        @endforeach
+    <div class="panel-body">
+        <div class="lm-letters">
+            @foreach(range('A', 'Z') as $letter)
+                <a class="{{ $letter }}" href="#">{{ $letter }}</a>
+            @endforeach
+        </div>
     </div>
-
     <?php
         $locale   = (\Session::has('locale') && \Session::has('locale') == 'de' ? 'de_DE' : 'fr_FR');
         $sorted   = $communes->sortAccent('nom_trans',$locale);

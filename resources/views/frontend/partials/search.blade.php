@@ -2,7 +2,7 @@
     {!! csrf_field() !!}
 
     <div class="input-group">
-        <select style="width:300px;" class="form-control chosen-select" data-placeholder="Rechercher" tabindex="2" name="search">
+        <select style="width:280px;" class="form-control chosen-select" data-placeholder="Recherche globale" tabindex="2" name="search">
             <option value="">Rechercher</option>
 
             @if(!$cantons->isEmpty())

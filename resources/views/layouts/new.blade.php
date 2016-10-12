@@ -16,22 +16,28 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/font/stylesheet.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/slidebars.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/chosen/chosen.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/menu.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/suisse.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style-responsive.css');?>">
 
 </head>
 <body>
 
-<section id="container" >
+<section id="container" class="page-wrap">
     <!--header start-->
     <header class="header white-bg">
-        <!--logo start-->
-        <h1><a href="{{ url('/') }}">{!! trans('carte.site') !!}</a></h1>
-        <!--logo end-->
-        <a class="logo" href="http://www2.unine.ch/droit/page-1762.html" target="_blank"><img width="87" src="{{ asset('images/unine.png') }}" alt="" /></a>
-        <a class="logo" href="http://www2.unine.ch/cemaj" target="_blank"><img src="{{ asset('images/cemaj.png') }}" alt="" /></a>
+        <div class="navbar-menu">
+            @include('frontend.partials.menu')
+        </div>
+        <div class="heading">
+            <!--logo start-->
+            <h1><a href="{{ url('/') }}">{!! trans('carte.site') !!}</a></h1>
 
-        @include('frontend.partials.menu')
+            <!--logo end-->
+            <a class="logo" href="http://www2.unine.ch/droit/page-1762.html" target="_blank"><img width="87" src="{{ asset('images/unine.png') }}" alt="" /></a>
+            <a class="logo" href="http://www2.unine.ch/cemaj" target="_blank"><img src="{{ asset('images/cemaj.png') }}" alt="" /></a>
+        </div>
     </header>
     <!--header end-->
     <!--sidebar start-->
@@ -39,6 +45,9 @@
         <div id="sidebar" class="sidebar-close sidebar-open">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
+                <li class="search">
+                    @include('frontend.partials.search')
+                </li>
                 <li class="sub-menu">
                     <a class="sublink active" href="javascript:;"><i class="fa fa-laptop"></i><span>fre</span></a>
                     <ul class="sub">
@@ -66,16 +75,17 @@
         </section>
     </section>
     <!--main content end-->
-
-    <!--footer start-->
-    <footer class="site-footer">
-        <div class="text-center">
-            {{ date('Y') }} &copy; {!! trans('carte.site') !!}
-            <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
-        </div>
-    </footer>
-    <!--footer end-->
+    <div class="clearfix"></div>
 </section>
+
+<!--footer start-->
+<footer class="site-footer">
+    <div class="text-center">
+        {{ date('Y') }} &copy; {!! trans('carte.site') !!}
+        <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
+    </div>
+</footer>
+<!--footer end-->
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

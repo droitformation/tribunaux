@@ -1,5 +1,4 @@
-<div class="nav notify-row" id="top_menu">
-    <!--  notification start -->
+<div id="top_menu">
     <ul class="nav top-menu">
         <!-- settings start -->
         @if(!$menus->isEmpty())
@@ -14,5 +13,4 @@
         @endif
         <!-- settings end -->
     </ul>
-    <!--  notification end -->
 </div>

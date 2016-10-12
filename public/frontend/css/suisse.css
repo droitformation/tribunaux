@@ -1,0 +1,51 @@
+#map-view-container {
+    position: relative;
+    min-height: 480px;
+}
+
+#map-container {
+    margin: 0 auto;
+    position: relative;
+    width: 735px;
+}
+
+#map-view-container img.map {
+    position: relative;
+    z-index: 100;
+}
+
+#map-view-container img.region {
+    display: none;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    z-index: 20;
+}
+
+#map-view-container img.regionBg {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    z-index: 19;
+}
+
+#practice-container {
+    float: left;
+    position: relative;
+}
+
+#practice-container ul {
+    display: none;
+}
+
+#practice-container ul.selected {
+    display: inline;
+}
+
+#practice-container ul li {
+    list-style-type: none;
+}
+
+#practice-container .selected-list ul li {
+    list-style-type: none;
+}
