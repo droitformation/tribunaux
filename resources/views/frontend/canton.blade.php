@@ -1,10 +1,6 @@
 @extends('layouts.master')
-@section('content')
 
-<div class="row">
-    <h4 class="breadcrumbs col-md-12"><a href="">{{ $canton->titre }}</a></h4>
-</div>
-<section class="row">
+@section('sidebar')
 
     @include('frontend.partials.sidebar',
         [
@@ -17,18 +13,34 @@
         ]
     )
 
-    <article class="col-md-8">
+@stop
 
-        @if(!$canton->districts->isEmpty())
-            @include('frontend.partials.districts',['districts' => $canton->districts])
-        @endif
+@section('content')
 
-        @include('frontend.partials.map',['id' => $canton->id])
+    <div class="row">
+        <h4 class="breadcrumbs col-md-12"><a href="">{{ $canton->titre }}</a></h4>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-3 col-xs-12">
+            <section class="panel">
+                <div class="panel-body">
+                    @if(!$canton->districts->isEmpty())
+                        @include('frontend.partials.districts',['districts' => $canton->districts])
+                    @endif
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-8 col-md-9 col-xs-12">
+            <!--timeline start-->
+            <section class="panel">
+                <div class="panel-body text-center">
+                    @include('frontend.partials.map',['id' => $canton->id])
 
-        {!! view('frontend/cantons/'.$canton->id) !!}
-    </article>
-</section>
-
-@include('frontend.partials.tabs', ['canton_donnees' => $canton->canton_donnees])
+                    {!! view('frontend/cantons/'.$canton->id) !!}
+                </div>
+            </section>
+            <!--timeline end-->
+        </div>
+    </div>
 
 @stop
