@@ -190,7 +190,7 @@ a, a:hover, a:focus {
 /*sidebar navigation*/
 
 #sidebar {
-    width: 310px;
+    width: 320px;
     height: 100%;
     position: fixed;
     background: #282828;
@@ -217,7 +217,7 @@ a, a:hover, a:focus {
 }
 
 .main-open{
-    margin-left: 310px;
+    margin-left: 320px;
 }
 
 
@@ -265,7 +265,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-    margin-top: 120px;
+    margin-top: 115px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -277,9 +277,15 @@ ul.sidebar-menu {
     display: block;
 }
 
-#sidebar ul.sub > li >  p a, header li a {
+header li a {
     display: inline;
     color: #000;
+}
+
+
+#sidebar ul.sub > li >  p a{
+    display: inline;
+    color: #c9100c;
 }
 
 #sidebar ul.sub > li.lien p {
@@ -287,7 +293,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-    background: #35404D;
+    background: #43494f;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -336,7 +342,7 @@ ul.sidebar-menu li.sub-menu p{
     color: #ebebeb;
     margin: 0;
     line-height: 18px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 ul.sidebar-menu li a span{
@@ -348,7 +354,7 @@ ul.sidebar-menu li a.sublink{
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 12px;
+    font-size: 15px;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -360,7 +366,7 @@ ul.sidebar-menu li a.sublink{
 ul.sidebar-menu li a.sublink.active,
 ul.sidebar-menu li a.sublink:hover,
 ul.sidebar-menu li a.sublink:focus {
-    background: #35404d;
+    background: #43494f;
     color: #fff;
     display: block;
     -webkit-transition: all 0.3s ease;
@@ -397,7 +403,7 @@ ul.sidebar-menu li a.sublink.active i {
 }
 #main-content h2{
     color: #c9100c;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 10px;
 }
 
@@ -419,23 +425,28 @@ ul.sidebar-menu li a.sublink.active i {
     padding: 0 10px;
 }
 
+.logos a.logo{
+    float: left;
+    margin-right: 20px;
+}
+
+.logos a.logo img{
+    width: 70px;
+}
+
 .header h1 a{
     font-family: 'AkkuratPro-Bold', Arial, sans serif;
-    font-size: 50px;
+    font-size: 45px;
     color: #767779;
     padding-left: 20px;
     letter-spacing: -2px;
     text-decoration: none;
     margin-bottom: 10px;
-    padding-left: 0px;
     padding-top: -3px;
     text-transform: lowercase;
     float: left;
-}
-
-.header a.logo{
-    float: right;
-    margin-left: 20px;
+    border-left: 1px dashed #c0c0c2;
+    padding-left: 20px;
 }
 
 .navbar-menu{
@@ -456,6 +467,30 @@ ul.sidebar-menu li a.sublink.active i {
 }
 
 /*notification*/
+#language_menu{
+    float: left;
+    color: #fff;
+    padding:0 10px;
+    line-height:35px;
+}
+
+#language_menu a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+#language_menu a.active{
+    text-decoration: none;
+}
+
+#search-select{
+    width: 300px;
+    margin-top: 5px;
+    float: right;
+    display: block;
+    margin-right: 10px;
+}
+
 #top_menu{
    float: right;
 }
@@ -1778,27 +1813,6 @@ ul.ft-link li a i {
     margin: 0 20px;
 }
 
-.social-footer ul li a {
-    font-size: 25px;
-    color: #ceced0;
-}
-
-.social-footer ul li a:hover i.fa-facebook, .social-footer ul li.active a i.fa-facebook {
-    color: #486eac;
-}
-
-.social-footer ul li a:hover i.fa-twitter, .social-footer ul li.active a i.fa-twitter {
-    color: #58c9f3;
-}
-
-.social-footer ul li a:hover i.fa-google-plus, .social-footer ul li.active a i.fa-google-plus {
-    color: #4a4a4a;
-}
-
-.social-footer ul li a:hover i.fa-pinterest, .social-footer ul li.active a i.fa-pinterest {
-    color: #d1282d;
-}
-
 /*pie chart */
 
 .pie-foot {
@@ -1942,7 +1956,7 @@ ul.ft-link li a i {
 }
 
 .fontawesome-icon-list a:hover{
-    color: #35404D;
+    color: #43494f;
 }
 
 .fontawesome-icon-list i {
@@ -4796,7 +4810,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 /*footer*/
 
 .site-footer {
-    background: #5b6e84;
+    background: #6f7882;
     color: #fff;
     padding: 10px 0;
 }
@@ -5613,12 +5627,12 @@ a.guest-on i {
 
 .quick-chat-list li {
     padding: 10px 15px;
-    border-bottom: 1px dashed #35404d;
+    border-bottom: 1px dashed #43494f;
     cursor: pointer;
 }
 
 .quick-chat-list li:hover {
-    background: #35404d;
+    background: #43494f;
 }
 
 .quick-chat-list li .media-object {
@@ -5653,7 +5667,7 @@ a.guest-on i {
 
 .p-task li {
     padding: 10px 15px 15px 15px;
-    border-bottom: 1px dashed #35404d;
+    border-bottom: 1px dashed #43494f;
 }
 
 .p-task li:last-child {

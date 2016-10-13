@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.png">
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
+    <meta name="author" content="@Designpond | Cindy Leschaud">
+    <meta name="description" content="Tribunaux civils | Faculté de droit, Universite de Neuchâtel">
+    <title>Tribunaux civils</title>
+    <meta name="_token" content="<?php echo csrf_token(); ?>">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/slidebars.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/chosen/chosen.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/select2.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/menu.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/suisse.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style-responsive.css');?>">
@@ -28,15 +29,24 @@
     <!--header start-->
     <header class="header white-bg">
         <div class="navbar-menu">
+            <div id="language_menu">
+                <?php $locale = (\Session::has('locale') ? \Session::get('locale') : 'fr'); ?>
+                <a class="<?php echo ($locale == 'fr' ? 'active' : ''); ?>" href="{{ url('setlang/fr') }}">FR</a> /
+                <a class="<?php echo ($locale == 'de' ? 'active' : ''); ?>" href="{{ url('setlang/de') }}">DE </a>
+            </div>
             @include('frontend.partials.menu')
         </div>
         <div class="heading">
+            <div class="logos">
+                <a class="logo" href="http://www2.unine.ch/droit/page-1762.html" target="_blank"><img width="87" src="{{ asset('images/unine.png') }}" alt="" /></a>
+                <a class="logo" href="http://www2.unine.ch/cemaj" target="_blank"><img src="{{ asset('images/cemaj.png') }}" alt="" /></a>
+            </div>
             <!--logo start-->
             <h1><a href="{{ url('/') }}">{!! trans('carte.site') !!}</a></h1>
-
             <!--logo end-->
-            <a class="logo" href="http://www2.unine.ch/droit/page-1762.html" target="_blank"><img width="87" src="{{ asset('images/unine.png') }}" alt="" /></a>
-            <a class="logo" href="http://www2.unine.ch/cemaj" target="_blank"><img src="{{ asset('images/cemaj.png') }}" alt="" /></a>
+        </div>
+        <div id="search-select">
+            @include('frontend.partials.search')
         </div>
     </header>
     <!--header end-->
@@ -45,24 +55,27 @@
         <div id="sidebar" class="sidebar-close sidebar-open">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <li class="search">
-                    @include('frontend.partials.search')
-                </li>
-                <li class="sub-menu">
-                    <a class="sublink active" href="javascript:;"><i class="fa fa-laptop"></i><span>fre</span></a>
-                    <ul class="sub">
-                        <li>
-                           <p>Dapibus ante accumasa laoreet mauris nostie vehicula non interdùm, vehiculâ suscipit alèquam.
-                               Lorem ad quîs j'libéro pharétra vivamus mollis ultricités ut, vulputaté ac pulvinar èst
-                               commodo aenanm pharétra cubilia, lacus aenean pharetra des ïd quisquées mauris varius sit.
-                               Mie dictumst nûllam çurcus molestié imperdiet vestibulum suspendisse tempor habitant imiés ?</p>
+                @if(!$menus->isEmpty() && Request::is('new'))
+                    <?php
+                        $about = $menus->first(function ($value, $key) {
+                            return $value->link == 'about';
+                        });
+                    ?>
+                    @if($about)
+                        <li class="sub-menu">
+                            <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
+                            <ul class="sub">
+                                <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
+                            </ul>
                         </li>
-                    </ul>
-                </li>
+                    @endif
+                @endif
             </ul>
             <!-- sidebar menu end-->
         </div>
     </aside>
+
+
     <!--sidebar end-->
     <!--main content start-->
     <section id="main-content" class="main-close main-open">
@@ -99,6 +112,7 @@
 <script src="<?php echo asset('frontend/js/jquery/jquery-ui-1.8.16.custom.min.js');?>"></script>
 <script src="<?php echo asset('frontend/js/jquery/jquery.hoverIntent.minified.js');?>"></script>
 <script src="<?php echo asset('frontend/chosen/chosen.jquery.js');?>"></script>
+<script src="<?php echo asset('frontend/js/select2.js');?>"></script>
 <script src="<?php echo asset('frontend/js/main.js');?>"></script>
 <script src="<?php echo asset('frontend/js/script.js');?>"></script>
 

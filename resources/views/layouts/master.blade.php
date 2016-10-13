@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/main.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/chosen/chosen.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/select2.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/jquery.qtip.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/ui-lightness/jquery-ui.css');?>">
 
@@ -118,6 +119,7 @@
 <script src="<?php echo asset('frontend/js/jquery/jquery.listmenu-1.1.js');?>"></script>
 <script src="<?php echo asset('frontend/js/jquery/jquery.qtip.js');?>"></script>
 <script src="<?php echo asset('frontend/chosen/chosen.jquery.js');?>"></script>
+<script src="<?php echo asset('frontend/js/select2.js');?>"></script>
 <script src="<?php echo asset('frontend/js/main.js');?>"></script>
 <script src="<?php echo asset('frontend/js/script.js');?>"></script>
 

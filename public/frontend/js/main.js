@@ -42,10 +42,13 @@ $(document).ready(function(){
         $('#slideMenuOpen div.hold').css('display', 'none');
     });
 
-    $(".chzn-select").chosen();
+   // $(".chzn-select").chosen();
 
     $('[data-toggle="popover"]').popover();
-			
+
+    $('.canton-select').select2({});
+    $('.search-select').select2({});
+
 ///////////////////////////////////
 ///////////////////////////////////			
 			

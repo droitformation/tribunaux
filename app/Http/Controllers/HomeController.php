@@ -30,21 +30,6 @@ class HomeController extends Controller
         $this->commune   = $commune;
         $this->tribunaux = $tribunaux;
         $this->menu      = $menu;
-
-        $cantons = $this->canton->getAll();
-        \View::share('cantons', $cantons);
-
-        $districts = $this->district->getAll();
-        \View::share('districts', $districts);
-
-        $autorites = $this->autorite->getAll();
-        \View::share('autorites', $autorites);
-
-        $communes = $this->commune->getAll();
-        \View::share('communes', $communes);
-
-        $menus = $this->menu->getAll();
-        \View::share('menus', $menus);
     }
 
     /**

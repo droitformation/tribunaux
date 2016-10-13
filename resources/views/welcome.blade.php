@@ -12,12 +12,12 @@
 <!--state overview end-->
 
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-4 col-xs-12">
         <h2>Recherche par canton</h2>
         <section class="panel">
             <div class="panel-body">
                 <form action="{{ url('search') }}" method="post" class="EnvoiDonnees">{!! csrf_field() !!}
-                    <select data-placeholder="{!! trans('carte.choix_canton') !!}" class="chzn-select" style="width:100%;" tabindex="2" name="search">
+                    <select class="canton-select" tabindex="2" data-placeholder="{!! trans('carte.choix_canton') !!}" style="width: 100%;">
                         <option value=""></option>
                         @if(!$cantons->isEmpty())
                             @foreach($cantons as $canton)
@@ -29,7 +29,7 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-9 col-md-8 col-xs-12">
         <!--timeline start-->
         <section class="panel">
             <div class="panel-body">

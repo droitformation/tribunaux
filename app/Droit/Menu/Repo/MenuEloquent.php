@@ -14,7 +14,7 @@ class MenuEloquent implements MenuInterface{
 
     public function getAll()
     {
-        return $this->menu->orderBy('rang', 'desc')->get();
+        return $this->menu->orderBy('rang', 'asc')->get();
     }
 
     public function find($id)

@@ -15,25 +15,6 @@
     width: 100%;
 }
 * html .lm-wrapper .lm-letters { zoom:1; } /* for IE6 menu appears under letters */
-/*.lm-wrapper .lm-letters a {
-    width: 28px;
-    height: 28px;
-    display: table-cell;
-    background: url("../../images/paginationInactive.png") no-repeat top;
-    font-size: 12px;font-family: 'AllerBold', Arial, sans serif;
-    line-height: 28px;
-    color: #717171;
-    text-decoration: none;
-    text-align: center;
-    margin: 0 6px;
-}
-.lm-wrapper .lm-letters a:hover,
-.lm-wrapper .lm-letters a.lm-selected {
-    background: url("../../images/paginationActive.png") no-repeat top;
-    color: #f2f2f2;
-    text-decoration: none;
-}*/
-
 
 .lm-wrapper .lm-letters a {
     background: #ededed;
@@ -79,8 +60,8 @@
     left: -1px;
     background-color: #fff;
     border: 1px solid transparent;
-    border-top-left-radius:0
-    border-top-right-radius:0
+    border-top-left-radius:0;
+    border-top-right-radius:0;
     border-bottom-right-radius:4px;
     border-bottom-left-radius:4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
