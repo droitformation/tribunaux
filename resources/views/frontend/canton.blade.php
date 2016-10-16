@@ -18,14 +18,18 @@
 @section('content')
 
     <div class="row">
-        <h4 class="breadcrumbs col-md-12"><a href="">{{ $canton->titre }}</a></h4>
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li class="active">{{ $canton->titre_trans }}</li>
+            </ul>
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-4 col-md-3 col-xs-12">
             <section class="panel">
                 <div class="panel-body">
                     @if(!$canton->districts->isEmpty())
-                        @include('frontend.partials.districts',['districts' => $canton->districts])
+                        @include('frontend.partials.districts',['cdistricts' => $canton->districts])
                     @endif
                 </div>
             </section>
@@ -34,6 +38,9 @@
             <!--timeline start-->
             <section class="panel">
                 <div class="panel-body text-center">
+
+                    <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
+
                     @include('frontend.partials.map',['id' => $canton->id])
 
                     {!! view('frontend/cantons/'.$canton->id) !!}

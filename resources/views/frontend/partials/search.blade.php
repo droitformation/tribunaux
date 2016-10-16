@@ -30,6 +30,9 @@
             @endif
 
           </select>
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="submit">Go!</button>
+          </span>
     </div><!-- /input-group -->
 
 </form>

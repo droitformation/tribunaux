@@ -69,9 +69,9 @@
     <section id="main-content" class="main-close main-open">
         <section class="wrapper">
 
-        <!-- Contenu -->
-        @yield('content')
-        <!-- Fin contenu -->
+            <!-- Contenu -->
+            @yield('content')
+            <!-- Fin contenu -->
 
         </section>
     </section>

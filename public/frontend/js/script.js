@@ -114,20 +114,6 @@ jQuery(document).ready(function() {
         jQuery(regionList).addClass('selected').css('display', 'inline');
     });
 
-///////////////////////////
-
-  $('div.accordion').delay(300).show();
-
-///////// summit forms
-
-    $(function ()
-    {
-          $("form.EnvoiDonnees").on("change keyup", function () {
-                this.submit();
-          });
-    });
-
-///////////////////////////
 });
 
 

@@ -27,22 +27,6 @@ class NiveauController extends Controller
         $this->autorite  = $autorite;
         $this->commune   = $commune;
         $this->menu      = $menu;
-
-        $cantons = $this->canton->getAll();
-        \View::share('cantons', $cantons);
-
-        $districts = $this->district->getAll();
-        \View::share('districts', $districts);
-
-        $autorites = $this->autorite->getAll();
-        \View::share('autorites', $autorites);
-
-        $communes = $this->commune->getAll();
-        \View::share('communes', $communes);
-
-        $menus = $this->menu->getAll();
-        \View::share('menus', $menus);
-
     }
 
     /**
@@ -81,7 +65,7 @@ class NiveauController extends Controller
 
         $district->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        return view('frontend.district')->with(['district' => $district]);
+        return view('frontend.district')->with(['district' => $district, 'canton' => $district->canton]);
     }
 
     /**
@@ -93,7 +77,7 @@ class NiveauController extends Controller
         $autorite = $this->autorite->find($id);
         $autorite->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        return view('frontend.autorite')->with(['autorite' => $autorite]);
+        return view('frontend.autorite')->with(['autorite' => $autorite, 'canton' => $autorite->canton]);
     }
 
     /**
@@ -105,7 +89,7 @@ class NiveauController extends Controller
         $commune = $this->commune->find($id);
         $commune->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme');
 
-        return view('frontend.commune')->with(['commune' => $commune]);
+        return view('frontend.commune')->with(['commune' => $commune, 'canton' => $commune->canton]);
     }
 
     /**
@@ -115,6 +99,7 @@ class NiveauController extends Controller
     {
         $term   = $request->input('search');
         $pieces = explode('-',$term);
+
         $niveau = $pieces[0];
         $id     = $pieces[1];
 

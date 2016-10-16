@@ -75,7 +75,6 @@
         </div>
     </aside>
 
-
     <!--sidebar end-->
     <!--main content start-->
     <section id="main-content" class="main-close main-open">

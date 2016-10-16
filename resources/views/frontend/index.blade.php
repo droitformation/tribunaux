@@ -3,13 +3,13 @@
 @section('sidebar')
     @if(!$menus->isEmpty() && Request::is('/'))
         <?php
-        $about = $menus->first(function ($value, $key) {
-            return $value->link == 'about';
-        });
+            $about = $menus->first(function ($value, $key) {
+                return $value->link == 'about';
+            });
         ?>
         @if($about)
             <li class="sub-menu">
-                <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
+                <a class="sublink active" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $about->titre_trans }}</span></a>
                 <ul class="sub">
                     <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
                 </ul>
@@ -37,7 +37,7 @@
             <section class="panel">
                 <div class="panel-body">
                     <form action="{{ url('search') }}" method="post" class="EnvoiDonnees">{!! csrf_field() !!}
-                        <select class="canton-select" tabindex="2" data-placeholder="{!! trans('carte.choix_canton') !!}" style="width: 100%;">
+                        <select class="canton-select" name="search" tabindex="2" data-placeholder="{!! trans('carte.choix_canton') !!}" style="width: 100%;">
                             <option value=""></option>
                             @if(!$cantons->isEmpty())
                                 @foreach($cantons as $canton)

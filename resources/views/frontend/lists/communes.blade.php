@@ -1,6 +1,6 @@
 <li class="sub-menu">
     <a class="sublink" href="javascript:;">
-        <i class="fa fa-home"></i>
+        <i class="fa fa-angle-right"></i>
         <span>{{ trans('carte.commune_plurial') }}</span>
     </a>
     <ul class="sub">

@@ -11,7 +11,7 @@
 @if(isset($extras) && $extras)
     @foreach($extras as $extra)
         <li class="sub-menu">
-            <a class="sublink" href="javascript:;"><i class="fa fa-home"></i><span>{{ $extra->titre_trans }}</span></a>
+            <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $extra->titre_trans }}</span></a>
             <ul class="sub">
                 <li>{!! $extra->contenu_trans !!}</li>
             </ul>
@@ -22,7 +22,7 @@
 @if($canton->is_second_level)
     <li class="sub-menu">
         <a class="sublink" href="javascript:;">
-            <i class="fa fa-home"></i>
+            <i class="fa fa-angle-right"></i>
             <span>{{ isset($canton->autorites) && !$canton->autorites->isEmpty() ? $canton->autorites->first()->nom_trans : trans('carte.autorite') }}</span>
         </a>
         <ul class="sub">
@@ -40,7 +40,7 @@
 @if(isset($autorite))
     <li class="sub-menu">
         <a class="sublink" href="javascript:;">
-            <i class="fa fa-home"></i>
+            <i class="fa fa-angle-right"></i>
             <span>{{ trans('carte.autorite') }}</span>
         </a>
         <ul class="sub">
@@ -71,7 +71,7 @@
 
     @if(isset($info))
         <li class="sub-menu">
-            <a class="sublink" href="javascript:;"><i class="fa fa-home"></i><span>{{ $tribunal_premier->titre_trans }}</span></a>
+            <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $tribunal_premier->titre_trans }}</span></a>
             <ul class="sub">
                 <li>{!! $info !!}</li>
             </ul>
@@ -79,7 +79,7 @@
     @endif
 
     <li class="sub-menu">
-        <a class="sublink" href="javascript:;"><i class="fa fa-home"></i><span>{{ $tribunal_deuxieme->titre_trans }}</span></a>
+        <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $tribunal_deuxieme->titre_trans }}</span></a>
         <ul class="sub">
             <li>{!! $canton_tribunaux->deuxieme !!}</li>
         </ul>
@@ -91,7 +91,7 @@
 @if(isset($canton_donnees) && !$canton_donnees->isEmpty())
     @foreach($canton_donnees as $donnees)
         <li class="sub-menu">
-            <a class="sublink" href="javascript:;"><i class="fa fa-home"></i><span>{{ $donnees->titre_trans }}</span></a>
+            <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $donnees->titre_trans }}</span></a>
             <ul class="sub">
                 <li>{!! $donnees->contenu_trans !!}</li>
             </ul>

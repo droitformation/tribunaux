@@ -1,6 +1,4 @@
 $(document).ready(function(){
-///////////////////////////////////
-///////////////////////////////////
     
     $(".accordion").accordion({
         autoHeight: false,
@@ -42,14 +40,13 @@ $(document).ready(function(){
         $('#slideMenuOpen div.hold').css('display', 'none');
     });
 
-   // $(".chzn-select").chosen();
-
     $('[data-toggle="popover"]').popover();
 
-    $('.canton-select').select2({});
+    $('.canton-select').select2();
     $('.search-select').select2({});
 
-///////////////////////////////////
-///////////////////////////////////			
-			
+    $("form.EnvoiDonnees").on("change keyup", function () {
+        this.submit();
+    });
+
 });
