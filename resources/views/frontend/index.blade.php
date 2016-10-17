@@ -11,7 +11,9 @@
             <li class="sub-menu">
                 <a class="sublink active" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $about->titre_trans }}</span></a>
                 <ul class="sub">
-                    <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
+                    <li class="{{ $about->link }}">
+                        <div>{!! $about->contenu_trans !!}</div>
+                    </li>
                 </ul>
             </li>
         @endif

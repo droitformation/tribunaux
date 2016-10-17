@@ -30,22 +30,23 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="breadcrumb">
-                <li><a href="{{ url('canton/'.$canton->id) }}"><i class="fa fa-arrow-circle-o-right"></i> {{ $canton->titre_trans }}</a></li>
+                <li><a class="suisse" href="{{ url('/') }}"><img src="{{ asset('images/suisse.svg') }}" alt="{{ trans('carte.suisse') }}">{{ trans('carte.suisse') }}</a></li>
+                <li><a href="{{ url('canton/'.$canton->id) }}"><i class="fa fa-map-pin"></i> {{ $canton->titre_trans }}</a></li>
                 <li class="active">{{ $district->nom_trans }}</li>
             </ul>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-3 col-xs-12">
-            <section class="panel">
-                <div class="panel-body">
-                    @if(!$district->autorites->isEmpty())
+        @if(!$district->autorites->isEmpty())
+            <div class="col-lg-4 col-md-3 col-xs-12">
+                <section class="panel">
+                    <div class="panel-body">
                         @include('frontend.partials.autorites',['dautorites' => $district->autorites])
-                    @endif
-                </div>
-            </section>
-        </div>
-        <div class="col-lg-8 col-md-9 col-xs-12">
+                    </div>
+                </section>
+            </div>
+        @endif
+        <div class="{{ !$district->autorites->isEmpty() ? 'col-lg-8 col-md-9 ' : 'col-lg-12 col-md-12' }} col-xs-12">
             <!--timeline start-->
             <section class="panel">
                 <div class="panel-body text-center">

@@ -1,11 +1,11 @@
 <li class="sub-menu">
-    <a class="sublink" href="javascript:;">
+    <a class="sublink active" href="javascript:;">
         <i class="fa fa-angle-right"></i>
         <span>{{ trans('carte.commune_plurial') }}</span>
     </a>
     <ul class="sub">
         <li>
-            <p>
+            <div>
                 @if(isset($commune))
                     {!! $commune->nom_trans !!}<br/>
                 @elseif(isset($communes) && !$communes->isEmpty())
@@ -13,7 +13,7 @@
                         {!! $commune->nom_trans !!}<br/>
                     @endforeach
                 @endif
-            </p>
+            </div>
         </li>
     </ul>
 </li>

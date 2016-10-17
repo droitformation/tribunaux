@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'suisse'           => 'Schweiz',
     'site'             => 'zivil<span>gerichte</span>.ch',
     'commune_singular' => 'Gemeinde',
     'commune_plurial'  => 'Gemeinde',

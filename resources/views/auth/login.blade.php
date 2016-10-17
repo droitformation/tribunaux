@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('content')
 
-    <form class="form-horizontal form-validation" role="form" method="POST" action="/auth/login">
+    <form class="form-horizontal form-validation" role="form" method="POST" action="login">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="panel-body">
             <h4 class="text-center" style="font-size:14px;margin-bottom: 15px;margin-top:0;">Login</h4>

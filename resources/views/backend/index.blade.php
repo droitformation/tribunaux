@@ -15,6 +15,7 @@
                             <th class="col-sm-1">Régions</th>
                             <th class="col-sm-1">Autorités</th>
                             <th class="col-sm-1">Communes</th>
+                            <th class="col-sm-1">Autre adresses</th>
                         </tr>
                         </thead>
                         <tbody class="selects">
@@ -43,6 +44,9 @@
                                             @else
                                                 <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/canton/'.$canton->id) }}">Ajouter</a>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default btn-sm" href="{{ url('admin/extra/canton/'.$canton->id) }}">Liste</a>
                                         </td>
                                     </tr>
                                 @endforeach

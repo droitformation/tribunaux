@@ -20,21 +20,22 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="breadcrumb">
+                <li><a class="suisse" href="{{ url('/') }}"><img src="{{ asset('images/suisse.svg') }}" alt="{{ trans('carte.suisse') }}">{{ trans('carte.suisse') }}</a></li>
                 <li class="active">{{ $canton->titre_trans }}</li>
             </ul>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-3 col-xs-12">
-            <section class="panel">
-                <div class="panel-body">
-                    @if(!$canton->districts->isEmpty())
+        @if(!$canton->districts->isEmpty())
+            <div class="col-lg-4 col-md-3 col-xs-12">
+                <section class="panel">
+                    <div class="panel-body">
                         @include('frontend.partials.districts',['cdistricts' => $canton->districts])
-                    @endif
-                </div>
-            </section>
-        </div>
-        <div class="col-lg-8 col-md-9 col-xs-12">
+                    </div>
+                </section>
+            </div>
+        @endif
+        <div class="{{ !$canton->districts->isEmpty() ? 'col-lg-8 col-md-9 ' : 'col-lg-12 col-md-12' }} col-xs-12">
             <!--timeline start-->
             <section class="panel">
                 <div class="panel-body text-center">

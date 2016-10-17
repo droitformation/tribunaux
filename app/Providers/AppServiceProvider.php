@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer(['frontend.*','welcome'], 'App\Http\ViewComposers\FrontendComposer');
+        view()->composer(['backend.*','welcome'], 'App\Http\ViewComposers\FrontendComposer');
     }
 
     /**
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerAutoriteService();
         $this->registerCommuneService();
         $this->registerDonneeService();
+        $this->registerExtraService();
         $this->registerCantonTribunauxService();
 
         $this->registerTribunauxService();
@@ -105,6 +107,18 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Droit\Canton\Repo\DonneeInterface', function()
         {
             return new \App\Droit\Canton\Repo\DonneeEloquent(new \App\Droit\Canton\Entities\Canton_donnees);
+        });
+    }
+
+    /**
+     *
+     * Extra
+     */
+    protected function registerExtraService(){
+
+        $this->app->singleton('App\Droit\Extra\Repo\ExtraInterface', function()
+        {
+            return new \App\Droit\Extra\Repo\ExtraEloquent(new \App\Droit\Extra\Entities\Extra);
         });
     }
 

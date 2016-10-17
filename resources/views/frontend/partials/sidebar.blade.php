@@ -2,9 +2,9 @@
     @include('frontend.lists.communes', ['commune' => $commune])
 @elseif(isset($autorite->communes) && !$autorite->communes->isEmpty())
     @include('frontend.lists.communes', ['communes' => $autorite->communes])
-@elseif(isset($district->communes) && !$district->communes->isEmpty() && !$district->multiple_autorite)
+@elseif(isset($district->communes) && !$district->communes->isEmpty() && $canton->is_second_level)
     @include('frontend.lists.communes', ['communes' => $district->communes])
-@elseif(!isset($district) && !isset($autorite))
+@elseif(!isset($district) && !isset($autorite) && $canton->is_second_level)
     @include('frontend.lists.communes', ['communes' => $canton->communes])
 @endif
 
@@ -13,7 +13,7 @@
         <li class="sub-menu">
             <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $extra->titre_trans }}</span></a>
             <ul class="sub">
-                <li>{!! $extra->contenu_trans !!}</li>
+                <li><div>{!! $extra->contenu_trans !!}</div></li>
             </ul>
         </li>
     @endforeach
@@ -28,9 +28,9 @@
         <ul class="sub">
             <li>
                 @if(isset($canton->autorites) && !$canton->autorites->isEmpty() && $canton->autorites->first()->siege != '')
-                    <p>{!! $canton->autorites->first()->siege_trans !!}</p>
+                    <div>{!! $canton->autorites->first()->siege_trans !!}</div>
                 @else
-                    <p>{!! $canton->canton_tribunaux->siege !!}</p>
+                    <div>{!! $canton->canton_tribunaux->siege !!}</div>
                 @endif
             </li>
         </ul>
@@ -47,12 +47,12 @@
             <li>
                 @if( empty($canton->canton_tribunaux->siege) )
                     @if($autorite->siege != '')
-                        <p>{!! $autorite->siege_trans !!}</p>
+                        <div>{!! $autorite->siege_trans !!}</div>
                     @else
-                        <p>{!! $canton->canton_tribunaux->siege !!}</p>
+                        <div>{!! $canton->canton_tribunaux->siege !!}</div>
                     @endif
                 @else
-                    <p>{!! $canton->canton_tribunaux->siege !!}</p>
+                    <div>{!! $canton->canton_tribunaux->siege !!}</div>
                 @endif
             </li>
         </ul>
@@ -73,7 +73,7 @@
         <li class="sub-menu">
             <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $tribunal_premier->titre_trans }}</span></a>
             <ul class="sub">
-                <li>{!! $info !!}</li>
+                <li><div>{!! $info !!}</div></li>
             </ul>
         </li>
     @endif
@@ -81,7 +81,7 @@
     <li class="sub-menu">
         <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $tribunal_deuxieme->titre_trans }}</span></a>
         <ul class="sub">
-            <li>{!! $canton_tribunaux->deuxieme !!}</li>
+            <li><div>{!! $canton_tribunaux->deuxieme !!}</div></li>
         </ul>
     </li>
 
@@ -93,7 +93,9 @@
         <li class="sub-menu">
             <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $donnees->titre_trans }}</span></a>
             <ul class="sub">
-                <li>{!! $donnees->contenu_trans !!}</li>
+                <li>
+                    <div>{!! $donnees->contenu_trans !!}</div>
+                </li>
             </ul>
         </li>
     @endforeach

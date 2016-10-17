@@ -36,9 +36,10 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="breadcrumb">
-                <li><a href="{{ url('canton/'.$canton->id) }}"><i class="fa fa-arrow-circle-o-right"></i> {{ $canton->titre_trans }}</a></li>
+                <li><a class="suisse" href="{{ url('/') }}"><img src="{{ asset('images/suisse.svg') }}" alt="{{ trans('carte.suisse') }}">{{ trans('carte.suisse') }}</a></li>
+                <li><a href="{{ url('canton/'.$canton->id) }}"><i class="fa fa-map-pin"></i> {{ $canton->titre_trans }}</a></li>
                 @if(isset($autorite->district))
-                    <li><a href="{{ url('district/'.$autorite->district->id) }}"><i class="fa fa-arrow-circle-o-right"></i> {{ $autorite->district->nom_trans }}</a></li>
+                    <li><a href="{{ url('district/'.$autorite->district->id) }}"><i class="fa fa-map-pin"></i> {{ $autorite->district->nom_trans }}</a></li>
                 @endif
                 <li class="active">{{ $autorite->nom_trans }}</li>
             </ul>

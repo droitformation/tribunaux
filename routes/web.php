@@ -51,6 +51,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('commune/{level}/{id}', 'Backend\CommuneController@show');
     Route::resource('commune', 'Backend\CommuneController');
 
+    Route::get('extra/canton/{canton}', 'Backend\ExtraController@index');
+    Route::get('extra/create/{id}', 'Backend\ExtraController@create');
+    Route::resource('extra', 'Backend\ExtraController');
+
     Route::get('donnee/create/{id}', 'Backend\DonneeController@create');
     Route::post('donnee/sorting', 'Backend\DonneeController@sorting');
     Route::resource('donnee', 'Backend\DonneeController');

@@ -27,4 +27,19 @@ class Extra extends Model{
 
         return ($locale == 'de' ? $this->contenu_de : $this->contenu);
     }
+
+    public function canton(){
+
+        return $this->belongsTo('App\Droit\Canton\Entities\Canton', 'canton_id');
+    }
+
+    public function districts(){
+
+        return $this->belongsToMany('App\Droit\District\Entities\District', 'extra_relations', 'extra_id', 'district_id');
+    }
+
+    public function autorites(){
+
+        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'extra_relations', 'extra_id', 'autorite_id');
+    }
 }
