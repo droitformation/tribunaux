@@ -7,7 +7,7 @@ class Extra extends Model{
 
     protected $table = 'extras';
 
-    protected $fillable = array('titre','titre_de','contenu','contenu_de','canton_id');
+    protected $fillable = array('titre','titre_de','contenu','contenu_de','canton_id','rang');
 
     /**
      * Set timestamps off
@@ -35,11 +35,11 @@ class Extra extends Model{
 
     public function districts(){
 
-        return $this->belongsToMany('App\Droit\District\Entities\District', 'extra_relations', 'extra_id', 'district_id');
+        return $this->belongsToMany('App\Droit\District\Entities\District', 'extra_relations', 'extra_id', 'district_id')->withPivot('id');
     }
 
     public function autorites(){
 
-        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'extra_relations', 'extra_id', 'autorite_id');
+        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'extra_relations', 'extra_id', 'autorite_id')->withPivot('id');
     }
 }

@@ -73,6 +73,10 @@ class Canton extends Model{
     public function extras()
     {
         return $this->hasMany('App\Droit\Extra\Entities\Extra','canton_id');
-       // return $this->belongsToMany('App\Droit\Extra\Entities\Extra', 'extra_relations', 'canton_id','extra_id');
+    }
+
+    public function adresses()
+    {
+        return $this->belongsToMany('App\Droit\Extra\Entities\Extra', 'extra_relations', 'canton_id','extra_id');
     }
 }

@@ -9,7 +9,7 @@
             'tribunal_deuxieme' => $canton->tribunal_deuxieme,
             'tribunal_premier'  => $canton->tribunal_premier,
             'canton'            => $canton,
-            'extras'            => (!$canton->extras->isEmpty() ? $canton->extras : null)
+            'extras'            => (!$canton->adresses->isEmpty() ? $canton->adresses : null)
         ]
     )
 

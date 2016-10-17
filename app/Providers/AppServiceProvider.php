@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerCommuneService();
         $this->registerDonneeService();
         $this->registerExtraService();
+        $this->registerRelationService();
         $this->registerCantonTribunauxService();
 
         $this->registerTribunauxService();
@@ -119,6 +120,18 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Droit\Extra\Repo\ExtraInterface', function()
         {
             return new \App\Droit\Extra\Repo\ExtraEloquent(new \App\Droit\Extra\Entities\Extra);
+        });
+    }
+
+    /**
+     *
+     * Relation
+     */
+    protected function registerRelationService(){
+
+        $this->app->singleton('App\Droit\Extra\Repo\RelationInterface', function()
+        {
+            return new \App\Droit\Extra\Repo\RelationEloquent(new \App\Droit\Extra\Entities\Relation);
         });
     }
 

@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <label for="message" class="col-sm-3 control-label">Rang</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <input type="text" value="{{ $extra->rang }}" class="form-control" name="rang">
                             </div>
                         </div>
@@ -83,7 +83,87 @@
                 </form>
             </div>
         </div>
+        <div class="col-md-5">
+            <div class="panel panel-midnightblue">
+                <div class="panel-heading"><h4>Relation pour l'adresse</h4></div>
+                <div class="panel-body">
+                    <p class="text-right">
+                        <a class="btn btn-success" role="button" data-toggle="collapse" href="#addRelation"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
+                    </p>
+                    <div class="collapse" id="addRelation">
+                        <div class="well">
+                            <form action="{{ url('admin/extra/relation') }}" method="POST" class="form-horizontal">{!! csrf_field() !!}
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="relation[canton_id]" value="{{ $extra->canton_id }}" type="checkbox"> <strong>Lier à tout le Canton</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <p class="oubien">ou</p>
+                                @if(!$canton->districts->isEmpty())
+                                    <div class="form-group">
+                                        <label><strong>District</strong></label>
+                                        <select name="relation[district_id]" class="form-control">
+                                            <option value="">Choisir</option>
+                                            @foreach($canton->districts as $district)
+                                                <option value="{{ $district->id }}">{{ $district->nom_trans }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <p class="oubien">ou</p>
+                                @endif
+                                @if(!$canton->autorites->isEmpty())
+                                    <div class="form-group">
+                                        <label><strong>Autorité</strong></label>
+                                        <select name="relation[autorite_id]" class="form-control">
+                                            <option value="">Choisir</option>
+                                            @foreach($canton->autorites as $autorite)
+                                                <option value="{{ $autorite->id }}">{{ $autorite->nom_trans }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
+                                <input type="hidden" name="id" value="{{ $extra->id }}">
+                                <p class="text-right"><button class="btn btn-primary">Ajouter</button></p>
+                            </form>
+                        </div>
+                    </div>
 
+                    <ul class="list-group" style="margin-top: 5px;">
+                        @if(!$extra->districts->isEmpty())
+                            @foreach($extra->districts as $district)
+                                <li class="list-group-item">{{ $district->nom }}
+                                    <div class="pull-right">
+                                        <form action="{{ url('admin/extra/relation/'.$extra->id) }}" method="POST" class="form-horizontal">
+                                            <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
+                                            <input type="hidden" name="id" value="{{ $district->pivot->id }}">
+                                            <input type="hidden" name="model" value="districts">
+                                            <button data-what="Relation" data-action="{{ $district->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
+                        @if(!$extra->autorites->isEmpty())
+                            @foreach($extra->autorites as $autorite)
+                                <li>{{ $autorite->nom }}
+                                    <div class="pull-right">
+                                        <form action="{{ url('admin/extra/relation/'.$extra->id) }}" method="POST" class="form-horizontal">
+                                            <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
+                                            <input type="hidden" name="model_id" value="{{ $autorite->pivot->id }}">
+                                            <input type="hidden" name="model" value="autorites">
+                                            <button data-what="Relation" data-action="{{ $autorite->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
+                    </ul>
+
+                </div>
+            </div>
+        </div>
     </div>
     <!-- end row -->
 

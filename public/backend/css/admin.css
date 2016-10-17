@@ -74,3 +74,19 @@ select.form-control + .chosen-container .chosen-results li, select.form-control 
 .ui-sortable-handle{
     cursor: move;
 }
+
+.oubien{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.oubien:before{
+    content: "-";
+    padding-right: 5px;
+}
+
+.oubien:after{
+    content: "-";
+    padding-left: 5px;
+}

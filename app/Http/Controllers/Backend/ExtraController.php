@@ -4,21 +4,24 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\extraRequest;
+use App\Http\Requests\ExtraRequest;
 use App\Http\Controllers\Controller;
 
 use App\Droit\Extra\Repo\ExtraInterface;
+use App\Droit\Extra\Repo\RelationInterface;
 use App\Droit\Canton\Repo\CantonInterface;
 
 class ExtraController extends Controller
 {
     protected $extra;
+    protected $relation;
     protected $canton;
 
-    public function __construct(ExtraInterface $extra, CantonInterface $canton)
+    public function __construct(ExtraInterface $extra, RelationInterface $relation, CantonInterface $canton)
     {
-        $this->extra  = $extra;
-        $this->canton = $canton;
+        $this->extra    = $extra;
+        $this->relation = $relation;
+        $this->canton   = $canton;
     }
 
     /**
@@ -47,6 +50,10 @@ class ExtraController extends Controller
             return 'cantons-'.$extra->canton_id;
         });
 
+/*        echo '<pre>';
+        print_r($extras->toArray());
+        echo '</pre>';exit();*/
+
         return view('backend.extras.index')->with(['canton' => $canton, 'extras' => $extras]);
     }
     
@@ -69,9 +76,10 @@ class ExtraController extends Controller
      */
     public function show($id)
     {
-        $extra = $this->extra->find($id);
+        $extra  = $this->extra->find($id);
+        $canton = $this->canton->find($extra->canton_id);
 
-        return view('backend.extras.show')->with(['extra' => $extra]);
+        return view('backend.extras.show')->with(['extra' => $extra, 'canton' => $canton]);
     }
 
     /**
@@ -79,13 +87,11 @@ class ExtraController extends Controller
      *
      * @return Response
      */
-    public function store(extraRequest $request)
+    public function store(ExtraRequest $request)
     {
-        $canton = $this->canton->find($request->input('canton_id'));
+        $this->extra->create($request->all());
 
-        $canton->extras()->create($request->all());
-
-        return redirect('admin/canton/'.$request->input('canton_id'))->with(['status' => 'success', 'message' => 'L\'adresse a été crée']);
+        return redirect('admin/extra/canton/'.$request->input('canton_id'))->with(['status' => 'success', 'message' => 'L\'adresse a été crée']);
     }
 
     /**
@@ -94,7 +100,7 @@ class ExtraController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id,extraRequest $request)
+    public function update($id,ExtraRequest $request)
     {
         $this->extra->update($request->all());
 
@@ -111,15 +117,28 @@ class ExtraController extends Controller
     {
         $this->extra->delete($id);
 
-        return redirect()->back()->with(array('status' => 'success', 'message' => 'L\'adresse a été supprimé' ));
+        return redirect()->back()->with(['status' => 'success', 'message' => 'L\'adresse a été supprimé']);
     }
 
-    public function sorting(Request $request)
+    public function addRelation(Request $request)
     {
-        $data = $request->all();
+        $data = array_filter($request->input('relation'));
 
-        $extras = $this->extra->updateSorting($data['rang']);
+        if(!empty($data))
+        {
+            foreach ($data as $model => $relation)
+            {
+                $this->relation->create(['extra_id' => $request->input('id'), $model => $relation]);
+            }
+        }
 
-        print_r($data);
+        return redirect()->back()->with(['status' => 'success', 'message' => 'Relation ajouté']);
+    }
+
+    public function relation($id)
+    {
+        $this->relation->find($id);
+
+        return redirect()->back()->with(['status' => 'success', 'message' => 'La relation a été supprimé']);
     }
 }

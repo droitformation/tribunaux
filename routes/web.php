@@ -53,6 +53,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     Route::get('extra/canton/{canton}', 'Backend\ExtraController@index');
     Route::get('extra/create/{id}', 'Backend\ExtraController@create');
+    Route::delete('extra/relation/{id}', 'Backend\ExtraController@relation');
+    Route::post('extra/relation', 'Backend\ExtraController@addRelation');
     Route::resource('extra', 'Backend\ExtraController');
 
     Route::get('donnee/create/{id}', 'Backend\DonneeController@create');

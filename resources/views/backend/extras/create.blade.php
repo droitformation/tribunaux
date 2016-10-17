@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label for="message" class="col-sm-3 control-label">Rang</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <input type="text" value="" class="form-control" name="rang">
                         </div>
                     </div>
