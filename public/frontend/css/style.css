@@ -14,21 +14,7 @@ Website: http://thevectorlab.net/
 html, body {
     height: 100%;
 }
-.page-wrap {
-    min-height: 100%;
-    /* equal to footer height */
-    margin-bottom: -40px;
-}
-.page-wrap:after {
-    content: "";
-    display: block;
-}
-.site-footer, .page-wrap:after {
-    height: 40px;
-}
-.site-footer {
-    background: orange;
-}
+
 
 body {
     color: #797979;
@@ -188,7 +174,7 @@ a, a:hover, a:focus {
 }
 
 .suisse{
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .suisse img{
@@ -199,7 +185,12 @@ a, a:hover, a:focus {
 }
 
 .breadcrumb i{
-    font-size: 11px;
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+.breadcrumb li{
+    font-size: 15px;
     margin-right: 2px;
 }
 
@@ -399,7 +390,8 @@ ul.sidebar-menu li a span.dcjq-icon{
 }
 
 .breadcrumb {
-    background-color: #eaebf0;
+    background-color: transparent;
+    padding: 0 10px;
 }
 
 .breadcrumb li {
@@ -468,7 +460,7 @@ ul.sidebar-menu li a.sublink.active i {
 
 /*main content*/
 #main-content{
-
+    position: relative;
 }
 #main-content h2{
     color: #c9100c;
@@ -860,6 +852,19 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #a9d86e !important;
 }
 
+.list-district{
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+
+.list-district strong{
+    margin-bottom: 2px;
+    margin-top: 6px;
+}
+
+.list-district strong, .list-district span{
+    display: block;
+}
 
 /*search*/
 
@@ -878,6 +883,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     color: #000;
 }
 
+.btn-danger{
+    background: #c9100c;
+}
 
 .search:focus {
     margin-top: 5px ;
@@ -4879,8 +4887,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 /*footer*/
 
 .site-footer {
-    background: #6f7882;
-    color: #fff;
+    color: #6f7882;
     padding: 10px 0;
 }
 

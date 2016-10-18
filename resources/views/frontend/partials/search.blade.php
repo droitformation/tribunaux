@@ -31,7 +31,7 @@
 
           </select>
           <span class="input-group-btn">
-            <button class="btn btn-danger" type="submit">Go!</button>
+            <button class="btn btn-danger" type="submit">Ok</button>
           </span>
     </div><!-- /input-group -->
 

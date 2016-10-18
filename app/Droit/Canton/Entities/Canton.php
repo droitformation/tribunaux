@@ -35,6 +35,30 @@ class Canton extends Model{
         || ($this->districts->count() == 0 && $this->autorites->count() == 0) ? true : false;
     }
 
+    public function getDonneesSidebarAttribute()
+    {
+         if(!$this->canton_donnees->isEmpty())
+         {
+             return $this->canton_donnees->reject(function ($value, $key) {
+                 return $value->advertise;
+             });
+         }
+
+         return null;
+    }
+
+    public function getDonneesAdvertiseAttribute()
+    {
+        if(!$this->canton_donnees->isEmpty())
+        {
+            return $this->canton_donnees->filter(function ($value, $key) {
+                return $value->advertise;
+            });
+        }
+
+        return null;
+    }
+
     public function canton_donnees()
     {
         return $this->belongsToMany('App\Droit\Canton\Entities\Canton_donnees', 'canton_donnees', 'canton_id','donnee_id')->withPivot('rang')->orderBy('rang');

@@ -7,7 +7,7 @@ class Canton_donnees extends Model{
 
     protected $table = 'donnees';
 
-    protected $fillable = array('titre','titre_de','contenu','contenu_de','rang');
+    protected $fillable = ['titre','titre_de','contenu','contenu_de','rang','advertise'];
     /**
      * Set timestamps off
      */

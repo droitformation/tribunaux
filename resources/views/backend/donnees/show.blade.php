@@ -31,6 +31,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="message" class="col-sm-3 control-label">Annoncer</label>
+                            <div class="col-sm-3">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="advertise" value="1" {{ $donnee->advertise ? 'checked' : '' }} type="checkbox">
+                                        <strong>Informations pour niveau inférieur</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="message" class="col-sm-3 control-label"><strong>Français</strong></label>
                         </div>
 

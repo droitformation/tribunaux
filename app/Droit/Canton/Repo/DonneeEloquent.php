@@ -50,7 +50,8 @@ class DonneeEloquent implements DonneeInterface{
             'titre_de'   => $data['titre_de'],
             'contenu'    => $data['contenu'],
             'contenu_de' => $data['contenu_de'],
-            'rang'       => $data['rang']
+            'rang'       => isset($data['rang']) ? $data['rang'] : 0,
+            'advertise'  => isset($data['advertise']) ? $data['advertise'] : null
         ));
 
         if( ! $donnee )
@@ -72,6 +73,14 @@ class DonneeEloquent implements DonneeInterface{
         }
 
         $donnee->fill($data);
+
+        if(isset($data['advertise']) && !empty($data['advertise'])){
+            $donnee->advertise = 1;
+        }
+        else
+        {
+            $donnee->advertise = null;
+        }
 
         $donnee->save();
 

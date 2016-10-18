@@ -35,7 +35,7 @@
 
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-12">
-            <h2>Recherche par canton</h2>
+            <h2>{!! trans('carte.search_canton') !!}</h2>
             <section class="panel">
                 <div class="panel-body">
                     <form action="{{ url('search') }}" method="post" class="EnvoiDonnees">{!! csrf_field() !!}

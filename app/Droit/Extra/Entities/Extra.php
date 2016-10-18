@@ -7,7 +7,7 @@ class Extra extends Model{
 
     protected $table = 'extras';
 
-    protected $fillable = array('titre','titre_de','contenu','contenu_de','canton_id','rang');
+    protected $fillable = ['titre','titre_de','contenu','contenu_de','canton_id','rang'];
 
     /**
      * Set timestamps off

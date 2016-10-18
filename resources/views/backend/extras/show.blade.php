@@ -17,7 +17,7 @@
                     <input type="hidden" name="_method" value="PUT">
                     {!! csrf_field() !!}
 
-                    <div class="panel-heading"><h4>&Eacute;diter la remarque {{ $extra->canton->first()->titre }}</h4></div>
+                    <div class="panel-heading"><h4>&Eacute;diter la remarque {{ $extra->canton->titre }}</h4></div>
                     <div class="panel-body event-info">
 
                         <input type="hidden" name="canton_id" value="{{ $extra->canton->first()->id }}">
@@ -147,7 +147,7 @@
                         @endif
                         @if(!$extra->autorites->isEmpty())
                             @foreach($extra->autorites as $autorite)
-                                <li>{{ $autorite->nom }}
+                                <li class="list-group-item">{{ $autorite->nom }}
                                     <div class="pull-right">
                                         <form action="{{ url('admin/extra/relation/'.$extra->id) }}" method="POST" class="form-horizontal">
                                             <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}

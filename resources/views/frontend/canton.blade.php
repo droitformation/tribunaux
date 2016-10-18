@@ -5,11 +5,12 @@
     @include('frontend.partials.sidebar',
         [
             'canton_tribunaux'  => $canton->canton_tribunaux,
-            'canton_donnees'    => $canton->canton_donnees,
+            'canton_donnees'    => $canton->donnees_sidebar,
             'tribunal_deuxieme' => $canton->tribunal_deuxieme,
             'tribunal_premier'  => $canton->tribunal_premier,
             'canton'            => $canton,
-            'extras'            => (!$canton->adresses->isEmpty() ? $canton->adresses : null)
+            'extras'            => (!$canton->adresses->isEmpty() ? $canton->adresses : null),
+            'advertises'        => (!$canton->districts->isEmpty() ? $canton->districts : null)
         ]
     )
 
@@ -33,13 +34,24 @@
                         @include('frontend.partials.districts',['cdistricts' => $canton->districts])
                     </div>
                 </section>
+                @if(!$canton->donnees_advertise->isEmpty())
+                    <section class="panel">
+                        <div class="panel-body">
+                            @foreach($canton->donnees_advertise as $advertise)
+                                <p>
+                                    <strong class="text-danger">{{ $advertise->titre_trans }}</strong><br>
+                                    {!! $advertise->contenu_trans !!}
+                                </p>
+                            @endforeach
+                        </div>
+                    </section>
+                @endif
             </div>
         @endif
         <div class="{{ !$canton->districts->isEmpty() ? 'col-lg-8 col-md-9 ' : 'col-lg-12 col-md-12' }} col-xs-12">
             <!--timeline start-->
             <section class="panel">
                 <div class="panel-body text-center">
-
                     <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
 
                     @include('frontend.partials.map',['id' => $canton->id])

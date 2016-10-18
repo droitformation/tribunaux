@@ -74,19 +74,17 @@
             <!-- Fin contenu -->
 
         </section>
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                {{ date('Y') }} &copy; {!! trans('carte.site') !!}
+                <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
+            </div>
+        </footer>
+        <!--footer end-->
     </section>
     <!--main content end-->
-    <div class="clearfix"></div>
 </section>
-
-<!--footer start-->
-<footer class="site-footer">
-    <div class="text-center">
-        {{ date('Y') }} &copy; {!! trans('carte.site') !!}
-        <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
-    </div>
-</footer>
-<!--footer end-->
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

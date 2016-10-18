@@ -50,7 +50,7 @@ class ExtraEloquent implements ExtraInterface{
             'titre_de'   => $data['titre_de'],
             'contenu'    => $data['contenu'],
             'contenu_de' => $data['contenu_de'],
-            'rang'       => $data['rang']
+            'rang'       => isset($data['rang']) ? $data['rang'] : 0,
         ));
 
         if( ! $extra )
@@ -78,11 +78,10 @@ class ExtraEloquent implements ExtraInterface{
         return $extra;
     }
 
-    public function delete($id){
-
+    public function delete($id)
+    {
         $extra = $this->extra->find($id);
 
         return $extra->delete($id);
-
     }
 }
