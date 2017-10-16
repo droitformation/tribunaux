@@ -54,6 +54,13 @@
                 <div class="panel-body text-center">
                     <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
 
+                    <?php
+                        if(!$canton->district_titles->isEmpty()){
+                            echo '<pre>';
+                            print_r($canton->district_titles->pluck('nom'));
+                            echo '</pre>';
+                        }
+                    ?>
                     @include('frontend.partials.map',['id' => $canton->id])
 
                     {!! view('frontend/cantons/'.$canton->id) !!}

@@ -77,6 +77,7 @@
                                 <p id="draggable" data-top="{{ $position[0] }}" data-left="{{ $position[1] }}" style=" padding: 0;margin: 0;height: 26px;width: 26px;">
                                     <img src="{{ asset('images/tf.png') }}" alt="Tribunal" />
                                 </p>
+
                                 @include('frontend.partials.map',['id' => $tribunal->canton_id])
                             </div>
                             <input id="position" type="hidden" name="position" value="{{ $tribunal->position }}">

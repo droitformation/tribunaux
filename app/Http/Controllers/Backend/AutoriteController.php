@@ -110,7 +110,7 @@ class AutoriteController extends Controller
     {
         $this->autorite->update($request->all());
 
-        return redirect()->back()->with(array('status' => 'success', 'message' => 'Le autorite a été mis à jour' ));
+        return redirect()->back()->with(array('status' => 'success', 'message' => 'L\'autorité a été mis à jour' ));
     }
 
     /**

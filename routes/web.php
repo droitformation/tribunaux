@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('district/{level}/{id}', 'Backend\DistrictController@show');
     Route::resource('district', 'Backend\DistrictController');
 
+    Route::resource('title', 'Backend\TitleController');
+
     Route::get('autorites/{level}/{id}', 'Backend\AutoriteController@index');
     Route::get('autorite/create/{level}/{id}', 'Backend\AutoriteController@create');
     Route::get('autorite/{level}/{id}', 'Backend\AutoriteController@show');

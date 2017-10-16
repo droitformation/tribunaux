@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->registerTribunauxService();
         $this->registerTribunauxDonneeService();
+        $this->registerDistrictTitleService();
 
         $this->registerMenuService();
         $this->registerUploadService();
@@ -74,6 +75,17 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Droit\District\Repo\DistrictInterface', function()
         {
             return new \App\Droit\District\Repo\DistrictEloquent(new \App\Droit\District\Entities\District);
+        });
+    }
+
+    /**
+     * DistrictTitle
+     */
+    protected function registerDistrictTitleService(){
+
+        $this->app->singleton('App\Droit\District\Repo\DistrictTitleInterface', function()
+        {
+            return new \App\Droit\District\Repo\DistrictTitleEloquent(new \App\Droit\District\Entities\District_titles());
         });
     }
 

@@ -7,11 +7,9 @@ class Commune extends Model{
 
     protected $table = 'communes';
 
-    protected $fillable = array('nom','nom_de','canton_id','district_id','autorite_id');
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+    protected $fillable = ['nom','nom_de','canton_id','district_id','autorite_id'];
+
+    protected $dates = ['created_at','updated_at'];
 
     public function getNomTransAttribute()
     {

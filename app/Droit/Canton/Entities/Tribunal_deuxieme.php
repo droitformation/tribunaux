@@ -7,11 +7,9 @@ class Tribunal_deuxieme extends Model{
 
     protected $table = 'tribunal_deuxieme';
 
-    protected $fillable = array('canton_id','titre','titre_de');
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+    protected $fillable = ['canton_id','titre','titre_de'];
+
+    protected $dates = ['created_at','updated_at'];
 
     public function getTitreTransAttribute()
     {

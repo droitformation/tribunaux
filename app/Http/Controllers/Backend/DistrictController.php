@@ -108,4 +108,11 @@ class DistrictController extends Controller
 
         return redirect()->back()->with(array('status' => 'success', 'message' => 'Le district a été supprimé' ));
     }
+
+    public function title($id)
+    {
+        $district = $this->district->find($id);
+
+        return view('backend.districts.titles')->with(['district' => $district]);
+    }
 }

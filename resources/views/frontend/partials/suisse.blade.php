@@ -2,6 +2,21 @@
 <div id="map-view-container">
     <div id="map-container">
 
+
+        @if(!$tribunaux->isEmpty())
+            @foreach($tribunaux as $tribunal)
+
+                <?php $position = explode(',',$tribunal->position_suisse);  ?>
+
+                <div id="{{ $tribunal->slug }}" style="position: absolute; z-index: 1000; top: {{ $position[0] - 25 }}px; left: {{ $position[1] }}px;">
+                    <a style=" padding: 0;margin: 0;height: 26px;width: 26px;" href="{{ url('tribunal/'. $tribunal->id) }}" class="selector" title="{{ $tribunal->titre_trans }}">
+                        <img src="{{ asset('images/tf.png') }}" alt="Tribunal" />
+                    </a>
+                </div>
+
+            @endforeach
+        @endif
+
         <img src="{{ asset('images/transparentMap.gif') }}" width='734' height='477' border='0' alt='' usemap='#regionMapView' class='map' />
         <map name='regionMapView' id='regionMapView'>
 

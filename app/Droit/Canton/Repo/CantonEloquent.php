@@ -19,7 +19,7 @@ class CantonEloquent implements CantonInterface{
 
     public function find($id){
 
-        return $this->canton->with(['autorites','communes','canton_donnees','canton_tribunaux','tribunal_premier','tribunal_deuxieme','extras'])->find($id);
+        return $this->canton->with(['autorites','communes','canton_donnees','canton_tribunaux','tribunal_premier','tribunal_deuxieme','extras','district_titles'])->find($id);
     }
 
     public function create(array $data){

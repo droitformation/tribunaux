@@ -90,6 +90,11 @@ class Canton extends Model{
 
         return $this->hasMany('App\Droit\District\Entities\District', 'canton_id', 'id');
     }
+    
+    public function district_titles(){
+
+        return $this->hasMany('App\Droit\District\Entities\District_titles', 'canton_id', 'id');
+    }
 
     public function autorites(){
 

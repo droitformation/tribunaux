@@ -8,10 +8,8 @@ class Tribunaux extends Model{
     protected $table = 'tribunaux';
 
     protected $fillable = ['titre','titre_de','canton_id','info','info_de','position'];
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+
+    protected $dates = ['created_at','updated_at'];
 
     public function getTitreTransAttribute()
     {

@@ -54,13 +54,7 @@
         <div class="col-lg-9 col-md-8 col-xs-12">
             <!--timeline start-->
             <section class="panel">
-                <div class="panel-body">
-                    @if(!$tribunaux->isEmpty())
-                        @foreach($tribunaux as $tribunal)
-                            <div id="{{ $tribunal->slug }}"><a href="{{ url('tribunal/'. $tribunal->id) }}" class="selector" title="{{ $tribunal->titre_trans }}"></a></div>
-                        @endforeach
-                    @endif
-
+                <div class="panel-body" style="position: relative;">
                     @include('frontend.partials.suisse')
                 </div>
             </section>

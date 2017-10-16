@@ -130,6 +130,7 @@ $( function() {
                 $(this).css({'top' : top, 'left' : left});
             }
         });
+
         $( "#droppable" ).droppable({
             drop: function( event, ui ) {
                 var position = ui.position.top + ',' + ui.position.left;
@@ -138,6 +139,8 @@ $( function() {
             }
         });
     }
+
+
 
     $('#selectCanton').on('change',function(){
 

@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Autorite extends Model{
 
     protected $table = 'autorites';
+    protected $dates = ['created_at','updated_at'];
 
     protected $fillable = ['nom','nom_de','siege','siege_de','canton_id','district_id','isMain'];
-
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
 
     public function getNomTransAttribute()
     {

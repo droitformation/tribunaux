@@ -9,10 +9,7 @@ class Extra extends Model{
 
     protected $fillable = ['titre','titre_de','contenu','contenu_de','canton_id','rang'];
 
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+    protected $dates = ['created_at','updated_at'];
 
     public function getTitreTransAttribute()
     {

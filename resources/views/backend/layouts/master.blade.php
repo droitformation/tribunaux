@@ -24,7 +24,16 @@
     <link rel="stylesheet" href="<?php echo asset('backend/css/dnd.css');?>">
 
     <link rel='stylesheet' type='text/css' href="<?php echo asset('backend/plugins/form-nestable/jquery.nestable.css');?>" />
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+            'url'   => url('/'),
+            'ajaxUrl' => url('admin/ajax/'),
+            'adminUrl' => url('admin/')
+        ]); ?>
+    </script>
+
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="<?php echo asset('backend/css/styles.ie8.css');?>">
     <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -77,7 +86,6 @@
 
                 <!-- messages and errors -->
                 @include('backend.partials.message')
-                @include('alert::alert')
 
                 <!-- Contenu -->
                 @yield('content')
@@ -131,31 +139,7 @@
 <script type='text/javascript' src="<?php echo asset('backend/js/nestable.js');?>"></script>
 <script type='text/javascript' src="<?php echo asset('backend/js/Sortable.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo asset('backend/js/admin.js');?>"></script>
-
-<script type="text/javascript" src="<?php echo asset('backend/js/vendor/jquery/jquery.contextMenu.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/vendor/jquery/jquery.simple-color.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/vendor/jquery/jquery.ui.rotatable.min.js');?>"></script>
-
-
-<!-- jQuery plugins -->
-<script src="<?php echo asset('backend/js/csrf-token.js'); ?>"></script>
-<!-- Backbone -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20150503/json2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="<?php echo asset('backend/js/vendor/backbone/backbone-min.js');?>"></script>
-
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/models/box.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/models/boxCollection.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/models/arrow.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/models/arrowCollection.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/views/boxView.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/views/arrowView.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/views/buttonView.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/views/mainArrow.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/views/main.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/router.js');?>"></script>
-<script type="text/javascript" src="<?php echo asset('backend/js/schemas/index.js');?>"></script>
-
+<script type="text/javascript" src="<?php echo asset('js/app.js');?>"></script>
 
 </body>
 </html>

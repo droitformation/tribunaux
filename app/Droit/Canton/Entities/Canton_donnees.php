@@ -8,10 +8,8 @@ class Canton_donnees extends Model{
     protected $table = 'donnees';
 
     protected $fillable = ['titre','titre_de','contenu','contenu_de','rang','advertise'];
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+
+    protected $dates = ['created_at','updated_at'];
 
     public function getTitreTransAttribute()
     {

@@ -9,10 +9,7 @@ class District extends Model{
 
     protected $fillable = ['nom','nom_de','tribunal','tribunal_de','canton_id','special_id'];
 
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
+    protected $dates = ['created_at','updated_at'];
 
     public function getMultipleAutoriteAttribute()
     {
