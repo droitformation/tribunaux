@@ -29,6 +29,21 @@ class CollectionExtensions extends ServiceProvider
             });
 
         });
+
+        collect()->macro('mapWithKeys_v2', function ($callback) {
+
+            $result = [];
+
+            foreach ($this->items as $key => $value) {
+                $assoc = $callback($value, $key);
+
+                foreach ($assoc as $mapKey => $mapValue) {
+                    $result[$mapKey] = $mapValue;
+                }
+            }
+
+            return new static($result);
+        });
     }
 
     /**

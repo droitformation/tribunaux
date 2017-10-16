@@ -8,8 +8,13 @@
             <div>
                 @if(isset($commune))
                     {!! $commune->nom_trans !!}<br/>
-                @elseif(isset($communes) && !$communes->isEmpty())
-                    @foreach($communes as $commune)
+                @elseif(isset($list_communes) && !$list_communes->isEmpty())
+                    <?php
+                        $locale   = (\Session::has('locale') && \Session::has('locale') == 'de' ? 'de_DE' : 'fr_FR');
+                        $sorted   = $list_communes->sortAccent('nom_trans',$locale);
+                    ?>
+
+                    @foreach($sorted as $commune)
                         {!! $commune->nom_trans !!}<br/>
                     @endforeach
                 @endif

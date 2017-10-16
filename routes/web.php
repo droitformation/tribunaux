@@ -31,7 +31,8 @@ Route::post('search', ['uses' => 'NiveauController@search']);
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
-    Route::get('/', [ 'middleware' => 'auth', 'uses' => 'Backend\AdminController@index']);
+    Route::get('/', ['uses' => 'Backend\AdminController@index']);
+    Route::get('export', ['uses' => 'Backend\AdminController@export']);
 
     Route::get('canton/map/{id}', 'Backend\CantonController@map');
     Route::resource('canton', 'Backend\CantonController');

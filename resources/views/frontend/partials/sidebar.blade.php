@@ -1,11 +1,11 @@
 @if(isset($commune))
-    @include('frontend.lists.communes', ['commune' => $commune])
+    @include('frontend.lists.communes', ['list_communes' => $commune])
 @elseif(isset($autorite->communes) && !$autorite->communes->isEmpty())
-    @include('frontend.lists.communes', ['communes' => $autorite->communes])
+    @include('frontend.lists.communes', ['list_communes' => $autorite->communes])
 @elseif(isset($district->communes) && !$district->communes->isEmpty() && $canton->is_second_level)
-    @include('frontend.lists.communes', ['communes' => $district->communes])
+    @include('frontend.lists.communes', ['list_communes' => $district->communes])
 @elseif(!isset($district) && !isset($autorite) && $canton->is_second_level)
-    @include('frontend.lists.communes', ['communes' => $canton->communes])
+    @include('frontend.lists.communes', ['list_communes' => $canton->communes])
 @endif
 
 @if(isset($extras) && $extras)

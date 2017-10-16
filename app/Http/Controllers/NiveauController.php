@@ -58,8 +58,7 @@ class NiveauController extends Controller
     {
         $district = $this->district->find($id);
 
-        if($district->autorites->count() == 1)
-        {
+        if($district->autorites->count() == 1) {
             return redirect('autorite/'.$district->autorites->first()->id);
         }
 

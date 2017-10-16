@@ -7,7 +7,7 @@ class District extends Model{
 
     protected $table = 'districts';
 
-    protected $fillable = array('nom','nom_de','tribunal','tribunal_de','canton_id','special_id');
+    protected $fillable = ['nom','nom_de','tribunal','tribunal_de','canton_id','special_id'];
 
     /**
      * Set timestamps off

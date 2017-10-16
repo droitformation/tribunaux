@@ -7,7 +7,7 @@ class Canton extends Model{
 
     protected $table = 'cantons';
 
-    protected $fillable = array('titre','titre_de');
+    protected $fillable = ['titre','titre_de'];
 
     /**
      * Set timestamps off
@@ -19,6 +19,13 @@ class Canton extends Model{
         $this->load('districts');
 
         return ($this->districts->count() > 1 ? true : false);
+    }
+
+    public function getMultipleAutoriteAttribute()
+    {
+        $this->load('autorites');
+
+        return ($this->autorites->count() > 1 ? true : false);
     }
 
     public function getTitreTransAttribute()

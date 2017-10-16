@@ -7,7 +7,7 @@ class Autorite extends Model{
 
     protected $table = 'autorites';
 
-    protected $fillable = array('nom','nom_de','siege','siege_de','canton_id','district_id','isMain');
+    protected $fillable = ['nom','nom_de','siege','siege_de','canton_id','district_id','isMain'];
 
     /**
      * Set timestamps off
