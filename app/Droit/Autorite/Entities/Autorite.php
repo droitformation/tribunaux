@@ -44,4 +44,8 @@ class Autorite extends Model{
         return $this->belongsToMany('App\Droit\Extra\Entities\Extra', 'extra_relations', 'autorite_id', 'extra_id');
     }
 
+    public function title(){
+
+        return $this->hasOne('App\Droit\District\Entities\Title','autorite_id', 'id');
+    }
 }

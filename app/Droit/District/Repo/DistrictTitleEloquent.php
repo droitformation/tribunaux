@@ -1,7 +1,7 @@
 <?php namespace App\Droit\District\Repo;
 
 use App\Droit\District\Repo\DistrictTitleInterface;
-use App\Droit\District\Entities\District_titles as M;
+use App\Droit\District\Entities\Title as M;
 
 class DistrictTitleEloquent implements DistrictTitleInterface{
 

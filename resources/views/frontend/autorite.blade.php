@@ -57,7 +57,7 @@
                     <?php $canton    = (isset($autorite->district) ? $autorite->canton_id : null); ?>
                     <?php $mapActive = (isset($autorite->district) ? true : false); ?>
 
-                    @include('frontend.partials.map',['id' => $id, 'canton' => $canton, 'mapActive' => $mapActive])
+                    @include('frontend.partials.map',['id' => $id, 'canton' => $canton, 'mapActive' => $mapActive, 'titles' => $titles])
 
                     {!! view('frontend/cantons/'.$autorite->canton_id) !!}
                 </div>

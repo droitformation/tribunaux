@@ -51,4 +51,9 @@ class District extends Model{
     {
         return $this->belongsToMany('App\Droit\Extra\Entities\Extra', 'extra_relations', 'district_id', 'extra_id');
     }
+
+    public function title(){
+
+        return $this->hasOne('App\Droit\District\Entities\Title','district_id', 'id');
+    }
 }

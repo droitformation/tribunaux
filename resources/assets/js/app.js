@@ -13,7 +13,7 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('district-title', require('./components/DistrictTitle.vue'));
+Vue.component('level-title', require('./components/LevelTitle.vue'));
 
 const app = new Vue({
     el: '#app'

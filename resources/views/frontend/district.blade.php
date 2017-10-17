@@ -53,7 +53,7 @@
 
                     <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i> &nbsp;{!! trans('carte.retour') !!}</a></p>
 
-                    @include('frontend.partials.map',['id' => $district->id,'canton' => $district->canton_id, 'mapActive' => true])
+                    @include('frontend.partials.map',['id' => $district->id,'canton' => $district->canton_id, 'mapActive' => true, 'titles' => $titles])
 
                     {!! view('frontend/cantons/'.$district->canton_id) !!}
                 </div>

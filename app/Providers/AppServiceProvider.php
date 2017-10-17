@@ -85,7 +85,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton('App\Droit\District\Repo\DistrictTitleInterface', function()
         {
-            return new \App\Droit\District\Repo\DistrictTitleEloquent(new \App\Droit\District\Entities\District_titles());
+            return new \App\Droit\District\Repo\DistrictTitleEloquent(new \App\Droit\District\Entities\Title());
         });
     }
 

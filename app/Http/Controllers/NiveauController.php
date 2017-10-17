@@ -64,7 +64,13 @@ class NiveauController extends Controller
 
         $district->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        return view('frontend.district')->with(['district' => $district, 'canton' => $district->canton]);
+        $titles = $district->canton->districts->map(function ($item, $key) {
+            $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
+            $position = ['x' => $position[0], 'y' => $position[1]];
+            return ['nom' => $item->nom, 'position' => $position,];
+        });
+
+        return view('frontend.district')->with(['district' => $district, 'canton' => $district->canton, 'titles' => $titles]);
     }
 
     /**
@@ -76,7 +82,13 @@ class NiveauController extends Controller
         $autorite = $this->autorite->find($id);
         $autorite->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        return view('frontend.autorite')->with(['autorite' => $autorite, 'canton' => $autorite->canton]);
+        $titles = $autorite->canton->autorites->map(function ($item, $key) {
+            $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
+            $position = ['x' => $position[0], 'y' => $position[1]];
+            return ['nom' => $item->nom, 'position' => $position];
+        });
+
+        return view('frontend.autorite')->with(['autorite' => $autorite, 'canton' => $autorite->canton, 'titles' => $titles]);
     }
 
     /**

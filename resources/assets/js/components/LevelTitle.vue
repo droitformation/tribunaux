@@ -3,11 +3,14 @@
         <div class="row">
             <div class="col-md-8">
                 <div id="droppable_zone">
-                    <h4 class="draggable_item" :data-index="index" :style="'top:' + title.position_x + 'px;left:' + title.position_y + 'px;'" v-for="(title, index) in titles">
-                        {{ title.name }}
-                        <input :id="'position_' + index" type="hidden" :name="'position['+ index +']'" :value="title.position_x +','+ title.position_y">
-                        <input type="hidden" :name="'nom['+ index +']'" :value="title.name">
+
+                    <h4 class="draggable_item" :data-index="title.id" :style="'top:' + title.position.x + 'px;left:' + title.position.y + 'px;'" v-for="title in titles">
+                        {{ title.nom }}
+                        <input :id="'position_' + title.id" type="hidden" :name="'position['+ title.id +']'" :value="title.position.x +','+ title.position.y">
+                        <input type="hidden" :name="'id['+ title.id +']'" :value="title.id">
+                        <input type="hidden" name="type'" :value="title.type">
                     </h4>
+
                     <img :src="path" />
                 </div>
             </div>
@@ -21,6 +24,7 @@
                     </div><!-- /input-group -->
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -40,10 +44,10 @@
 </style>
 <script>
     export default {
-        props: ['path'],
+        props: ['path','titles'],
         data(){
             return{
-                titles:[{ name: 'Besiztgericht', position_x :10, position_y: 20 }],
+                //titles:[{ name: 'Besiztgericht', position_x :10, position_y: 20 }],
                 name: '',
             }
         },

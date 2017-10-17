@@ -93,7 +93,7 @@ class Canton extends Model{
     
     public function district_titles(){
 
-        return $this->hasMany('App\Droit\District\Entities\District_titles', 'canton_id', 'id');
+        return $this->hasMany('App\Droit\District\Entities\Title', 'canton_id', 'id');
     }
 
     public function autorites(){
@@ -114,5 +114,15 @@ class Canton extends Model{
     public function adresses()
     {
         return $this->belongsToMany('App\Droit\Extra\Entities\Extra', 'extra_relations', 'canton_id','extra_id');
+    }
+
+    public function title_district()
+    {
+        return $this->belongsToMany('App\Droit\District\Entities\District', 'titles', 'canton_id','district_id');
+    }
+
+    public function title_autorite()
+    {
+        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'titles', 'canton_id','autorite_id');
     }
 }
