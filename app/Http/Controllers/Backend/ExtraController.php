@@ -35,19 +35,19 @@ class ExtraController extends Controller
 
         $extras = $canton->extras->groupBy(function ($extra, $key)
         {
-            if(!$extra->districts->isEmpty()){
-                return $extra->districts->map(function ($item, $key) {
+            if(!$extra->district->isEmpty()){
+                return $extra->district->map(function ($item, $key) {
                     return 'districts-'.$item->id;
                 })->toArray();
             }
 
-            if(!$extra->autorites->isEmpty()){
-                return $extra->autorites->map(function ($item, $key) {
+            if(!$extra->autorite->isEmpty()){
+                return $extra->autorite->map(function ($item, $key) {
                     return 'autorites-'.$item->id;
                 })->toArray();
             }
 
-            return 'cantons-'.$extra->canton_id;
+            return 'canton-'.$extra->canton_id;
         });
 
 /*        echo '<pre>';
@@ -137,7 +137,7 @@ class ExtraController extends Controller
 
     public function relation($id)
     {
-        $this->relation->find($id);
+        $this->relation->delete($id);
 
         return redirect()->back()->with(['status' => 'success', 'message' => 'La relation a été supprimé']);
     }

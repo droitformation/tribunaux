@@ -35,14 +35,14 @@
                         @if(!$canton->districts->isEmpty())
                             @foreach($canton->districts as $district)
                                 <tr>
-                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/district/'.$level.'/'.$district->id) }}">&Eacute;diter</a></td>
+                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/district/'.$district->id) }}">&Eacute;diter</a></td>
                                     <td><strong>{{ $district->nom }}</strong></td>
                                     <td>{!! $district->tribunal !!}</td>
                                     <td>
                                         @if(!$district->autorites->isEmpty())
-                                            <a class="btn btn-green btn-sm" href="{{ url('admin/autorites/district/'.$district->id) }}">&Eacute;diter autorités</a>
+                                            <a class="btn btn-green btn-sm" href="{{ url('admin/autorites/canton/'.$canton->id) }}">&Eacute;diter autorités</a>
                                         @else
-                                            <a class="btn btn-default btn-sm" href="{{ url('admin/autorite/create/district/'.$district->id) }}">Ajouter</a>
+                                            <a class="btn btn-default btn-sm" href="{{ url('admin/autorite/create/'.$canton->id) }}">Ajouter</a>
                                         @endif
                                     </td>
                                     <td class="text-right">

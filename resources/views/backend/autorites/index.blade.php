@@ -8,7 +8,7 @@
         <div class="col-md-6"><!-- col -->
             <div class="options text-right" style="margin-bottom: 10px;">
                 <div class="btn-toolbar">
-                    <a href="{{ url('admin/autorite/create/canton/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
+                    <a href="{{ url('admin/autorite/create/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
                 </div>
             </div>
         </div>
@@ -36,23 +36,20 @@
                         @if(!$canton->autorites->isEmpty())
                             @foreach($canton->autorites as $autorite)
                                 <tr>
-                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/autorite/canton/'.$autorite->id) }}">&Eacute;diter</a></td>
+                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/autorite/'.$autorite->id) }}">&Eacute;diter</a></td>
                                     <td><strong>{{ $autorite->nom }}</strong></td>
                                     <td>{!! $autorite->siege !!}</td>
                                     <td>
                                         @if(!$autorite->communes->isEmpty())
-                                            <a class="btn btn-green btn-sm" href="{{ url('admin/communes/autorite/'.$autorite->id) }}">&Eacute;diter</a>
+                                            <a class="btn btn-green btn-sm" href="{{ url('admin/communes/canton/'.$canton->id) }}">&Eacute;diter</a>
                                         @else
-                                            <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/autorite/'.$autorite->id) }}">Ajouter</a>
+                                            <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/'.$canton->id) }}">Ajouter</a>
                                         @endif
                                     </td>
-                                    <td>
-                                        {!! $autorite->district_id == 0 ? '<span class="label label-info">Oui</span>' : '' !!}
-                                    </td>
+                                    <td>{!! $autorite->district_id == 0 ? '<span class="label label-info">Oui</span>' : '' !!}</td>
                                     <td class="text-right">
                                         <form action="{{ url('admin/autorite/'.$autorite->id) }}" method="POST" class="form-horizontal">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            {!! csrf_field() !!}
+                                            <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
                                             <button data-action="Mots: {{ $autorite->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
                                         </form>
                                     </td>

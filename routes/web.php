@@ -37,21 +37,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('canton/map/{id}', 'Backend\CantonController@map');
     Route::resource('canton', 'Backend\CantonController');
 
-    Route::get('districts/{level}/{id}', 'Backend\DistrictController@index');
-    Route::get('district/create/{level}/{id}', 'Backend\DistrictController@create');
-    Route::get('district/{level}/{id}', 'Backend\DistrictController@show');
+    Route::get('districts/canton/{id}', 'Backend\DistrictController@index');
+    Route::get('district/create/{id}', 'Backend\DistrictController@create');
     Route::resource('district', 'Backend\DistrictController');
 
     Route::resource('title', 'Backend\TitleController');
 
-    Route::get('autorites/{level}/{id}', 'Backend\AutoriteController@index');
-    Route::get('autorite/create/{level}/{id}', 'Backend\AutoriteController@create');
-    Route::get('autorite/{level}/{id}', 'Backend\AutoriteController@show');
+    Route::get('autorites/canton/{id}', 'Backend\AutoriteController@index');
+    Route::get('autorite/create/{id}', 'Backend\AutoriteController@create');
     Route::resource('autorite', 'Backend\AutoriteController');
 
-    Route::get('communes/{level}/{id}', 'Backend\CommuneController@index');
-    Route::get('commune/create/{level}/{id}', 'Backend\CommuneController@create');
-    Route::get('commune/{level}/{id}', 'Backend\CommuneController@show');
+    Route::get('communes/canton/{id}', 'Backend\CommuneController@index');
+    Route::get('commune/create/{id}', 'Backend\CommuneController@create');
     Route::resource('commune', 'Backend\CommuneController');
 
     Route::get('extra/canton/{canton}', 'Backend\ExtraController@index');
@@ -78,6 +75,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     Route::get('imageJson/{id?}', ['uses' => 'Backend\UploadController@imageJson']);
     Route::get('fileJson/{id?}', ['uses' => 'Backend\UploadController@fileJson']);
+
+});
+
+// AJAX
+Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function()
+{
+    Route::get('autorites/{type}/{id}', 'Backend\AutoriteController@dropdown');
 
 });
 

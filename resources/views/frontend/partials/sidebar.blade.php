@@ -8,7 +8,7 @@
     @include('frontend.lists.communes', ['list_communes' => $canton->communes])
 @endif
 
-@if(isset($extras) && $extras)
+@if(!$extras->isEmpty())
     @foreach($extras as $extra)
         <li class="sub-menu">
             <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $extra->titre_trans }}</span></a>

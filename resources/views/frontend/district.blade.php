@@ -3,13 +3,11 @@
 @section('sidebar')
 
     <?php
-    if(!$district->canton->extras->isEmpty()) {
-        $extras = $district->canton->extras;
-    }
+        $extras = collect([]);
 
-    if(!$district->extras->isEmpty()) {
-        $extras = $district->extras;
-    }
+        $extras = $extras->merge($district->canton->adresses);
+        $extras = $extras->merge($district->extras);
+        $extras = $extras->unique('id');
     ?>
 
     @include('frontend.partials.sidebar',
@@ -19,7 +17,7 @@
             'tribunal_deuxieme' => $canton->tribunal_deuxieme,
             'tribunal_premier'  => $canton->tribunal_premier,
             'canton'            => $canton,
-            'extras'            => (!$canton->extras->isEmpty() ? $canton->extras : null)
+            'extras'            => $extras
         ]
     )
 

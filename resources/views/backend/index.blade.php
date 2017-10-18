@@ -29,21 +29,21 @@
                                             @if(!$canton->districts->isEmpty())
                                                 <a class="btn btn-warning btn-sm" href="{{ url('admin/districts/canton/'.$canton->id) }}">&Eacute;diter</a>
                                             @else
-                                                <a class="btn btn-default btn-sm" href="{{ url('admin/district/create/canton/'.$canton->id) }}">Ajouter</a>
+                                                <a class="btn btn-default btn-sm" href="{{ url('admin/district/create/'.$canton->id) }}">Ajouter</a>
                                             @endif
                                         </td>
                                         <td>
                                             @if(!$canton->autorites->isEmpty())
                                                 <a class="btn btn-green btn-sm" href="{{ url('admin/autorites/canton/'.$canton->id) }}">&Eacute;diter</a>
                                             @else
-                                                <a class="btn btn-default btn-sm" href="{{ url('admin/autorite/create/canton/'.$canton->id) }}">Ajouter</a>
+                                                <a class="btn btn-default btn-sm" href="{{ url('admin/autorite/create/'.$canton->id) }}">Ajouter</a>
                                             @endif
                                         </td>
                                         <td>
                                             @if(!$canton->communes->isEmpty())
                                                 <a class="btn btn-green btn-sm" href="{{ url('admin/communes/canton/'.$canton->id) }}">&Eacute;diter</a>
                                             @else
-                                                <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/canton/'.$canton->id) }}">Ajouter</a>
+                                                <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/'.$canton->id) }}">Ajouter</a>
                                             @endif
                                         </td>
                                         <td><a class="btn btn-inverse btn-sm" href="{{ url('admin/title/'.$canton->id) }}">&Eacute;diter</a></td>

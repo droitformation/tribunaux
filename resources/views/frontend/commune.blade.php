@@ -2,6 +2,22 @@
 
 @section('sidebar')
 
+    <?php
+
+        $extras = collect([]);
+        $extras = $extras->merge($commune->canton->adresses);
+
+        if(isset($commune->district)) {
+            $extras = $extras->merge($commune->district->extras);
+        }
+
+        if(isset($commune->autorite)) {
+            $extras = $extras->merge($commune->autorite->extras);
+        }
+
+        $extras = $extras->unique('id');
+    ?>
+
     @include('frontend.partials.sidebar',
         [
             'canton_tribunaux'  => $commune->canton->canton_tribunaux,
@@ -9,6 +25,7 @@
             'tribunal_deuxieme' => $commune->canton->tribunal_deuxieme,
             'tribunal_premier'  => $commune->canton->tribunal_premier,
             'canton'            => $commune->canton,
+            'extra'             => $extras,
             'district'          => isset($commune->district) ? $commune->district : null,
             'autorite'          => isset($commune->autorite) ? $commune->autorite : null,
         ]

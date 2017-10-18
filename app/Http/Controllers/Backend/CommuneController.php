@@ -32,11 +32,11 @@ class CommuneController extends Controller
      *
      * @return Response
      */
-    public function index($level,$id)
+    public function index($canton_id)
     {
-        $canton = $this->canton->find($id);
+        $canton = $this->canton->find($canton_id);
 
-        return view('backend.communes.index')->with(['level' => $level, 'canton' => $canton]);
+        return view('backend.communes.index')->with(['canton' => $canton]);
     }
 
     /**
@@ -44,48 +44,11 @@ class CommuneController extends Controller
      *
      * @return Response
      */
-    public function create($level,$id)
+    public function create($canton_id)
     {
-        $where = $this->$level->find($id);
+        $canton = $this->canton->find($canton_id);
 
-        if($level == 'canton')
-        {
-            $canton    = $this->canton->find($id);
-            $cantons   = $this->canton->getAll();
-            $districts = $canton->districts;
-            $autorites = $canton->autorites;
-
-            $data['canton_id'] = $id;
-        }
-
-        if($level == 'district')
-        {
-            $cantons   = $this->canton->getAll();
-            $district  = $this->district->find($id);
-            $canton    = $this->canton->find($district->canton_id);
-            $districts = $canton->districts;
-            $autorites = $district->autorites;
-
-            $data['canton_id']   = $district->canton_id;
-            $data['district_id'] = $district->id;
-        }
-
-        if($level == 'autorite')
-        {
-            $cantons   = $this->canton->getAll();
-            $autorite  = $this->autorite->find($id);
-            $canton    = $this->canton->find($autorite->canton_id);
-            $districts = $canton->districts;
-            $autorites = $canton->autorites;
-
-            $data['canton_id']   = $canton->id;
-            $data['district_id'] = $autorite->district_id;
-            $data['autorite_id'] = $autorite->id;
-        }
-
-        return view('backend.communes.create')->with(
-            ['where' => $where, 'level' => $level, 'canton' => $canton, 'districts' => $districts, 'autorites' => $autorites, 'cantons' => $cantons, 'selected' => $data]
-        );
+        return view('backend.communes.create')->with(['canton' => $canton]);
     }
 
     /**
@@ -96,14 +59,9 @@ class CommuneController extends Controller
      */
     public function store(Request $request)
     {
-        $level = $request->input('level',null);
-        $level = ($level ? $level : 'canton');
-
-        $id    = $request->input($level.'_id');
-
         $this->commune->create($request->all());
 
-        return redirect('admin/communes/'.$level.'/'.$id)->with(array('status' => 'success', 'message' => 'La commune a été crée' ));
+        return redirect('admin/communes/canton/'.$request->input('canton_id'))->with(array('status' => 'success', 'message' => 'La commune a été crée' ));
     }
 
     /**
@@ -112,28 +70,12 @@ class CommuneController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($level,$id)
+    public function show($id)
     {
-        $commune   = $this->commune->find($id);
-        $canton    = $this->canton->find($commune->canton_id);
-        $cantons   = $this->canton->getAll();
-        $district  = $this->district->find($commune->district_id);
-        $districts = $canton->districts;
+        $commune  = $this->commune->find($id);
+        $canton   = $this->canton->find($commune->canton_id);
 
-        if($district)
-        {
-            $data['district_id'] = $commune->district_id;
-            $autorites           = $district->autorites;
-        }
-        else
-        {
-            $autorites = $canton->autorites;
-        }
-
-        $data['canton_id']   = $commune->canton_id;
-        $data['autorite_id'] = $commune->autorite_id;
-
-        return view('backend.communes.show')->with(['commune' => $commune, 'level' => $level,'canton' => $canton, 'cantons' => $cantons,'districts' => $districts, 'autorites' => $autorites, 'selected' => $data]);
+        return view('backend.communes.show')->with(['commune' => $commune,'canton' => $canton]);
     }
 
     /**

@@ -1,19 +1,15 @@
 @extends('layouts.master')
-
 @section('sidebar')
 
     <?php
-    if(!$autorite->canton->extras->isEmpty()) {
-        $extras = $autorite->canton->extras;
-    }
+        $extras = collect([]);
 
-    if(isset($autorite->district) && !$autorite->district->extras->isEmpty()) {
-        $extras = $autorite->district->extras;
-    }
-
-    if(!$autorite->extras->isEmpty()) {
-        $extras = $autorite->extras;
-    }
+        $extras = $extras->merge($autorite->extras);
+        if(isset($autorite->district)) {
+            $extras = $extras->merge($autorite->district->extras);
+        }
+        $extras = $extras->merge($canton->adresses);
+        $extras = $extras->unique('id');
     ?>
 
     @include('frontend.partials.sidebar',
@@ -25,7 +21,7 @@
             'canton'   => $canton,
             'district' => $autorite->district,
             'autorite' => $autorite,
-            'extras'   => (isset($extras) ? $extras : null)
+            'extras'   => $extras
         ]
     )
 

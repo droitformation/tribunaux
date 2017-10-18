@@ -2,6 +2,11 @@
 
 @section('sidebar')
 
+    <?php
+        $extras = collect([]);
+        $extras = $extras->merge($canton->adresses);
+    ?>
+
     @include('frontend.partials.sidebar',
         [
             'canton_tribunaux'  => $canton->canton_tribunaux,
@@ -9,7 +14,7 @@
             'tribunal_deuxieme' => $canton->tribunal_deuxieme,
             'tribunal_premier'  => $canton->tribunal_premier,
             'canton'            => $canton,
-            'extras'            => (!$canton->adresses->isEmpty() ? $canton->adresses : null),
+            'extras'            => $extras,
             'advertises'        => (!$canton->districts->isEmpty() ? $canton->districts : null)
         ]
     )

@@ -35,14 +35,14 @@
         font-weight: 600;
         font-size: 15px;
         text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
-        white-space: normal;
+        white-space: nowrap;
         max-width: 150px;
         word-wrap: break-word;
         z-index: 1000;
         cursor: move;
     }
     .ui-draggable.ui-draggable-dragging {
-        white-space: normal;
+        white-space: nowrap;
         max-width: 150px;
         word-wrap: break-word;
     }

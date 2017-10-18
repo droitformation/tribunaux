@@ -3,7 +3,7 @@
 
 <div class="row"><!-- row -->
     <div class="col-md-12"><!-- col -->
-        <p><a class="btn btn-default" href="{{ url('admin/communes/'.$level.'/'.$commune->canton_id) }}"><i class="fa fa-reply"></i> &nbsp;Retour à la liste</a></p>
+        <p><a class="btn btn-default" href="{{ url('admin/communes/canton/'.$commune->canton_id) }}"><i class="fa fa-reply"></i> &nbsp;Retour à la liste</a></p>
     </div>
 </div>
 
@@ -31,16 +31,9 @@
                         </div>
                     </div>
 
-                    @include('backend.communes.partials.district',['canton' => $canton])
+                    @include('backend.communes.partials.district',['canton' => $canton, 'district_id' => $commune->district_id])
 
-                    <div class="form-group">
-                        <label for="message" class="col-sm-3 control-label">Autorité</label>
-                        <div class="col-sm-6">
-                            <div id="selectAutorite">
-                                @include('backend.communes.partials.autorite')
-                            </div>
-                        </div>
-                    </div>
+                    @include('backend.communes.partials.autorite',['canton' => $canton, 'autorite_id' => $commune->autorite_id])
 
                     <div class="form-group">
                         <label for="message" class="col-sm-3 control-label">Nom</label>

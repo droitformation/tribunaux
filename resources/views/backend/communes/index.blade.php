@@ -8,7 +8,7 @@
         <div class="col-md-6"><!-- col -->
             <div class="options text-right" style="margin-bottom: 10px;">
                 <div class="btn-toolbar">
-                    <a href="{{ url('admin/commune/create/canton/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
+                    <a href="{{ url('admin/commune/create/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
                 </div>
             </div>
         </div>
@@ -24,9 +24,10 @@
                 <table class="table" style="margin-bottom: 0px;" id="">
                     <thead>
                     <tr>
-                        <th class="col-sm-1">Action</th>
-                        <th class="col-sm-2">Nom</th>
-                        <th class="col-sm-1"></th>
+                        <th style="width: 30px !important;"></th>
+                        <th>Action</th>
+                        <th>Nom</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody class="selects">
@@ -37,18 +38,19 @@
                             @foreach($grouped as $district => $autorites)
 
                                 @if(!is_numeric($district))
-                                    <tr><td colspan="3"><h4>{{ $district }}</h4></td></tr>
+                                    <tr><td colspan="4"><h4>{{ $district }}</h4></td></tr>
                                 @endif
 
                                 @foreach($autorites as $autorite => $communes)
 
                                     @if(!is_numeric($autorite))
-                                        <tr><td colspan="3"><p><strong>{{ $autorite }}</strong></p></td></tr>
+                                        <tr><td></td><td colspan="3"><p><strong>{{ $autorite }}</strong></p></td></tr>
                                     @endif
 
                                     @foreach($communes as $commune)
                                         <tr>
-                                            <td><a class="btn btn-sky btn-sm" href="{{ url('admin/commune/canton/'.$commune->id) }}">&Eacute;diter</a></td>
+                                            <td></td>
+                                            <td><a class="btn btn-sky btn-sm" href="{{ url('admin/commune/'.$commune->id) }}">&Eacute;diter</a></td>
                                             <td><strong>{{ $commune->nom }}</strong></td>
                                             <td class="text-right">
                                                 <form action="{{ url('admin/commune/'.$commune->id) }}" method="POST" class="form-horizontal">

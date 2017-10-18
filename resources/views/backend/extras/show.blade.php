@@ -3,7 +3,7 @@
 
     <div class="row"><!-- row -->
         <div class="col-md-12"><!-- col -->
-            <p><a class="btn btn-default" href="{{ url('admin/canton/'.$extra->canton->id) }}"><i class="fa fa-reply"></i> &nbsp;Retour au canton</a></p>
+            <p><a class="btn btn-default" href="{{ url('admin/extra/canton/'.$canton->id) }}"><i class="fa fa-reply"></i> &nbsp;Retour au canton</a></p>
         </div>
     </div>
     <!-- start row -->
@@ -17,10 +17,10 @@
                     <input type="hidden" name="_method" value="PUT">
                     {!! csrf_field() !!}
 
-                    <div class="panel-heading"><h4>&Eacute;diter la remarque {{ $extra->canton->titre }}</h4></div>
+                    <div class="panel-heading"><h4>&Eacute;diter la remarque {{ $canton->titre }}</h4></div>
                     <div class="panel-body event-info">
 
-                        <input type="hidden" name="canton_id" value="{{ $extra->canton->first()->id }}">
+                        <input type="hidden" name="canton_id" value="{{ $canton->id }}">
                         <input type="hidden" name="id" value="{{ $extra->id }}">
 
                         <div class="form-group">
@@ -131,28 +131,43 @@
                     </div>
 
                     <ul class="list-group" style="margin-top: 5px;">
-                        @if(!$extra->districts->isEmpty())
-                            @foreach($extra->districts as $district)
+
+                        @if(!$extra->canton->isEmpty())
+                            @foreach($extra->canton as $canton)
+                                <li class="list-group-item">Pour tout le canton
+                                    <div class="pull-right">
+                                        <form action="{{ url('admin/extra/relation/'.$canton->pivot->id) }}" method="POST" class="form-horizontal">
+                                            <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
+                                            <input type="hidden" name="model" value="canton">
+                                            <input type="hidden" name="id" value="{{ $canton->id }}">
+                                            <button data-what="Relation" data-action="Canton" class="btn btn-danger btn-sm deleteAction">x</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
+                        @if(!$extra->district->isEmpty())
+                            @foreach($extra->district as $district)
                                 <li class="list-group-item">{{ $district->nom }}
                                     <div class="pull-right">
-                                        <form action="{{ url('admin/extra/relation/'.$extra->id) }}" method="POST" class="form-horizontal">
+                                        <form action="{{ url('admin/extra/relation/'.$district->pivot->id) }}" method="POST" class="form-horizontal">
                                             <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
-                                            <input type="hidden" name="id" value="{{ $district->pivot->id }}">
-                                            <input type="hidden" name="model" value="districts">
+                                            <input type="hidden" name="id" value="{{ $district->id }}">
+                                            <input type="hidden" name="model" value="district">
                                             <button data-what="Relation" data-action="{{ $district->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
                                         </form>
                                     </div>
                                 </li>
                             @endforeach
                         @endif
-                        @if(!$extra->autorites->isEmpty())
-                            @foreach($extra->autorites as $autorite)
+                        @if(!$extra->autorite->isEmpty())
+                            @foreach($extra->autorite as $autorite)
                                 <li class="list-group-item">{{ $autorite->nom }}
                                     <div class="pull-right">
-                                        <form action="{{ url('admin/extra/relation/'.$extra->id) }}" method="POST" class="form-horizontal">
+                                        <form action="{{ url('admin/extra/relation/'.$autorite->pivot->id) }}" method="POST" class="form-horizontal">
                                             <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
-                                            <input type="hidden" name="model_id" value="{{ $autorite->pivot->id }}">
-                                            <input type="hidden" name="model" value="autorites">
+                                            <input type="hidden" name="model_id" value="{{ $autorite->id }}">
+                                            <input type="hidden" name="model" value="autorite">
                                             <button data-what="Relation" data-action="{{ $autorite->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
                                         </form>
                                     </div>

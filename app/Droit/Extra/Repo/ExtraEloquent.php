@@ -14,7 +14,7 @@ class ExtraEloquent implements ExtraInterface{
 
     public function getAll(){
 
-        return $this->extra->with(['canton'])->orderBy('rang','ASC')->get();
+        return $this->extra->with(['canton','district','autorite'])->orderBy('rang','ASC')->get();
     }
 
     public function updateSorting(array $data){
@@ -40,7 +40,7 @@ class ExtraEloquent implements ExtraInterface{
 
     public function find($id){
 
-        return $this->extra->with(['canton'])->find($id);
+        return $this->extra->with(['canton','district','autorite'])->find($id);
     }
 
     public function create(array $data){
@@ -50,6 +50,7 @@ class ExtraEloquent implements ExtraInterface{
             'titre_de'   => $data['titre_de'],
             'contenu'    => $data['contenu'],
             'contenu_de' => $data['contenu_de'],
+            'canton_id'  => $data['canton_id'],
             'rang'       => isset($data['rang']) ? $data['rang'] : 0,
         ));
 

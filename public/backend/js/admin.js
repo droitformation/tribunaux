@@ -105,20 +105,19 @@ $( function() {
 
     $('.selectLevel').on('change',function(){
 
-        var level = $(this).data('level');
-        var id    = $(this).val();
+        var type = $(this).data('level');
+        var id   = $(this).val();
 
         $.ajax({
             type     : 'GET',
-            url      : base_url + 'admin/autorites/'+ level + '/' + id,
+            url      : base_url + 'ajax/autorites/'+ type + '/' + id,
             success: function (data) {
-                console.log(data);
                 $('#selectAutorite').empty().append(data);
             },
             error: function (data) {}
         });
-
     });
+    // ,  _token: $("meta[name='_token']").attr('content')
 
     if( $( "#droppable").length)
     {

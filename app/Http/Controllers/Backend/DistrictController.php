@@ -31,15 +31,11 @@ class DistrictController extends Controller
      *
      * @return Response
      */
-    public function index($level,$id,Request $request)
+    public function index($canton_id,Request $request)
     {
-        $canton = $this->canton->find($id);
+        $canton = $this->canton->find($canton_id);
 
-        if($request->ajax()) {
-            return response()->json(['districts' => $canton->districts]);
-        }
-
-        return view('backend.districts.index')->with(['canton' => $canton, 'level' => $level]);
+        return view('backend.districts.index')->with(['canton' => $canton]);
     }
 
     /**
@@ -47,11 +43,11 @@ class DistrictController extends Controller
      *
      * @return Response
      */
-    public function create($level,$id)
+    public function create($canton_id)
     {
-        $canton = $this->canton->find($id);
+        $canton = $this->canton->find($canton_id);
 
-        return view('backend.districts.create')->with(['canton' => $canton, 'level' => $level]);
+        return view('backend.districts.create')->with(['canton' => $canton]);
     }
 
     /**
@@ -73,11 +69,11 @@ class DistrictController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($level,$id)
+    public function show($id)
     {
         $district = $this->district->find($id);
 
-        return view('backend.districts.show')->with(['district' => $district, 'level' => $level]);
+        return view('backend.districts.show')->with(['district' => $district]);
     }
 
     /**
@@ -106,4 +102,5 @@ class DistrictController extends Controller
 
         return redirect()->back()->with(array('status' => 'success', 'message' => 'Le district a été supprimé' ));
     }
+
 }

@@ -31,15 +31,9 @@ class AutoriteController extends Controller
      *
      * @return Response
      */
-    public function index($level,$id, Request $request)
+    public function index($canton_id, Request $request)
     {
-        $canton = $this->canton->find($id);
-
-        if($request->ajax())
-        {
-            echo view('backend.communes.partials.autorite')->with(['autorites' => $canton->autorites]);
-            exit;
-        }
+        $canton = $this->canton->find($canton_id);
 
         return view('backend.autorites.index')->with(['canton' => $canton]);
     }
@@ -49,9 +43,9 @@ class AutoriteController extends Controller
      *
      * @return Response
      */
-    public function create($level,$id)
+    public function create($canton_id)
     {
-        $canton = $this->canton->find($id);
+        $canton = $this->canton->find($canton_id);
 
         return view('backend.autorites.create')->with(['canton' => $canton]);
     }
@@ -64,12 +58,9 @@ class AutoriteController extends Controller
      */
     public function store(Request $request)
     {
-        $level = $request->input('level',null);
-        $level = ($level ? $level : 'canton');
-
         $this->autorite->create($request->all());
 
-        return redirect('admin/autorites/'.$level.'/'.$request->input('canton_id'))->with(array('status' => 'success', 'message' => 'L\'autorite a été crée' ));
+        return redirect('admin/autorites/canton/'.$request->input('canton_id'))->with(array('status' => 'success', 'message' => 'L\'autorite a été crée' ));
     }
 
     /**
@@ -78,7 +69,7 @@ class AutoriteController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($level,$id)
+    public function show($id)
     {
         $autorite = $this->autorite->find($id);
 
@@ -110,5 +101,12 @@ class AutoriteController extends Controller
         $this->autorite->delete($id);
 
         return redirect()->back()->with(array('status' => 'success', 'message' => 'Le autorite a été supprimé' ));
+    }
+
+    public function dropdown($type,$id)
+    {
+        $list = $this->$type->find($id);
+
+        echo view('backend.communes.partials.dropdown')->with(['list' => $list->autorites]);
     }
 }

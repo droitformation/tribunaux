@@ -1,8 +1,8 @@
-@if(!$autorites->isEmpty())
-    <select class="form-control" name="autorite_id">
-        <option value="">Choix</option>
-        @foreach($autorites as $autorite)
-            <option  {{ isset($selected['autorite_id']) && $selected['autorite_id'] == $autorite->id ? 'selected' : '' }} value="{{ $autorite->id }}">{{ $autorite->nom }}</option>
-        @endforeach
-    </select>
+@if(!$canton->autorites->isEmpty())
+    <div class="form-group">
+        <label for="message" class="col-sm-3 control-label">Autorité</label>
+        <div class="col-sm-6" id="selectAutorite">
+            @include('backend.communes.partials.dropdown', ['list' => $canton->autorites])
+        </div>
+    </div>
 @endif
