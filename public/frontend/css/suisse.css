@@ -49,3 +49,15 @@
 #practice-container .selected-list ul li {
     list-style-type: none;
 }
+
+#map-container .the_map h4 {
+    position: absolute;
+    color: #c9100c;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 1000;
+    text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
+    white-space: normal;
+    max-width: 150px;
+    word-wrap: break-word;
+}

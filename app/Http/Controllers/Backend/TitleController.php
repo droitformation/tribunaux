@@ -29,7 +29,7 @@ class TitleController extends Controller
 
         $titles = isset($canton->districts) && !$canton->districts->isEmpty() ? $canton->districts : collect([]);
         $titles = $titles->isEmpty() && isset($canton->autorites) && !$canton->autorites->isEmpty() ? $canton->autorites : $titles;
-
+        $titles = $titles->count() > 1 ? $titles : collect([]);
         $titles = $titles->map(function ($item, $key) {
             $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
             $position = ['x' => $position[0], 'y' => $position[1]];
@@ -57,7 +57,7 @@ class TitleController extends Controller
             return [ $id => ['position'  => $positions[$key]]];
         });
 
-        $canton->$type()->sync($data);
+        $type == 'title_district' ? $canton->title_district()->sync($data) : $canton->title_autorite()->sync($data);
 
         return redirect()->back();
     }

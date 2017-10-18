@@ -8,7 +8,7 @@
         <div class="col-md-6"><!-- col -->
             <div class="options text-right" style="margin-bottom: 10px;">
                 <div class="btn-toolbar">
-                    <a href="{{ url('admin/autorite/create/'.$level.'/'.$autorites->first()->canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
+                    <a href="{{ url('admin/autorite/create/canton/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <div class="col-md-12">
 
         <div class="panel panel-primary">
-            <div class="panel-heading">Autorités {{ $autorites->first()->canton->titre }}</div>
+            <div class="panel-heading">Autorités {{ $canton->titre }}</div>
             <div class="panel-body">
 
                 <table class="table" style="margin-bottom: 0px;" id="">
@@ -33,10 +33,10 @@
                     </tr>
                     </thead>
                     <tbody class="selects">
-                        @if(!empty($autorites))
-                            @foreach($autorites as $autorite)
+                        @if(!$canton->autorites->isEmpty())
+                            @foreach($canton->autorites as $autorite)
                                 <tr>
-                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/autorite/'.$level.'/'.$autorite->id) }}">&Eacute;diter</a></td>
+                                    <td><a class="btn btn-sky btn-sm" href="{{ url('admin/autorite/canton/'.$autorite->id) }}">&Eacute;diter</a></td>
                                     <td><strong>{{ $autorite->nom }}</strong></td>
                                     <td>{!! $autorite->siege !!}</td>
                                     <td>

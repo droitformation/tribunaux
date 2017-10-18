@@ -34,10 +34,9 @@ class CommuneController extends Controller
      */
     public function index($level,$id)
     {
-        $communes = $this->commune->findBy($level,$id);
-        $where    = $this->$level->find($id);
+        $canton = $this->canton->find($id);
 
-        return view('backend.communes.index')->with(['communes' => $communes, 'level' => $level, 'id' => $id, 'where' => $where]);
+        return view('backend.communes.index')->with(['level' => $level, 'canton' => $canton]);
     }
 
     /**

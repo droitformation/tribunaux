@@ -47,7 +47,9 @@ class NiveauController extends Controller
             return redirect('district/'.$canton->districts->first()->id);
         }
 
-        return view('frontend.canton')->with(['canton' => $canton]);
+        $titles = the_titles($canton);
+
+        return view('frontend.canton')->with(['canton' => $canton, 'titles' => $titles]);
     }
 
     /**
@@ -64,11 +66,7 @@ class NiveauController extends Controller
 
         $district->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        $titles = $district->canton->districts->map(function ($item, $key) {
-            $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
-            $position = ['x' => $position[0], 'y' => $position[1]];
-            return ['nom' => $item->nom, 'position' => $position,];
-        });
+        $titles = the_titles($district->canton);
 
         return view('frontend.district')->with(['district' => $district, 'canton' => $district->canton, 'titles' => $titles]);
     }
@@ -82,11 +80,7 @@ class NiveauController extends Controller
         $autorite = $this->autorite->find($id);
         $autorite->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme','extras');
 
-        $titles = $autorite->canton->autorites->map(function ($item, $key) {
-            $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
-            $position = ['x' => $position[0], 'y' => $position[1]];
-            return ['nom' => $item->nom, 'position' => $position];
-        });
+        $titles = the_titles($autorite->canton);
 
         return view('frontend.autorite')->with(['autorite' => $autorite, 'canton' => $autorite->canton, 'titles' => $titles]);
     }
@@ -100,7 +94,9 @@ class NiveauController extends Controller
         $commune = $this->commune->find($id);
         $commune->canton->load('canton_donnees','tribunal_premier','tribunal_deuxieme');
 
-        return view('frontend.commune')->with(['commune' => $commune, 'canton' => $commune->canton]);
+        $titles = the_titles($commune->canton);
+
+        return view('frontend.commune')->with(['commune' => $commune, 'canton' => $commune->canton, 'titles' => $titles]);
     }
 
     /**

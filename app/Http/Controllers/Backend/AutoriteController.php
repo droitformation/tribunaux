@@ -33,15 +33,15 @@ class AutoriteController extends Controller
      */
     public function index($level,$id, Request $request)
     {
-        $autorites = $this->autorite->findBy($level,$id);
+        $canton = $this->canton->find($id);
 
         if($request->ajax())
         {
-            echo view('backend.communes.partials.autorite')->with(['autorites' => $autorites]);
+            echo view('backend.communes.partials.autorite')->with(['autorites' => $canton->autorites]);
             exit;
         }
 
-        return view('backend.autorites.index')->with(['autorites' => $autorites, 'level' => $level]);
+        return view('backend.autorites.index')->with(['canton' => $canton]);
     }
 
     /**
@@ -51,21 +51,9 @@ class AutoriteController extends Controller
      */
     public function create($level,$id)
     {
-        if($level == 'canton')
-        {
-            $canton = $this->canton->find($id);
-            $data   = [];
-        }
-        else
-        {
-            $district = $this->district->find($id);
-            $canton   = $this->canton->find($district->canton_id);
-            $data['district_id'] = $district->id;
-        }
+        $canton = $this->canton->find($id);
 
-        $districts = $canton->districts;
-
-        return view('backend.autorites.create')->with(['canton' => $canton, 'level' => $level, 'districts' => $districts, 'selected' => $data]);
+        return view('backend.autorites.create')->with(['canton' => $canton]);
     }
 
     /**
@@ -92,11 +80,9 @@ class AutoriteController extends Controller
      */
     public function show($level,$id)
     {
-        $autorite  = $this->autorite->find($id);
-        $canton    = $this->canton->find($autorite->canton_id);
-        $districts = $canton->districts;
+        $autorite = $this->autorite->find($id);
 
-        return view('backend.autorites.show')->with(['autorite' => $autorite, 'districts' => $districts, 'level' => $level]);
+        return view('backend.autorites.show')->with(['autorite' => $autorite]);
     }
 
     /**

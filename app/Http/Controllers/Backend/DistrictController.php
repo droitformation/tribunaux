@@ -33,15 +33,13 @@ class DistrictController extends Controller
      */
     public function index($level,$id,Request $request)
     {
-        $districts = $this->district->findBy($level,$id);
-        $canton    = $this->canton->find($id);
+        $canton = $this->canton->find($id);
 
-        if($request->ajax())
-        {
-            return response()->json(['districts' => $districts]);
+        if($request->ajax()) {
+            return response()->json(['districts' => $canton->districts]);
         }
 
-        return view('backend.districts.index')->with(['districts' => $districts, 'canton' => $canton, 'level' => $level]);
+        return view('backend.districts.index')->with(['canton' => $canton, 'level' => $level]);
     }
 
     /**

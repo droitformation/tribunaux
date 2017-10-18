@@ -15,6 +15,7 @@
                             <th class="col-sm-1">Régions</th>
                             <th class="col-sm-1">Autorités</th>
                             <th class="col-sm-1">Communes</th>
+                            <th class="col-sm-1">Emplacement nom sur région/autorité</th>
                             <th class="col-sm-1">Autre adresses</th>
                         </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                                 <a class="btn btn-default btn-sm" href="{{ url('admin/commune/create/canton/'.$canton->id) }}">Ajouter</a>
                                             @endif
                                         </td>
+                                        <td><a class="btn btn-inverse btn-sm" href="{{ url('admin/title/'.$canton->id) }}">&Eacute;diter</a></td>
                                         <td>
                                             <a class="btn btn-default btn-sm" href="{{ url('admin/extra/canton/'.$canton->id) }}">Liste</a>
                                         </td>

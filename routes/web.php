@@ -102,9 +102,11 @@ Route::get('testing', function()
 
     $cantons = \App::make('App\Droit\Canton\Repo\CantonInterface');
 
-    $canton = $cantons->find(1);
+    $canton = $cantons->find(6);
+
+    $grouped = group_communes($canton->communes);
 
     echo '<pre>';
-    print_r($canton);
-    echo '</pre>';exit;
+    print_r($grouped);
+    echo '</pre>';exit();
 });

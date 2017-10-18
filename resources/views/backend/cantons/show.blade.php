@@ -16,9 +16,8 @@
         <div class="panel panel-midnightblue">
 
             <!-- form start -->
-            <form data-validate-parsley action="{{ url('admin/canton/'.$canton->id) }}" method="POST" class="form-horizontal" >
+            <form data-validate-parsley action="{{ url('admin/canton/'.$canton->id) }}" method="POST" class="form-horizontal">{!! csrf_field() !!}
                 <input type="hidden" name="_method" value="PUT">
-                {!! csrf_field() !!}
 
                 <div class="panel-heading"><h4>&Eacute;diter </h4></div>
                 <div class="panel-body">
@@ -129,8 +128,7 @@
                                {{ $donnees->titre }}
                                 <div class="btn-group pull-right">
                                     <form action="{{ url('admin/donnee/'.$donnees->id) }}" method="POST" class="form-horizontal">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
                                         <a href="{{ url('admin/donnee/'.$donnees->id) }}" class="btn btn-info btn-sm">&Eacute;diter</a>
                                         <button data-what="Remarque" data-action="{{ $donnees->titre }}" class="btn btn-danger btn-sm deleteAction">x</button>
                                     </form>

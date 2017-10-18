@@ -27,12 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message" class="col-sm-3 control-label">District</label>
-                        <div class="col-sm-6">
-                             @include('backend.communes.partials.district')
-                        </div>
-                    </div>
+                    @include('backend.communes.partials.district',['canton' => $canton])
 
                     <div class="form-group">
                         <label for="message" class="col-sm-3 control-label">Autorité</label>

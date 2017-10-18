@@ -13,8 +13,7 @@
         <div class="panel panel-midnightblue">
 
             <!-- form start -->
-            <form data-validate-parsley action="{{ url('admin/district') }}" method="POST" class="form-horizontal" >
-            {!! csrf_field() !!}
+            <form data-validate-parsley action="{{ url('admin/district') }}" method="POST" class="form-horizontal" >{!! csrf_field() !!}
 
                 <div class="panel-heading"><h4>Ajouter un district pour {{ $canton->titre }}</h4></div>
                 <div class="panel-body event-info">

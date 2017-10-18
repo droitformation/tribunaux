@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?php echo asset('backend/css/admin.css');?>">
     <link rel="stylesheet" href="<?php echo asset('backend/css/types.css');?>">
     <link rel="stylesheet" href="<?php echo asset('backend/css/dnd.css');?>">
+    <link rel="stylesheet" href="<?php echo asset('frontend/css/suisse.css');?>">
 
     <link rel='stylesheet' type='text/css' href="<?php echo asset('backend/plugins/form-nestable/jquery.nestable.css');?>" />
 

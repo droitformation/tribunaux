@@ -3,7 +3,7 @@
 
 <div class="row"><!-- row -->
     <div class="col-md-12"><!-- col -->
-        <p><a class="btn btn-default" href="{{ url('admin/autorites/'.$level.'/'.$autorite->canton_id) }}"><i class="fa fa-reply"></i> &nbsp;Retour à la liste</a></p>
+        <p><a class="btn btn-default" href="{{ url('admin/autorites/canton/'.$autorite->canton_id) }}"><i class="fa fa-reply"></i> &nbsp;Retour à la liste</a></p>
     </div>
 </div>
 
@@ -15,20 +15,14 @@
 
             <!-- form start -->
             <form data-validate-parsley action="{{ url('admin/autorite/'.$autorite->id) }}" method="POST" class="form-horizontal" >
-                <input type="hidden" name="_method" value="PUT">
-                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="PUT">{!! csrf_field() !!}
 
                 <div class="panel-heading">
                     <h4>&Eacute;diter {{ $autorite->nom }}</h4>
                 </div>
                 <div class="panel-body event-info">
 
-                    <div class="form-group">
-                        <label for="message" class="col-sm-3 control-label">District</label>
-                        <div class="col-sm-6">
-                            @include('backend.communes.partials.district')
-                        </div>
-                    </div>
+                    @include('backend.communes.partials.district',['canton' => $autorite->canton, 'district_id' => $autorite->district_id])
 
                     <div class="form-group">
                         <label for="message" class="col-sm-3 control-label">Nom</label>

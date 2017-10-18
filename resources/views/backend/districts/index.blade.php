@@ -32,8 +32,8 @@
                     </tr>
                     </thead>
                     <tbody class="selects">
-                        @if(!empty($districts))
-                            @foreach($districts as $district)
+                        @if(!$canton->districts->isEmpty())
+                            @foreach($canton->districts as $district)
                                 <tr>
                                     <td><a class="btn btn-sky btn-sm" href="{{ url('admin/district/'.$level.'/'.$district->id) }}">&Eacute;diter</a></td>
                                     <td><strong>{{ $district->nom }}</strong></td>
@@ -47,8 +47,7 @@
                                     </td>
                                     <td class="text-right">
                                         <form action="{{ url('admin/district/'.$district->id) }}" method="POST" class="form-horizontal">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            {!! csrf_field() !!}
+                                            <input type="hidden" name="_method" value="DELETE">{!! csrf_field() !!}
                                             <button data-action="{{ $district->nom }}" class="btn btn-danger btn-sm deleteAction">x</button>
                                         </form>
                                     </td>

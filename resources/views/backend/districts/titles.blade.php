@@ -17,9 +17,7 @@
 
                 <div class="panel-heading"><h4>Ajouter les titres pour {{ $canton->titre }}</h4></div>
                 <div class="panel-body event-info" id="app">
-
                     <level-title :titles="{{ json_encode($titles) }}" path="{{ url('cantons/'.$canton->id.'.png')}}"></level-title>
-
                 </div>
                 <div class="panel-footer mini-footer ">
                     <div class="col-sm-3"><input type="hidden" name="canton_id" value="{{ $canton->id }}"></div>

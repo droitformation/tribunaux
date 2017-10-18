@@ -118,11 +118,13 @@ class Canton extends Model{
 
     public function title_district()
     {
-        return $this->belongsToMany('App\Droit\District\Entities\District', 'titles', 'canton_id','district_id');
+        return $this->belongsToMany('App\Droit\District\Entities\District', 'titles', 'canton_id','district_id')
+            ->with(['title']);
     }
 
     public function title_autorite()
     {
-        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'titles', 'canton_id','autorite_id');
+        return $this->belongsToMany('App\Droit\Autorite\Entities\Autorite', 'titles', 'canton_id','autorite_id')
+            ->with(['title']);
     }
 }

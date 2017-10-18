@@ -15,8 +15,7 @@
 
             <!-- form start -->
             <form data-validate-parsley action="{{ url('admin/district/'.$district->id) }}" method="POST" class="form-horizontal" >
-                <input type="hidden" name="_method" value="PUT">
-                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="PUT">{!! csrf_field() !!}
 
                 <div class="panel-heading">
                     <h4>&Eacute;diter {{ $district->nom }}</h4>
