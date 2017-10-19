@@ -51,8 +51,13 @@
     </header>
     <!--header end-->
     <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="sidebar-close sidebar-open">
+
+    <div id="sidebar">
+        <label class="wrapper-trigger">
+            <input type="checkbox" id="btn-sidebar-menu">
+            <i class="fa fa-bars btn-trigger"></i>
+        </label>
+        <div class="sidebar-open">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
 
@@ -62,7 +67,7 @@
             </ul>
             <!-- sidebar menu end-->
         </div>
-    </aside>
+    </div>
 
     <!--sidebar end-->
     <!--main content start-->

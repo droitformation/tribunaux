@@ -32,9 +32,13 @@
     padding: 4px 8px;
     border: solid #d6d6d6 1px;
     text-decoration: none;
-    margin: 0 8px;
+    margin: 4px 4px 4px 4px;
     width: 28px;
     display: inline-block;
+}
+
+.panel-letters{
+    padding: 10px;
 }
 
 .lm-wrapper .lm-letters a:hover {
@@ -53,7 +57,7 @@
 }
 
 .lm-wrapper .lm-menu {
-    z-index:1000;
+    z-index:1010;
     position:absolute;
     margin-top:-1px;
     padding-top: 20px;

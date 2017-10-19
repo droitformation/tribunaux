@@ -49,4 +49,26 @@ $(document).ready(function(){
         this.submit();
     });
 
+    function hide_menu(is){
+        if(is){
+            $('#main-content').addClass('is-close');
+            $('#sidebar').addClass('is-close');
+        }
+        else{
+            $('#main-content').removeClass('is-close');
+            $('#sidebar').removeClass('is-close');
+        }
+    }
+
+    $('#btn-sidebar-menu').on("change", function (e) {
+        var is = $(this).is(':checked');
+        hide_menu(is);
+    });
+
+    if ($(window).width() < 1030) {
+        console.log('removeClass');
+        $('#btn-sidebar-menu').prop('checked', true);
+        hide_menu(true);
+    }
+
 });

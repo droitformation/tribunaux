@@ -1,5 +1,5 @@
 <div class="lm-wrapper">
-    <div class="panel-body">
+    <div class="panel-body panel-letters">
         <div class="lm-letters">
             @foreach(range('A', 'Z') as $letter)
                 <a class="{{ $letter }}" href="#">{{ $letter }}</a>

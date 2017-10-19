@@ -204,15 +204,59 @@ a, a:hover, a:focus {
     overflow-y: scroll;
 }
 
-#sidebar.sidebar-close{
-    display: none;
-}
-#sidebar.sidebar-open{
+#sidebar-menu{
     display: block;
+}
+
+#sidebar.is-close{
+    margin-left: -290px;
+}
+
+#main-content.is-close{
+    margin-left: 30px;
 }
 
 #sidebar li{
     background: #2d3135;
+}
+
+.wrapper-trigger{
+    display: block;
+    position: absolute;
+    padding: 4px;
+    width: 23px;
+    height:23px;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    z-index: 500;
+    color:#fff;
+}
+
+.wrapper-trigger .fa{
+    width: 23px;
+    height:23px;
+    cursor: pointer;
+}
+
+.wrapper-trigger input{
+    position: absolute;
+    opacity: 0;
+}
+
+/* Show the checkmark when checked */
+.wrapper-trigger input:checked ~ #sidebar {
+    margin-left: -280px;
+}
+
+/* Show the checkmark when checked */
+.wrapper-trigger input:checked ~ #main-content {
+    margin-left: 0;
+}
+
+/* Show the checkmark when checked */
+.wrapper-trigger input:checked ~ .btn-trigger {
+    color:#00a6b2;
 }
 
 .main-close{
@@ -236,6 +280,7 @@ a, a:hover, a:focus {
 
 #sidebar .sub-menu > .sub li a {
     color: #fff;
+    overflow-wrap: break-word;
 }
 
 #sidebar .sub-menu > .sub li:last-child {
@@ -277,12 +322,16 @@ a, a:hover, a:focus {
     display: inline;
 }
 
+#nav-accordion{
+    margin-top: 25px;
+}
+
 ul.sidebar-menu , ul.sidebar-menu li ul.sub{
     margin: -2px 0 0;
     padding: 0;
 }
 
-ul.sidebar-menu {
+#sidebar {
     margin-top: 115px;
 }
 
@@ -374,7 +423,7 @@ ul.sidebar-menu li a span{
     display: inline-block;
     position: relative;
     margin-left: 15px;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 ul.sidebar-menu li a span p span,
@@ -407,7 +456,7 @@ ul.sidebar-menu li a.sublink{
     position: relative;
     text-decoration: none;
     display: block;
-    padding: 8px 10px;
+    padding: 8px 15px 8px 10px;
     font-size: 15px;
     outline: none;
     -webkit-transition: all 0.3s ease;
@@ -6370,3 +6419,4 @@ header.blue-bg .search:focus {
 .note-editor .note-editable ul li {
     list-style: disc;
 }
+
