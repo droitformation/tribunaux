@@ -57,7 +57,6 @@
     font-size: 14px;
     z-index: 1000;
     text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
-    white-space: nowrap;
     max-width: 150px;
     word-wrap: break-word;
 }
