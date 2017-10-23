@@ -198,10 +198,16 @@ a, a:hover, a:focus {
 
 #sidebar {
     width: 320px;
-    height: 100%;
     position: fixed;
     background: #43494f;
-    overflow-y: scroll;
+    top: 0;
+    bottom:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.sidebar-container{
+    overflow: scroll;
 }
 
 #sidebar-menu{

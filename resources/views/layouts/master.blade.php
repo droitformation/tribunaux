@@ -53,19 +53,20 @@
     <!--sidebar start-->
 
     <div id="sidebar">
-        <label class="wrapper-trigger">
-            <input type="checkbox" id="btn-sidebar-menu">
-            <i class="fa fa-bars btn-trigger"></i>
-        </label>
-        <div class="sidebar-open">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-
-                <!-- Sidebar -->
-                @yield('sidebar')
-                <!-- Fin Sidebar -->
-            </ul>
-            <!-- sidebar menu end-->
+        <div class="sidebar-container">
+            <label class="wrapper-trigger">
+                <input type="checkbox" id="btn-sidebar-menu">
+                <i class="fa fa-bars btn-trigger"></i>
+            </label>
+            <div class="sidebar-open">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <!-- Sidebar -->
+                    @yield('sidebar')
+                    <!-- Fin Sidebar -->
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
         </div>
     </div>
 

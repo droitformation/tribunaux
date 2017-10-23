@@ -5,17 +5,20 @@
         $extras = collect([]);
 
         $extras = $extras->merge($autorite->extras);
+
         if(isset($autorite->district)) {
             $extras = $extras->merge($autorite->district->extras);
         }
+
         $extras = $extras->merge($canton->adresses);
         $extras = $extras->unique('id');
+
     ?>
 
     @include('frontend.partials.sidebar',
         [
             'canton_tribunaux'  => $canton->canton_tribunaux,
-            'canton_donnees'    => $canton->canton_donnees,
+            'canton_donnees'    => $canton->canton_donnees->where('advertise',null),
             'tribunal_deuxieme' => $canton->tribunal_deuxieme,
             'tribunal_premier'  => $canton->tribunal_premier,
             'canton'   => $canton,

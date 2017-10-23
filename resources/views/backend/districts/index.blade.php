@@ -8,7 +8,7 @@
         <div class="col-md-6"><!-- col -->
             <div class="options text-right" style="margin-bottom: 10px;">
                 <div class="btn-toolbar">
-                    <a href="{{ url('admin/district/create/'.$level.'/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
+                    <a href="{{ url('admin/district/create/'.$canton->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> &nbsp;Ajouter</a>
                 </div>
             </div>
         </div>

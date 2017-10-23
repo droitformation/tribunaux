@@ -13,9 +13,13 @@ function the_titles($canton){
     $titles = $titles->count() > 1 ? $titles : collect([]);
 
     return $titles->map(function ($item, $key) {
+
+        $link = $item instanceof \App\Droit\District\Entities\District ? 'district' : 'autorite';
+
         $position = isset($item->title) ? explode(',',$item->title->position) : [10,10];
         $position = ['x' => $position[0], 'y' => $position[1]];
-        return ['nom' => $item->nom, 'position' => $position];
+
+        return ['nom' => $item->nom, 'position' => $position, 'link' => url($link.'/'.$item->id)];
     });
 
 }

@@ -9,7 +9,9 @@
 
         @if(isset($titles) && !$titles->isEmpty())
             @foreach($titles as $title)
-                <h4 style="top: {{ $title['position']['x'] }}px; left: {{ $title['position']['y'] }}px;">{{ $title['nom'] }}</h4>
+                <h4 style="top: {{ $title['position']['x'] }}px; left: {{ $title['position']['y'] }}px;">
+                    <a href="{{ $title['link'] }}">{{ $title['nom'] }}</a>
+                </h4>
             @endforeach
         @endif
 
