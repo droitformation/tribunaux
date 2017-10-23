@@ -5,7 +5,7 @@
     <title>Administration</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Methodologie | administration">
+    <meta name="description" content="Tribunauxcivils | administration">
     <meta name="author" content="Cindy Leschaud | @DesignPond">
     <meta name="_token" content="<?php echo csrf_token(); ?>">
 
@@ -52,7 +52,7 @@
 <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
 
     <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
-    <div class="navbar-header pull-left"><a class="navbar-brand" href="{{ url('/')  }}">Documentation</a></div>
+    <div class="navbar-header pull-left"><a class="navbar-brand" href="{{ url('/')  }}">Tribunauxcivils</a></div>
 
     <ul class="nav navbar-nav pull-right toolbar">
         <li class="dropdown">
@@ -99,7 +99,7 @@
     <footer role="contentinfo">
         <div class="clearfix">
             <ul class="list-unstyled list-inline pull-left">
-                <li>Documentation &copy; <?php echo date('Y'); ?></li>
+                <li>Tribunauxcivils &copy; <?php echo date('Y'); ?></li>
             </ul>
             <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
         </div>
