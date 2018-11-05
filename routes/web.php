@@ -104,13 +104,37 @@ Route::get('/setlang/{lang}', function($lang)
 Route::get('testing', function()
 {
 
-    $cantons = \App::make('App\Droit\Canton\Repo\CantonInterface');
+    function extract_emails($str){
+        // This regular expression extracts all emails from a string:
+        $regexp = '/([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+/i';
+        preg_match_all($regexp, $str, $m);
 
-    $canton = $cantons->find(6);
+        return isset($m[0]) ? $m[0] : array();
+    }
 
-    $grouped = group_communes($canton->communes);
+    $cantons   = \App::make('App\Droit\Canton\Repo\CantonInterface');
+    $autorites = \App::make('App\Droit\Autorite\Repo\AutoriteInterface');
+    $districts = \App::make('App\Droit\District\Repo\DistrictInterface');
+    $tribunaux  = \App::make('App\Droit\Tribunaux\Repo\TribunauxInterface');
+
+    $all_canton = $cantons->getAll();
+
+    $adresses = $all_canton->pluck('extras')->flatten(1)->map(function ($item, $key) {
+       return extract_emails($item->contenu);
+    })->flatten()->unique()->implode('<br/>');
+
+/*    $adresses = $all_canton->pluck('districts')->flatten(1)->map(function ($item, $key) {
+        return $item;
+    })->flatten()->unique()->implode('<br/>');
+
+    return [
+        extract_emails($item->deuxieme),
+        extract_emails($item->premier),
+        extract_emails($item->siege),
+    ];*/
 
     echo '<pre>';
-    print_r($grouped);
+    print_r($adresses);
     echo '</pre>';exit();
+
 });

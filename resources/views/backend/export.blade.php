@@ -19,7 +19,7 @@
         h3{
             font-size:12px;
             color: #1e347b;
-            margin: 10px 0;
+            margin: 8px 0;
             padding-bottom: 0;
         }
         h4{
@@ -29,7 +29,7 @@
         }
         h5{
             padding: 0;
-            margin: 10px 0 0 0;
+            margin: 8px 0 0 0;
             background: #5e5e5e;
             display: block;
         }
@@ -65,8 +65,8 @@
                     {!! $district['tribunal'] !!}
 
                     @if(!$district['autorites']->isEmpty())
-                        <div style="display: block; page-break-inside: auto; margin-top: 10px;margin-bottom: 20px;">
-                            <div style="display: block;background: #f3f3f3;  padding: 5px 0 10px 15px;">
+                        <div style="display: block; page-break-inside: auto; margin-top: 10px;margin-bottom:18px;">
+                            <div style="display: block;background: #f3f3f3;  padding: 5px 0 8px 15px;">
                                 <h3>Autorités pour {!! $district['nom'] !!}</h3>
                                 @foreach($district['autorites'] as $autorite)
                                     <h4>{!! $autorite['nom'] !!}</h4>
