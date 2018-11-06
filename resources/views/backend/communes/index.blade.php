@@ -24,9 +24,10 @@
                 <table class="table" style="margin-bottom: 0px;" id="">
                     <thead>
                     <tr>
-                        <th style="width: 30px !important;"></th>
-                        <th>Action</th>
-                        <th>Nom</th>
+                        <th style="width: 20px !important;"></th>
+                        <th style="width: 20px !important;"></th>
+                        <th class="col-md-2">Action</th>
+                        <th class="col-md-4">Nom</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -38,17 +39,21 @@
                             @foreach($grouped as $district => $autorites)
 
                                 @if(!is_numeric($district))
-                                    <tr><td colspan="4"><h4>{{ $district }}</h4></td></tr>
+                                    <tr style="background: #f3f3f3;"><td colspan="5"><h5 style="padding: 0 5px; margin: 0;"><strong>{{ $district }}</strong></h5></td></tr>
                                 @endif
 
                                 @foreach($autorites as $autorite => $communes)
 
                                     @if(!is_numeric($autorite))
-                                        <tr><td></td><td colspan="3"><p><strong>{{ $autorite }}</strong></p></td></tr>
+                                        <tr style="background: #eff4ff;">
+                                            <td></td>
+                                            <td colspan="4"><h5 style="padding: 0 5px; margin: 0;"><strong>{{ $autorite }}</strong></h5></td>
+                                        </tr>
                                     @endif
 
                                     @foreach($communes as $commune)
                                         <tr>
+                                            <td></td>
                                             <td></td>
                                             <td><a class="btn btn-sky btn-sm" href="{{ url('admin/commune/'.$commune->id) }}">&Eacute;diter</a></td>
                                             <td><strong>{{ $commune->nom }}</strong></td>
