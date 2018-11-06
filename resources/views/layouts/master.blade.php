@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/menu.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/suisse.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style-responsive.css');?>">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/sites.css');?>">
 </head>
 <body>
 
@@ -88,6 +88,20 @@
             </div>
         </footer>
         <!--footer end-->
+
+        <div class="sites-logos-wrapper logos-">
+            <div class="sites-logos">
+                <?php $fac_sites = config('sites.fac_sites'); ?>
+                @foreach($fac_sites as $name => $logo)
+                    @if('tribunauxcivils' != $name)
+                        <a target="_blank" href="{{ $logo['url'] }}">
+                            <img src="{{ asset('sites/'.$logo['image']) }}" alt="{{ $name }}" />
+                        </a>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+
     </section>
     <!--main content end-->
 </section>

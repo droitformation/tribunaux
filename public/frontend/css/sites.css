@@ -1,0 +1,33 @@
+.sites-logos-wrapper{
+    padding: 15px;
+    background: #e7e8f1;
+}
+
+.sites-logos {
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sites-logos a{
+    text-align: center;
+}
+
+.sites-logos a:first-child{
+    margin-left: 0;
+}
+
+.sites-logos a img{
+    max-width: 100%;
+}
+
+@media only screen and (min-width : 200px) and (max-width : 768px){
+    .sites-logos a{
+        width: 28%;
+        margin: 5px;
+    }
+
+    .sites-logos a:first-child{
+        margin: 5px;
+    }
+}
