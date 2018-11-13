@@ -36,7 +36,7 @@ class NiveauController extends Controller
     public function canton($id)
     {
         $canton = $this->canton->find($id);
-        
+
         if(!$canton->districts->isEmpty() && $canton->districts->count() == 0 && $canton->autorites->count() == 1) {
             return redirect('autorite/'.$canton->autorites->first()->id);
         }

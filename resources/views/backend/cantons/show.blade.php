@@ -140,6 +140,38 @@
 
             </div>
         </div>
+        <div class="panel panel-midnightblue">
+            <div class="panel-heading"><h4>Appellation des sections autorités/juge de paix pour {{ $canton->titre }}</h4></div>
+            <div class="panel-body">
+
+                <form data-validate-parsley action="{{ url('admin/titre/'.$canton->titre_autorite->id) }}" method="POST" class="form-horizontal">{!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <p><label for="message" class="control-label">Nom</label></p>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <input type="text" value="{{ $canton->titre_autorite->titre }}" class="form-control" name="titre">
+                                <span class="input-group-addon">fr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <input type="text" value="{{ $canton->titre_autorite->titre_de }}" class="form-control" name="titre_de">
+                                <span class="input-group-addon">de</span>
+                            </div>
+                        </div>
+                    </div>
+                    {!! Form::hidden('id', $canton->titre_autorite->id ) !!}
+
+                    <button class="btn btn-primary" type="submit">Envoyer </button>
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
 <!-- end row -->

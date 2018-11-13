@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerTribunauxDonneeService();
         $this->registerDistrictTitleService();
 
+        $this->registerTitreService();
         $this->registerMenuService();
         $this->registerUploadService();
     }
@@ -169,6 +170,18 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
+
+    /**
+     * Titre
+     */
+    protected function registerTitreService(){
+
+        $this->app->singleton('App\Droit\Titre\Repo\TitreInterface', function()
+        {
+            return new \App\Droit\Titre\Repo\TitreEloquent(new \App\Droit\Titre\Entities\Titre);
+        });
+    }
+    
     /**
      * Menu
      */

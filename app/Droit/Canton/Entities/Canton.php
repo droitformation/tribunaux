@@ -38,7 +38,7 @@ class Canton extends Model{
     public function getIsSecondLevelAttribute()
     {
         return ($this->districts->count() == 0 && $this->autorites->count() == 1)
-        || ($this->districts->count() > 0 && $this->autorites->count() == 1)
+       // || ($this->districts->count() > 0 && $this->autorites->count() == 1)
         || ($this->districts->count() == 0 && $this->autorites->count() == 0) ? true : false;
     }
 
@@ -74,6 +74,11 @@ class Canton extends Model{
     public function canton_tribunaux()
     {
         return $this->hasOne('App\Droit\Canton\Entities\Canton_tribunaux');
+    }
+
+    public function titre_autorite()
+    {
+        return $this->hasOne('App\Droit\Titre\Entities\Titre');
     }
 
     public function tribunal_premier()

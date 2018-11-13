@@ -2,24 +2,13 @@
     @include('frontend.lists.communes', ['list_communes' => $commune])
 @elseif(isset($autorite->communes) && !$autorite->communes->isEmpty())
     @include('frontend.lists.communes', ['list_communes' => $autorite->communes])
-@elseif(isset($district->communes) && !$district->communes->isEmpty() && $canton->is_second_level)
+@elseif(isset($district->communes) && !$district->communes->isEmpty() && ($canton->is_second_level || $district->autorites->isEmpty()))
     @include('frontend.lists.communes', ['list_communes' => $district->communes])
 @elseif(!isset($district) && !isset($autorite) && $canton->is_second_level)
     @include('frontend.lists.communes', ['list_communes' => $canton->communes])
 @endif
 
-@if(!$extras->isEmpty())
-    @foreach($extras as $extra)
-        <li class="sub-menu">
-            <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $extra->titre_trans }}</span></a>
-            <ul class="sub">
-                <li><div>{!! $extra->contenu_trans !!}</div></li>
-            </ul>
-        </li>
-    @endforeach
-@endif
-
-@if($canton->is_second_level)
+@if($canton->is_second_level || (isset($district) && $district->autorites->isEmpty()) )
     <li class="sub-menu">
         <a class="sublink" href="javascript:;">
             <i class="fa fa-angle-right"></i>
@@ -41,7 +30,7 @@
     <li class="sub-menu">
         <a class="sublink" href="javascript:;">
             <i class="fa fa-angle-right"></i>
-            <span>{{ trans('carte.autorite') }}</span>
+            <span>{{ $canton->titre_autorite->titre_trans }}</span>
         </a>
         <ul class="sub">
             <li>
@@ -57,6 +46,17 @@
             </li>
         </ul>
     </li>
+@endif
+
+@if(!$extras->isEmpty())
+    @foreach($extras as $extra)
+        <li class="sub-menu">
+            <a class="sublink" href="javascript:;"><i class="fa fa-angle-right"></i><span>{{ $extra->titre_trans }}</span></a>
+            <ul class="sub">
+                <li><div>{!! $extra->contenu_trans !!}</div></li>
+            </ul>
+        </li>
+    @endforeach
 @endif
 
 @if(isset($canton_tribunaux))

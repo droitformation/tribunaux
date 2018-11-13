@@ -67,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     Route::resource('tribunaux', 'Backend\TribunauxController');
     Route::resource('menu', 'Backend\MenuController');
+    Route::resource('titre', 'Backend\TitreController');
 
     Route::post('upload', 'Backend\UploadController@upload');
     Route::post('uploadFile', 'Backend\UploadController@uploadFile');
