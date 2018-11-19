@@ -31,6 +31,9 @@
                 <li><a class="suisse" href="{{ url('/') }}"><img src="{{ asset('images/suisse.svg') }}" alt="{{ trans('carte.suisse') }}">{{ trans('carte.suisse') }}</a></li>
                 <li><a href="{{ url('canton/'.$canton->id) }}"><i class="fa fa-map-pin"></i> {{ $canton->titre_trans }}</a></li>
                 <li class="active">{{ $district->nom_trans }}</li>
+                @if($district->autorites->count() == 1 || $district->autorites->isEmpty())
+                    <li class="active">{{ $canton->titre_autorite->titre_trans }}</li>
+                @endif
             </ul>
         </div>
     </div>

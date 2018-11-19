@@ -12,7 +12,6 @@
 
         $extras = $extras->merge($canton->adresses);
         $extras = $extras->unique('id');
-
     ?>
 
     @include('frontend.partials.sidebar',
@@ -52,11 +51,10 @@
 
                     <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i> &nbsp;{!! trans('carte.retour') !!}</a></p>
 
-                    <?php $id        = (isset($autorite->district) ? $autorite->district->id : $autorite->canton_id ); ?>
-                    <?php $canton    = (isset($autorite->district) ? $autorite->canton_id : null); ?>
-                    <?php $mapActive = (isset($autorite->district) ? true : false); ?>
+                    <?php $id     = (isset($autorite->district) ? $autorite->district->id : $autorite->id ); ?>
+                    <?php $canton = (isset($autorite->district) ? $autorite->canton_id : null); ?>
 
-                    @include('frontend.partials.map',['id' => $id, 'canton' => $canton, 'mapActive' => $mapActive, 'titles' => $titles])
+                    @include('frontend.partials.map',['id' => $id,'canton' => $autorite->canton_id, 'mapActive' => true, 'titles' => $titles])
 
                     {!! view('frontend/cantons/'.$autorite->canton_id) !!}
                 </div>

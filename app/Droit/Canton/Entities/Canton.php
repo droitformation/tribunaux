@@ -37,9 +37,22 @@ class Canton extends Model{
 
     public function getIsSecondLevelAttribute()
     {
-        return ($this->districts->count() == 0 && $this->autorites->count() == 1)
-       // || ($this->districts->count() > 0 && $this->autorites->count() == 1)
-        || ($this->districts->count() == 0 && $this->autorites->count() == 0) ? true : false;
+        return ($this->districts->isEmpty() && $this->autorites->count() == 1)
+        //|| ($this->districts->count() > 0 && $this->autorites->count() == 1)
+        || ($this->districts->isEmpty() && $this->autorites->isEmpty()) ? true : false;
+    }
+
+    public function getHasAutoriteAttribute()
+    {
+         if(isset($this->autorites) && !$this->autorites->isEmpty() && $this->autorites->first()->siege != '' && $this->districts->isEmpty()){
+             return $this->autorites->first()->siege_trans;
+         }
+         elseif(!empty($this->canton_tribunaux->siege)){
+             return $this->canton_tribunaux->siege;
+         }
+         else{
+             return null;
+         }
     }
 
     public function getDonneesSidebarAttribute()

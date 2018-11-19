@@ -8,11 +8,11 @@
     @include('frontend.lists.communes', ['list_communes' => $canton->communes])
 @endif
 
-@if($canton->is_second_level || (isset($district) && $district->autorites->isEmpty()) )
+@if( ($canton->is_second_level || isset($district) ) && $canton->has_autorite )
     <li class="sub-menu">
         <a class="sublink" href="javascript:;">
             <i class="fa fa-angle-right"></i>
-            <span>{{ isset($canton->autorites) && !$canton->autorites->isEmpty() ? $canton->autorites->first()->nom_trans : trans('carte.autorite') }}</span>
+            <span>{{ $canton->titre_autorite->titre_trans }}</span>
         </a>
         <ul class="sub">
             <li>
