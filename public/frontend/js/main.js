@@ -71,4 +71,33 @@ $(document).ready(function(){
         hide_menu(true);
     }
 
+    //$("img[usemap]").mapify();
+
+    calculation();
+    $(window).resize(calculation);
+
+    function calculation() {
+        let $this = $(".pin-tf");
+
+        let top  = $this.data('top');
+        let left = $this.data('left');
+
+        let n_width  = 734;
+        let n_height = 477;
+        let w_width  = $('#map-container').width();
+        let w_height = $('#map-container').height();
+
+        let ratio_width  = n_width/w_width;
+        let ratio_height = n_height/w_height;
+
+        console.log(ratio_width);
+        console.log(ratio_height);
+
+       /* $this.css({
+            'position': 'absolute',
+            'top': top + 'px',
+            'left': left + 'px'
+        });*/
+    }
+
 });

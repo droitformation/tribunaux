@@ -1,5 +1,6 @@
 @extends('layouts.new')
 @section('content')
+
 <!--state overview start-->
 <div class="row state-overview">
     <div class="col-lg-12 col-sm-12">
@@ -39,7 +40,7 @@
                     @endforeach
                 @endif
 
-                @include('frontend.partials.suisse')
+                @include('frontend.partials.suisse1')
             </div>
         </section>
         <!--timeline end-->

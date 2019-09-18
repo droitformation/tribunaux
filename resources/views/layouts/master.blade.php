@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/suisse.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style-responsive.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/sites.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/jquery.mapify.css');?>">
 </head>
 <body>
 
@@ -119,6 +120,7 @@
 <script src="<?php echo asset('frontend/js/jquery/jquery.hoverIntent.minified.js');?>"></script>
 <script src="<?php echo asset('frontend/chosen/chosen.jquery.js');?>"></script>
 <script src="<?php echo asset('frontend/js/select2.js');?>"></script>
+<script src="<?php echo asset('frontend/js/jquery.mapify.js');?>"></script>
 <script src="<?php echo asset('frontend/js/main.js');?>"></script>
 <script src="<?php echo asset('frontend/js/script.js');?>"></script>
 

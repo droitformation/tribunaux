@@ -6,7 +6,7 @@
 #map-container {
     margin: 0 auto;
     position: relative;
-    width: 735px;
+    max-width: 735px;
 }
 
 #map-view-container img.map {
@@ -24,7 +24,6 @@
 
 #map-view-container img.regionBg {
     left: 0px;
-    position: absolute;
     top: 0px;
     z-index: 19;
 }
@@ -59,4 +58,20 @@
     text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
     max-width: 150px;
     word-wrap: break-word;
+}
+
+#map-container img {
+    max-width: 100%;
+}
+
+.pin-wrapper{
+    position: absolute;
+    z-index: 1000;
+}
+
+.pin-tf{
+    padding: 0;
+    margin: 0;
+    height: 26px;
+    width: 26px;
 }
