@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/font/stylesheet.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/slidebars.css');?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/style.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/main-styles.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/chosen/chosen.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/select2.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/menu.css');?>">
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<section id="container" class="page-wrap">
+<section class="main-content">
     <!--header start-->
     <header class="header white-bg">
         <div class="navbar-menu">
@@ -50,54 +50,34 @@
         </div>
     </header>
     <!--header end-->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="sidebar-close sidebar-open">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                @if(!$menus->isEmpty() && Request::is('new'))
-                    <?php
+
+    <div class="main-content-inner">
+        <aside>
+            <div id="sidebar" class="sidebar-close sidebar-open">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    @if(!$menus->isEmpty() && Request::is('new'))
+                        <?php
                         $about = $menus->first(function ($value, $key) {
                             return $value->link == 'about';
                         });
-                    ?>
-                    @if($about)
-                        <li class="sub-menu">
-                            <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
-                            <ul class="sub">
-                                <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
-                            </ul>
-                        </li>
+                        ?>
+                        @if($about)
+                            <li class="sub-menu">
+                                <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
+                                <ul class="sub">
+                                    <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
+                                </ul>
+                            </li>
+                        @endif
                     @endif
-                @endif
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-
-    <!--sidebar end-->
-    <!--main content start-->
-    <section id="main-content" class="main-close main-open">
-        <section class="wrapper">
-
-            <!-- Contenu -->
-            @yield('content')
-            <!-- Fin contenu -->
-
-        </section>
-    </section>
-    <!--main content end-->
-    <div class="clearfix"></div>
-</section>
-
-<!--footer start-->
-<footer class="site-footer">
-    <div class="text-center">
-        {{ date('Y') }} &copy; {!! trans('carte.site') !!}
-        <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <section>regreg</section>
     </div>
-</footer>
-<!--footer end-->
+</section>
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

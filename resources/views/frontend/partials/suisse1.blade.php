@@ -5,8 +5,8 @@
         @if(!$tribunaux->isEmpty())
             @foreach($tribunaux as $tribunal)
                 <?php $position = explode(',',$tribunal->position_suisse);  ?>
-                <div id="{{ $tribunal->slug }}" class="pin-wrapper" style="top: {{ $position[0] - 25 }}px; left: {{ $position[1] }}px;">
-                    <a href="{{ url('tribunal/'. $tribunal->id) }}" class="selector pin-tf" title="{{ $tribunal->titre_trans }}">
+                <div id="{{ $tribunal->slug }}" class="pin-wrapper pin-tf" data-top="{{ $position[0] - 25 }}" data-left="{{ $position[1] }}" style="top: {{ $position[0] - 25 }}px; left: {{ $position[1] }}px;">
+                    <a href="{{ url('tribunal/'. $tribunal->id) }}" class="selector" title="{{ $tribunal->titre_trans }}">
                         <img src="{{ asset('images/tf.png') }}" alt="Tribunal" />
                     </a>
                 </div>

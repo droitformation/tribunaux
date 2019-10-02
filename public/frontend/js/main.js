@@ -77,27 +77,36 @@ $(document).ready(function(){
     $(window).resize(calculation);
 
     function calculation() {
-        let $this = $(".pin-tf");
 
-        let top  = $this.data('top');
-        let left = $this.data('left');
+        $('.pin-tf').each(function (index, value) {
 
-        let n_width  = 734;
-        let n_height = 477;
-        let w_width  = $('#map-container').width();
-        let w_height = $('#map-container').height();
+            let top  = $(this).data('top');
+            let left = $(this).data('left');
 
-        let ratio_width  = n_width/w_width;
-        let ratio_height = n_height/w_height;
+            let o_width  = 734;
+            let o_height = 477;
 
-        console.log(ratio_width);
-        console.log(ratio_height);
+            let n_width  = $('#map-container').width();
+            let n_height = $('#map-container').height();
 
-       /* $this.css({
-            'position': 'absolute',
-            'top': top + 'px',
-            'left': left + 'px'
-        });*/
+            let w_precent  = n_width/o_width;
+            let h_percent  = n_height/o_height;
+
+            let n_top  = parseInt(top) * w_precent;
+            let n_left = parseInt(left) * h_percent;
+
+            console.log(n_width);
+            console.log(n_height);
+
+            console.log(top);
+            console.log(left);
+
+            $(this).css({
+                'position': 'absolute',
+                'top': n_top + 'px',
+                'left': n_left + 'px'
+            });
+        });
     }
 
 });
