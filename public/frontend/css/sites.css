@@ -1,6 +1,11 @@
 .sites-logos-wrapper{
-    padding: 15px;
+    padding: 5px;
     background: #e7e8f1;
+}
+
+.sites-logos-wrapper p{
+    margin-bottom: 0;
+    padding-top: 5px;
 }
 
 .sites-logos {

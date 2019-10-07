@@ -10,7 +10,7 @@ Website: http://thevectorlab.net/
 
 * {
     margin: 0;
-    border: 1px solid red;
+    /*border: 0.25px solid red;*/
 }
 html, body {
     height: 100%;
@@ -213,12 +213,21 @@ a, a:hover, a:focus {
 }
 
 .main-content-inner aside{
-    width: 320px;
+    width: auto;
     height: 100%;
 }
 
 .main-content-inner section{
     flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-content-inner section div.main_map{
+    flex-grow: 1;
+    padding: 15px;
 }
 
 /*sidebar navigation*/
@@ -235,6 +244,29 @@ a, a:hover, a:focus {
     overflow: scroll;
 }
 
+.trigger-sidebar{
+    height: 30px;
+    text-align: right;
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    padding: 0 5px;
+}
+
+.trigger-sidebar:hover{
+    color: #f1f1f1;
+}
+
+#nav-accordion{
+    margin-top: 5px;
+}
+
+#nav-accordion.closed{
+    display: none;
+}
+
+/*
+
 #sidebar-menu{
     display: block;
 }
@@ -246,6 +278,17 @@ a, a:hover, a:focus {
 #main-content.is-close{
     margin-left: 30px;
 }
+
+
+.main-close{
+    margin-left: 0;
+}
+
+.main-open{
+    margin-left: 320px;
+}
+*/
+
 
 #sidebar li{
     background: #2d3135;
@@ -289,15 +332,6 @@ a, a:hover, a:focus {
 .wrapper-trigger input:checked ~ .btn-trigger {
     color:#00a6b2;
 }
-
-.main-close{
-    margin-left: 0;
-}
-
-.main-open{
-    margin-left: 320px;
-}
-
 
 #sidebar ul li {
     position: relative;
@@ -353,9 +387,6 @@ a, a:hover, a:focus {
     display: inline;
 }
 
-#nav-accordion{
-    margin-top: 25px;
-}
 
 ul.sidebar-menu , ul.sidebar-menu li ul.sub{
     margin: -2px 0 0;
@@ -452,7 +483,7 @@ ul.sidebar-menu li.sub-menu div p:last-child{
 ul.sidebar-menu li a span{
     display: inline-block;
     position: relative;
-    margin-left: 15px;
+    margin-left: 25px;
     padding-right: 10px;
 }
 
@@ -552,13 +583,36 @@ ul.sidebar-menu li a.sublink.active i {
     padding: 0 15px;
 }
 
+#main_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+#main_header h1{
+    display: block;
+    flex-grow: 1;
+    margin-top: 17px;
+}
+
 .heading{
     padding: 0 10px;
+    align-items: center;
+    display: flex;
+    width: 320px;
+}
+
+.logos{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
 }
 
 .logos a.logo{
-    float: left;
-    margin-right: 20px;
+    width: 50%;
+    text-align: center;
 }
 
 .logos a.logo img{
@@ -575,9 +629,8 @@ ul.sidebar-menu li a.sublink.active i {
     margin-bottom: 10px;
     padding-top: -3px;
     text-transform: lowercase;
-    float: left;
     border-left: 1px dashed #c0c0c2;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .navbar-menu{
@@ -640,7 +693,7 @@ ul.sidebar-menu li a.sublink.active i {
 ul.top-menu > li > a {
     color: #c9100c;
     font-size: 15px;
-    padding: 7px 8px;
+    padding: 4px 8px;
     margin-right: 15px;
 }
 

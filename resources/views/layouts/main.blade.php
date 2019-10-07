@@ -28,13 +28,9 @@
     <aside>
         <div id="sidebar" class="sidebar-close sidebar-open">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
+            <ul class="sidebar-menu">
                 @if(!$menus->isEmpty() && Request::is('new'))
-                    <?php
-                    $about = $menus->first(function ($value, $key) {
-                        return $value->link == 'about';
-                    });
-                    ?>
+                    <?php $about = $menus->first(function ($value, $key) {return $value->link == 'about';}); ?>
                     @if($about)
                         <li class="sub-menu">
                             <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
