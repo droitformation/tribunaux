@@ -2,7 +2,7 @@
 
 }
 
-@media (max-width: 767px) and (max-width: 979px) {
+@media (max-width: 812px) and (max-width: 979px) {
 
     #search-select{
         width: 100%;
@@ -13,7 +13,24 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
+
+    .breadcrumb > li{
+        display: block;
+    }
+
+    .breadcrumb > li + li::before {
+        padding: 0;
+        color: #ccc;
+        content: "";
+    }
+
+    #map-container .the_map h4 {
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
+        max-width: 150px;
+    }
 
     .main-content-inner{
         display: flex;
@@ -69,6 +86,13 @@
     .lm-menu .lm-menu-small {
         width:50%;
     }
+
+    #map-container .the_map h4 {
+        font-weight: 500;
+        font-size: 1rem;
+        text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
+        max-width: 150px;
+    }
 }
 
 @media (max-width:320px) {
@@ -109,6 +133,13 @@
 
     .logos {
         padding: 5px 0;
+    }
+
+    #map-container .the_map h4 {
+        font-weight: 500;
+        font-size: 1rem;
+        text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
+        max-width: 150px;
     }
 }
 

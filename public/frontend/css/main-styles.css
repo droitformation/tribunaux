@@ -246,6 +246,7 @@ a, a:hover, a:focus {
 
 .trigger-sidebar{
     height: 30px;
+    line-height: 30px;
     text-align: right;
     color: #fff;
     font-size: 20px;
@@ -258,7 +259,7 @@ a, a:hover, a:focus {
 }
 
 #nav-accordion{
-    margin-top: 5px;
+
 }
 
 #nav-accordion.closed{
@@ -340,7 +341,6 @@ a, a:hover, a:focus {
 #sidebar .sub-menu > .sub li  {
     padding-left: 15px;
     padding-right: 10px;
-    background-color: #3e4348;
 }
 
 #sidebar .sub-menu > .sub li a {
@@ -527,7 +527,7 @@ ul.sidebar-menu li a.sublink{
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a.sublink.active,
+
 ul.sidebar-menu li a.sublink:hover,
 ul.sidebar-menu li a.sublink:focus {
     background: #43494f;

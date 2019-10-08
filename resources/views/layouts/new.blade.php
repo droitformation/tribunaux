@@ -27,121 +27,31 @@
 <body>
 
 <section class="main-content">
-    <!--header start-->
-    <div class="navbar-menu">
-        <div id="language_menu">
-            <?php $locale = (\Session::has('locale') ? \Session::get('locale') : 'fr'); ?>
-            <a class="<?php echo ($locale == 'fr' ? 'active' : ''); ?>" href="{{ url('setlang/fr') }}">FR</a> /
-            <a class="<?php echo ($locale == 'de' ? 'active' : ''); ?>" href="{{ url('setlang/de') }}">DE </a>
-        </div>
-        {{--   @include('frontend.partials.menu')--}}
-    </div>
-    <header id="main_header" class="header white-bg">
-        <div class="heading">
-            <div class="logos">
-                <a class="logo" href="http://www2.unine.ch/droit/page-1762.html" target="_blank"><img width="87" src="{{ asset('images/unine.png') }}" alt="" /></a>
-                <a class="logo" href="http://www2.unine.ch/cemaj" target="_blank"><img src="{{ asset('images/cemaj.png') }}" alt="" /></a>
-            </div>
-        </div>
-        <!--logo start-->
-        <h1><a href="{{ url('/') }}">{!! trans('carte.site') !!}</a></h1>
-        <!--logo end-->
-        <div class="break-column"></div>
-        <div id="search-select">
-            @include('frontend.partials.search')
-        </div>
-    </header>
-    <!--header end-->
+
+    @include('frontend.parts.header')
 
     <div class="main-content-inner">
+
         <aside>
             <div id="sidebar" class="sidebar-close sidebar-open">
                 <a href="#" class="trigger-sidebar"><i class="fa fa-bars"></i></a>
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    @if(!$menus->isEmpty() && Request::is('new'))
-                        <?php
-                        $about = $menus->first(function ($value, $key) {
-                            return $value->link == 'about';
-                        });
-                        ?>
-                        @if($about)
-                            <li class="sub-menu">
-                                <a class="sublink active" href="javascript:;"><i class="fa fa-home"></i><span>{{ $about->titre_trans }}</span></a>
-                                <ul class="sub">
-                                    <li class="{{ $about->link }}">{!! $about->contenu_trans !!}</li>
-                                </ul>
-                            </li>
-                        @endif
-                    @endif
+                    <!-- Sidebar -->
+                    @yield('sidebar')
+                    <!-- Fin Sidebar -->
                 </ul>
                 <!-- sidebar menu end-->
             </div>
         </aside>
         <section>
-
             <div class="main_map">
-                <!--state overview start-->
-                <div class="row state-overview">
-                    <div class="col-lg-12 col-sm-12">
-                        <h2>{!! trans('carte.search_commune') !!}</h2>
-                        <section class="panel" id="recherche">
-                            @include('frontend.partials.communes')
-                        </section>
-                    </div>
-                </div>
-                <!--state overview end-->
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-xs-12">
-                        <h2>{!! trans('carte.search_canton') !!}</h2>
-                        <section class="panel">
-                            <div class="panel-body">
-                                <form action="{{ url('search') }}" method="post" class="EnvoiDonnees">{!! csrf_field() !!}
-                                    <select class="canton-select" name="search" tabindex="2" data-placeholder="{!! trans('carte.choix_canton') !!}" style="width: 100%;">
-                                        <option value=""></option>
-                                        @if(!$cantons->isEmpty())
-                                            @foreach($cantons as $canton)
-                                                <option value="canton-{{ $canton->id }}">{{ $canton->titre_trans }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </form>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-xs-12">
-
-                        <div class="panel">
-                            <div class="panel-body">
-                                @if(!$tribunaux->isEmpty())
-                                    @foreach($tribunaux as $tribunal)
-                                        <div id="{{ $tribunal->slug }}"><a href="{{ url('tribunal/'. $tribunal->id) }}" class="selector" title="{{ $tribunal->titre_trans }}"></a></div>
-                                    @endforeach
-                                @endif
-
-                               @include('frontend.partials.suisse1')
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <!-- Contenu -->
+                @yield('content')
+                <!-- Fin contenu -->
             </div>
 
-           <div class="sites-logos-wrapper logos-">
-               <div class="sites-logos">
-                   <?php $fac_sites = config('sites.fac_sites'); ?>
-                   @foreach($fac_sites as $name => $logo)
-                       @if('tribunauxcivils' != $name)
-                           <a target="_blank" href="{{ $logo['url'] }}">
-                               <img src="{{ asset('sites/'.$logo['image']) }}" alt="{{ $name }}" />
-                           </a>
-                       @endif
-                   @endforeach
-               </div>
-               <p class="text-center">
-                   {{ date('Y') }} &copy; {!! trans('carte.site') !!} <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
-               </p>
-           </div>
+            @include('frontend.parts.footer')
         </section>
     </div>
 </section>
@@ -167,7 +77,6 @@
 
 <!--common script for all pages-->
 <script src="{{ asset('frontend/js/common-scripts.js') }}"></script>
-
 
 <script>
     //custom select box

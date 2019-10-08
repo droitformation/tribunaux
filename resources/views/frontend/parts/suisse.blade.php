@@ -1,11 +1,11 @@
 
 <div id="map-view-container">
-    <div id="map-container">
+    <div id="map-container" data-width="734" data-height="477">
 
         @if(!$tribunaux->isEmpty())
             @foreach($tribunaux as $tribunal)
                 <?php $position = explode(',',$tribunal->position_suisse);  ?>
-                <div id="{{ $tribunal->slug }}" class="pin-wrapper pin-tf" data-top="{{ $position[0] - 25 }}" data-left="{{ $position[1] }}" style="top: {{ $position[0] - 25 }}px; left: {{ $position[1] }}px;">
+                <div id="{{ $tribunal->slug }}" class="pin-wrapper pin-tf pin-map" data-top="{{ $position[0] - 25 }}" data-left="{{ $position[1] }}" style="top: {{ $position[0] - 25 }}px; left: {{ $position[1] }}px;">
                     <a href="{{ url('tribunal/'. $tribunal->id) }}" class="selector" title="{{ $tribunal->titre_trans }}">
                         <img src="{{ asset('images/tf.png') }}" alt="Tribunal" />
                     </a>

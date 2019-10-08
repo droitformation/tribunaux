@@ -78,13 +78,13 @@ $(document).ready(function(){
 
     function calculation() {
 
-        $('.pin-tf').each(function (index, value) {
+        $('.pin-map').each(function (index, value) {
 
             let top  = $(this).data('top');
             let left = $(this).data('left');
 
-            let o_width  = 734;
-            let o_height = 477;
+            let o_width  = $('#map-container').data('width');
+            let o_height = $('#map-container').data('height');
 
             let n_width  = $('#map-container').width();
             let n_height = $('#map-container').height();
@@ -93,13 +93,7 @@ $(document).ready(function(){
             let h_percent  = n_height/o_height;
 
             let n_top  = parseInt(top) * w_precent;
-            let n_left = parseInt(left) * h_percent;
-
-            console.log(n_width);
-            console.log(n_height);
-
-            console.log(top);
-            console.log(left);
+            let n_left = (parseInt(left) * h_percent);
 
             $(this).css({
                 'position': 'absolute',

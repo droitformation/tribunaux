@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.new')
 @section('sidebar')
 
     <?php

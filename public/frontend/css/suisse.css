@@ -52,7 +52,7 @@
     position: absolute;
     color: #c9100c;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.4rem;
     z-index: 1000;
     text-shadow: -0.6px -0.6px 0 #fff,0.6px -0.6px 0 #fff,-0.6px 0.6px 0 #fff,0.6px 0.6px 0 #fff;
     max-width: 150px;
