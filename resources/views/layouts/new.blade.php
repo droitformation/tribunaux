@@ -35,6 +35,7 @@
         <aside>
             <div id="sidebar" class="sidebar-close sidebar-open">
                 <a href="#" class="trigger-sidebar"><i class="fa fa-bars"></i></a>
+                <span class="mini-header"><i class="fa fa-star"></i></span>
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <!-- Sidebar -->

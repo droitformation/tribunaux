@@ -259,7 +259,13 @@ a, a:hover, a:focus {
 }
 
 #nav-accordion{
+    background: #2d3135;
+}
 
+.mini-header{
+    background: #2d3135;
+    padding: 8px 10px;
+    display: block;
 }
 
 #nav-accordion.closed{
@@ -341,6 +347,7 @@ a, a:hover, a:focus {
 #sidebar .sub-menu > .sub li  {
     padding-left: 15px;
     padding-right: 10px;
+    background: #3a3e43;
 }
 
 #sidebar .sub-menu > .sub li a {
@@ -393,9 +400,12 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
     padding: 0;
 }
 
-#sidebar {
 
+.trigger-sidebar{
+    display: none;
 }
+
+
 
 #sidebar > ul > li > ul.sub {
     display: none;

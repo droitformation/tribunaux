@@ -73,19 +73,7 @@ var Script = function () {
         let $nav = $('#nav-accordion');
         let $sidebar = $('#sidebar');
 
-        // bigger than ipad
-
-        if (wSize > 811) {
-            if ($nav.is(".closed")) {
-                $sidebar.css({'margin-left': '0px'});
-                $nav.removeClass('closed');
-            }
-            else{
-                $sidebar.css({'margin-left': '-290px'});
-                $nav.addClass('closed');
-            }
-        }
-        else{
+        if (wSize < 811) {
             if ($nav.hasClass("closed") === true) {
                 $nav.slideDown();
                 $nav.removeClass('closed');
@@ -172,13 +160,12 @@ var Script = function () {
     });
 
 
-//    tool tips
-
+    //  tool tips
     $('.tooltips').tooltip();
 
-//    popovers
-
+    //  popovers
     $('.popovers').popover();
 
+    $("img[usemap]").mapify();
 
 }();

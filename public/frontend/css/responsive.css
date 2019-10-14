@@ -1,8 +1,23 @@
+
+@media (min-width: 812px) and (max-width: 1026px) {
+    html, body{
+        height: 100%;
+    }
+    .main_map h2 {
+        font-size: 20px;
+    }
+
+    #sidebar{
+       width: 260px;
+    }
+
+}
+
 @media (min-width: 980px) {
 
 }
 
-@media (max-width: 812px) and (max-width: 979px) {
+@media (min-width: 812px) and (max-width: 979px) {
 
     #search-select{
         width: 100%;
@@ -11,6 +26,29 @@
         padding: 10px;
     }
 
+    .trigger-sidebar{
+        display: block;
+    }
+
+    #nav-accordion{
+        padding-top: 0px;
+    }
+
+    .mini-header{
+        display: none;
+    }
+
+    .logos {
+        padding: 10px 0 0 0;
+    }
+
+    #main_header h1 {
+        text-align: center;
+    }
+
+    .header h1 a{
+        border: none;
+    }
 }
 
 @media (max-width: 812px) {
