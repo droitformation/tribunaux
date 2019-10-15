@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/font/stylesheet.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/slidebars.css');?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/main-styles.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/main-styles.css?');?>{{ rand(1,4000) }}">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/chosen/chosen.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/select2.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/menu.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/suisse.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/sites.css');?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/responsive.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/responsive.css?');?>{{ rand(1,4000) }}">
 
 </head>
 <body>
