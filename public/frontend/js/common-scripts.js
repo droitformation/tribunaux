@@ -46,7 +46,7 @@ var Script = function () {
         let wSize = $(window).width();
 
         function responsiveView() {
-            if (wSize <= 812) {
+            if (wSize <= 812 && window.devicePixelRatio == 1) {
                 $('#nav-accordion').addClass('closed');
             }
         }
@@ -58,6 +58,11 @@ var Script = function () {
                $(window).on('resize',  togglesidebar(wSize));
            }
         });
+
+
+       /* if (wSize < 811 || window.devicePixelRatio > 1){
+            alert('is mobile');
+        }*/
     });
 
     $('.trigger-sidebar').click(function (e) {

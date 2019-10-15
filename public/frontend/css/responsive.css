@@ -110,6 +110,18 @@
     }
 }
 
+@media only screen and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
+    #main_header{min-height: 190px;}
+    .mini-header{display: none;}
+    .trigger-sidebar {display: block;}
+}
+
+@media only screen and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 3) {
+    #main_header{min-height: 190px;}
+    .mini-header{display: none;}
+    .trigger-sidebar {display: block;}
+}
+
 @media (max-width: 480px) {
     .logos {
         padding: 10px 0 0 0;
