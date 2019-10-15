@@ -78,6 +78,27 @@ $(document).ready(function(){
 
     function calculation() {
 
+        var compensate_t = 1;
+        var compensate_l = 1;
+
+        if(window.devicePixelRatio === 3 && screen.width < 415){
+             compensate_t = 1;
+             compensate_l = 0.87;
+        }
+
+        if(window.devicePixelRatio === 2 && screen.width < 415){
+             compensate_t = 0.94;
+             compensate_l = 0.8;
+        }
+
+        if(window.devicePixelRatio > 1 && screen.width > 415){
+            compensate_t = 0.9;
+            compensate_l = 1;
+        }
+
+        console.log(compensate_t);
+        console.log(compensate_l);
+
         $('.pin-map').each(function (index, value) {
 
             let top  = $(this).data('top');
@@ -97,8 +118,8 @@ $(document).ready(function(){
 
             $(this).css({
                 'position': 'absolute',
-                'top': n_top + 'px',
-                'left': n_left + 'px'
+                'top': (n_top * compensate_t) + 'px',
+                'left': (n_left * compensate_l) + 'px'
             });
         });
     }
