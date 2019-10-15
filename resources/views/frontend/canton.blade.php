@@ -53,11 +53,11 @@
             </div>
         @endif
         <div class="{{ !$canton->districts->isEmpty() ? 'col-lg-8 col-md-9 ' : 'col-lg-12 col-md-12' }} col-xs-12">
-            <!--timeline start-->
+
+            <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
+
             <section class="panel">
                 <div class="panel-body text-center">
-                    <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
-
                     @include('frontend.partials.map',['id' => $canton->id, 'titles' => $titles])
 
                     {!! view('frontend/cantons/'.$canton->id) !!}

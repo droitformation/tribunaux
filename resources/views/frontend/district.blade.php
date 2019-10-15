@@ -47,12 +47,10 @@
             </div>
         @endif
         <div class="{{ !$district->autorites->isEmpty() ? 'col-lg-8 col-md-9 ' : 'col-lg-12 col-md-12' }} col-xs-12">
-            <!--timeline start-->
+            <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i> &nbsp;{!! trans('carte.retour') !!}</a></p>
+
             <section class="panel">
                 <div class="panel-body text-center">
-
-                    <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i> &nbsp;{!! trans('carte.retour') !!}</a></p>
-
                     @include('frontend.partials.map',['id' => $district->id,'canton' => $district->canton_id, 'mapActive' => true, 'titles' => $titles])
 
                     {!! view('frontend/cantons/'.$district->canton_id) !!}

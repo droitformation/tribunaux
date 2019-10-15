@@ -364,9 +364,9 @@ a, a:hover, a:focus {
 }
 
 .backmap{
-    position: absolute;
-    top: 10px;
-    left:10px;
+    position: relative;
+    top: 0px;
+    left:0px;
 }
 
 /*LEFT NAVIGATION ICON*/

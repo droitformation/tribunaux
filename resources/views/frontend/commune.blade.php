@@ -50,11 +50,10 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12">
-            <!--timeline start-->
+            <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
+
             <section class="panel">
                 <div class="panel-body text-center">
-
-                    <p class="backmap"><a href="{{ url('/') }}"> <i class="fa fa-arrow-circle-left"></i>  &nbsp;{!! trans('carte.retour') !!}</a></p>
 
                     <?php $id        = (isset($commune->district) ? $commune->district->id : $commune->canton_id ); ?>
                     <?php $canton    = (isset($commune->district) ? $commune->canton_id : null); ?>

@@ -170,7 +170,7 @@ var Script = function () {
 
     //  popovers
     $('.popovers').popover();
-
-    $("img[usemap]").mapify();
+    $('map').imageMapResize();
+    //$("img[usemap]").mapify();
 
 }();

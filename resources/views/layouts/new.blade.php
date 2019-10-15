@@ -75,7 +75,7 @@
 
 <!--right slidebar-->
 <script src="{{ asset('frontend/js/slidebars.min.js') }}"></script>
-
+<script src="{{ asset('frontend/js/imageMapResizer.min.js') }}"></script>
 <!--common script for all pages-->
 <script src="{{ asset('frontend/js/common-scripts.js') }}"></script>
 
