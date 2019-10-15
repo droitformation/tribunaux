@@ -37,3 +37,11 @@ function group_communes($communes)
         });
     });
 }
+
+function slugify_string($string){
+    $string   = preg_replace( "/\r|\n/", "", trim(strip_tags($string)) );
+    $string   = preg_replace('/\s+/', '', $string);
+    $string = preg_replace('~\x{00a0}~siu',' ',$string);
+    $string = str_replace(' ', '', $string);
+    return $string;
+}
