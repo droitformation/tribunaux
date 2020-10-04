@@ -105,6 +105,10 @@ class NiveauController extends Controller
         $term   = $request->input('search');
         $pieces = explode('-',$term);
 
+        if(count($pieces) != 2){
+            return redirect()->back()->with(['status' => 'danger','message' => 'Merci de choisir au moins un élément']);
+        }
+
         $niveau = $pieces[0];
         $id     = $pieces[1];
 

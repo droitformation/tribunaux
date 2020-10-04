@@ -703,8 +703,9 @@ ul.sidebar-menu li a.sublink.active i {
 ul.top-menu > li > a {
     color: #c9100c;
     font-size: 15px;
-    padding: 4px 8px;
+    padding: 6px 8px;
     margin-right: 15px;
+    display: block;
 }
 
 ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {

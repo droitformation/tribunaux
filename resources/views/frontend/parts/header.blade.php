@@ -5,7 +5,7 @@
         <a class="<?php echo ($locale == 'fr' ? 'active' : ''); ?>" href="{{ url('setlang/fr') }}">FR</a> /
         <a class="<?php echo ($locale == 'de' ? 'active' : ''); ?>" href="{{ url('setlang/de') }}">DE </a>
     </div>
-    {{--   @include('frontend.partials.menu')--}}
+    @include('frontend.partials.menu')
 </div>
 <header id="main_header" class="header white-bg">
     <div class="heading">
