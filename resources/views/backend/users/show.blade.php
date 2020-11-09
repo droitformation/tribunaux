@@ -5,11 +5,6 @@
     <div class="col-md-4">
         <p><a class="btn btn-default" href="{{ url('admin/user') }}"><i class="fa fa-reply"></i> &nbsp;Retour à la liste</a></p>
     </div>
-    <div class="col-md-4 text-right">
-        <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Assigner un code
-        </a>
-    </div>
 </div>
 <!-- start row -->
 <div class="row">
