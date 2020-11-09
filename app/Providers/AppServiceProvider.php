@@ -40,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerTitreService();
         $this->registerMenuService();
         $this->registerUploadService();
+        $this->registerUserService();
     }
 
     /**
@@ -204,4 +205,11 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
+    protected function registerUserService(){
+
+        $this->app->singleton('App\Droit\Users\Repo\UserInterface', function()
+        {
+            return new \App\Droit\Users\Repo\UserEloquent( new \App\Droit\Users\Entities\User );
+        });
+    }
 }

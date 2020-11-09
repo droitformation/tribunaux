@@ -69,6 +69,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::resource('menu', 'Backend\MenuController');
     Route::resource('titre', 'Backend\TitreController');
 
+    Route::resource('user', 'Backend\UserController');
+
     Route::post('upload', 'Backend\UploadController@upload');
     Route::post('uploadFile', 'Backend\UploadController@uploadFile');
     Route::post('uploadJS', 'Backend\UploadController@uploadJS');

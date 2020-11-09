@@ -65,7 +65,11 @@
                 </li>
                 <li class="userlinks">
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('auth/logout') }}"><i class="pull-right fa  fa-power-off"></i> Logout</a></li>
+                        <li>
+                            <form class="logout" action="{{ url('logout') }}" method="POST">{{ csrf_field() }}
+                                <button class="btn btn-default" type="submit" style="margin-left: 5px;">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </li>
             </ul>

@@ -15,6 +15,9 @@
         <li class="<?php echo (Request::is('menu') || Request::is('menu/*') ? 'active' : '' ); ?>"><a href="{{ url('admin/menu') }}">
                 <i class="fa fa-list"></i> <span>Menu</span></a>
         </li>
+        <li class="<?php echo (Request::is('user') || Request::is('user/*') ? 'active' : '' ); ?>"><a href="{{ url('admin/user') }}">
+                <i class="fa fa-users"></i> <span>Utilisateurs</span></a>
+        </li>
     <!--  <li class="<?php //echo (Request::is('admin/config') ? 'active' : ''); ?>">
             <a href="{{ url('admin/config') }}"><i class="fa fa-cog"></i><span>Configurations</span></a>
         </li>-->
