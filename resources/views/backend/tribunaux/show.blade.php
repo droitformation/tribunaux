@@ -74,7 +74,7 @@
                             <?php $position = explode(',',$tribunal->position);  ?>
 
                             <div id="droppable">
-                                <p id="draggable" data-top="{{ $position[0] }}" data-left="{{ $position[1] }}" style=" padding: 0;margin: 0;height: 26px;width: 26px;">
+                                <p id="draggable" data-top="{{ $position[0] }}" data-left="{{ $position[1] }}" style=" padding: 0;margin: 0;height: 26px;width: 26px;z-index:1000;">
                                     <img src="{{ asset('images/tf.png') }}" alt="Tribunal" />
                                 </p>
 
